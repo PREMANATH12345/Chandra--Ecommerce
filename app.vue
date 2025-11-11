@@ -1,26 +1,8 @@
 <!-- app.vue or pages/index.vue -->
 
 <template>
-  <div class="min-h-screen bg-white">
-        <topbar />
-    <navbar />
-
-    <main>
-      <Hero class="pt-10" />
-      <ProductCategory />
-      <Collection/>
-      <CategoryHighlight />
-      <FeatureSection/>
-      <JoinInsider />
-
-    </main>
-    <ProductView/>
-     <StoreLocation />
-      <reviews />
-    <JoinUs />
-    <Footer />
-     <NuxtPage />
-  </div> -->
+<<<<<<< HEAD
+  <NuxtPage />
 </template>
 
 <!-- <script setup>
@@ -41,5 +23,8 @@ import JoinInsider from "./components/HomePageComponent/JoinInsider.vue";
 
 import CategoryHighlight from './components/HomePageComponent/CategoryHighlight.vue'
 
+<<<<<<< HEAD
 
-</script>
+=======
+>>>>>>> d8329cf71d0fec17e308c3549ae1367169ea8962
+</script> -->
