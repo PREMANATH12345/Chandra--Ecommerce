@@ -84,6 +84,6 @@ const prevSlide = () => {
 
 <style scoped>
 video {
-  border-radius: 1.5rem;
+  /* border-radius: 1.5rem; */
 }
 </style>
