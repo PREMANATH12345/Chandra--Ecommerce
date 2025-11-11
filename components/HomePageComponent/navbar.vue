@@ -1,5 +1,5 @@
 <template>
-<nav class="bg-gradient-to-b from-green-800 via-green-700 to-green-800 shadow-sm border-b border-gray-200 relative z-50">
+<nav class="fixed top-15 left-0 w-full bg-gradient-to-b from-green-800 via-green-700 to-green-800 shadow-sm z-50">
     <!-- Desktop Navigation -->
     <div class="hidden lg:block">
       <div class="container mx-auto px-4">
@@ -37,7 +37,7 @@
         >
           <div
             v-if="activeDropdown"
-            class="absolute left-0 right-0 bg-white shadow-xl border-t border-gray-100"
+            class="absolute left-0 right-0 bg-white shadow-xl"
             @mouseenter="handleDropdownEnter"
             @mouseleave="handleMouseLeave"
           >
@@ -183,7 +183,7 @@ const handleMouseLeave = () => {
 const handleImageError = (event) => {
   console.warn('Image failed to load:', event.target.src);
   // Fallback to placeholder
-  event.target.src = '/images/navbar/imgs-promo-1.jpg';
+  event.target.src = '/navbar/imgs-promo-1.jpg';
 };
 
 // Cleanup on unmount

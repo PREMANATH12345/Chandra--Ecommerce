@@ -22,3 +22,9 @@ const handleSlideChange = (index) => {
   console.log('Hero banner changed to slide:', index)
 }
 </script>
+
+<style scoped>
+video {
+  border-radius: 1.5rem;
+}
+</style>

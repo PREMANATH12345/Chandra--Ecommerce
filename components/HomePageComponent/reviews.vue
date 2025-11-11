@@ -4,18 +4,19 @@
     <div class="absolute inset-0 z-0">
       <!-- Main background video -->
       <div class="relative w-full h-full">
-        <video 
+        <video
           class="w-full h-full object-cover"
           autoplay
           muted
           loop
           playsinline
         >
-          <!-- Video link goes here -->
-          <source     src="\Nearby-Store-Video.mp4"
- type="video/mp4">
+          <source src="/Reviews/Nearby-Store-Video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        
+        <!-- Light Gradient from top to 30% -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent h-[30%]"></div>
         
         <!-- Grid Overlay on Video -->
         <div class="absolute inset-0 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-0 pointer-events-none">
@@ -45,8 +46,6 @@
           Share your #MyCaratLaneStory and<br class="hidden sm:block">
           win jewellery worth up to ₹15,000
         </p>
-        
-        
         
         <!-- CTA Button -->
         <button class="bg-green-500 hover:bg-green-600 text-white font-semibold text-lg py-4 px-12 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-50 shadow-lg">
@@ -93,5 +92,3 @@ video {
   filter: brightness(0.9);
 }
 </style>
-
-

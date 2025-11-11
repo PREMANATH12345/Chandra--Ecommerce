@@ -1,22 +1,18 @@
 <template>
-  <section class="min-h-fit bg-white from-black to-emerald-900 flex items-center justify-center py-8 px-4">
-    <div class="w-full max-w-6xl mx-auto">
-      <div class="bg-gradient-to-b from-gray-900 to-emerald-400 rounded-xl shadow-lg p-8 border border-emerald-600/20">
+  <section class="min-h-fit bg-emerald-50 flex items-center justify-center py-8 px-4">
+    <div class="w-full max-w-8xl mx-auto">
+      <div class="bg-gradient-to-b from-emerald-600 via-emerald-200 to-emerald-50 rounded-2xl shadow-lg p-8 border border-emerald-200">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
           
-          <!-- Left Section - Icon & Text -->
+          <!-- Left Section -->
           <div class="flex items-center gap-6 flex-1">
-            <!-- Gift Icon -->
-            <div class="w-14 h-14 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-              <span class="text-2xl">🎁</span>
-            </div>
+            <img src="/purple-gift-icon.png" alt="Gift Icon" class="w-16 h-16 sm:w-20 sm:h-20" />
             
-            <!-- Text Content -->
             <div class="text-center lg:text-left">
-              <h2 class="text-2xl font-bold text-white mb-2">
+              <h2 class="text-2xl font-bold text-emerald-900 mb-2">
                 Join CaratLane Insider
               </h2>
-              <p class="text-lg text-emerald-100 leading-relaxed">
+              <p class="text-lg text-emerald-700/80 leading-relaxed">
                 To discover enticing deals, latest arrivals, & more
               </p>
             </div>
@@ -34,11 +30,11 @@
                   placeholder="Enter Email"
                   required
                   :class="[
-                    'w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-emerald-200 border text-base focus:outline-none focus:ring-2 transition-all duration-200 backdrop-blur-sm',
-                    emailError ? 'border-red-400 focus:ring-red-400' : 'border-emerald-400/30 focus:ring-emerald-400'
+                    'w-full px-4 py-3 rounded-xl bg-emerald-50 text-emerald-900 placeholder-emerald-500 border text-base focus:outline-none transition-all duration-200 shadow-sm',
+                    emailError ? 'border-red-300 focus:ring-2 focus:ring-red-100' : 'border-emerald-200 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100'
                   ]"
                 />
-                <p v-if="emailError" class="text-red-300 text-sm mt-2 flex items-center gap-2">
+                <p v-if="emailError" class="text-red-500 text-sm mt-2 flex items-center gap-2">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
                   </svg>
@@ -46,24 +42,24 @@
                 </p>
               </div>
 
-              <!-- Submit Button - Full Width -->
+              <!-- Submit Button -->
               <button
                 type="submit"
-                class="w-full px-4 py-3 bg-emerald-500 text-white text-base font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-opacity-50 shadow-lg"
+                class="w-full px-4 py-3 bg-emerald-600 text-white text-base font-semibold rounded-xl hover:bg-emerald-500 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-opacity-50 shadow-md hover:shadow-emerald-200"
               >
                 Submit
               </button>
 
-              <!-- Gender Selection - Full Width Next Line -->
+              <!-- Gender Selection -->
               <div class="flex justify-between gap-4 w-full">
                 <label class="flex items-center gap-3 cursor-pointer group flex-1">
                   <input
                     v-model="gender"
                     type="radio"
                     value="female"
-                    class="w-5 h-5 text-emerald-500 bg-white/10 border-2 border-emerald-300 rounded-full focus:ring-2 focus:ring-emerald-400 transition-all duration-200"
+                    class="w-5 h-5 text-emerald-500 bg-emerald-50 border-2 border-emerald-300 rounded-full focus:ring-2 focus:ring-emerald-200 transition-all duration-200 hover:border-emerald-400"
                   />
-                  <span class="text-white text-base group-hover:text-emerald-300 transition-colors duration-200">Female</span>
+                  <span class="text-emerald-800 text-base group-hover:text-emerald-600 transition-colors duration-200">Female</span>
                 </label>
                 
                 <label class="flex items-center gap-3 cursor-pointer group flex-1">
@@ -71,9 +67,9 @@
                     v-model="gender"
                     type="radio"
                     value="male"
-                    class="w-5 h-5 text-emerald-500 bg-white/10 border-2 border-emerald-300 rounded-full focus:ring-2 focus:ring-emerald-400 transition-all duration-200"
+                    class="w-5 h-5 text-emerald-500 bg-emerald-50 border-2 border-emerald-300 rounded-full focus:ring-2 focus:ring-emerald-200 transition-all duration-200 hover:border-emerald-400"
                   />
-                  <span class="text-white text-base group-hover:text-emerald-300 transition-colors duration-200">Male</span>
+                  <span class="text-emerald-800 text-base group-hover:text-emerald-600 transition-colors duration-200">Male</span>
                 </label>
                 
                 <label class="flex items-center gap-3 cursor-pointer group flex-1">
@@ -81,9 +77,9 @@
                     v-model="gender"
                     type="radio"
                     value="other"
-                    class="w-5 h-5 text-emerald-500 bg-white/10 border-2 border-emerald-300 rounded-full focus:ring-2 focus:ring-emerald-400 transition-all duration-200"
+                    class="w-5 h-5 text-emerald-500 bg-emerald-50 border-2 border-emerald-300 rounded-full focus:ring-2 focus:ring-emerald-200 transition-all duration-200 hover:border-emerald-400"
                   />
-                  <span class="text-white text-base group-hover:text-emerald-300 transition-colors duration-200">Other</span>
+                  <span class="text-emerald-800 text-base group-hover:text-emerald-600 transition-colors duration-200">Other</span>
                 </label>
               </div>
 
@@ -132,8 +128,8 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked {
-  border-color: #10B981;
-  background: rgba(255, 255, 255, 0.1);
+  border-color: #70c0c0;
+  background: rgba(255, 0, 0, 0.1);
 }
 
 input[type="radio"]:checked::before {
@@ -155,6 +151,6 @@ input[type="radio"]:checked::before {
 
 /* Custom placeholder color */
 ::placeholder {
-  color: rgba(167, 243, 208, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 </style>
