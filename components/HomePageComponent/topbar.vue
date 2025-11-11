@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white border-b border-gray-200 sticky top-0 z-50">
+  <div class="bg-white sticky top-0 z-50">
     <!-- Desktop View -->
     <div class="hidden lg:block">
       <div class="container mx-auto px-4">

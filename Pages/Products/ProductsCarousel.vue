@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <BannerCarousel 
-      :slides="heroBanners"
+      :slides="ProductCarousel"
       :auto-play-interval="4000"
       :show-navigation="true"
       :show-dots="true"
@@ -16,15 +16,9 @@ import { ref } from 'vue'
 import BannerCarousel from '@/Reusable/BannerCarousel.vue'
 import bannerData from '@/data/products.json'
 
-const heroBanners = ref(bannerData.heroBanners)
+const ProductCarousel = ref(bannerData.ProductCarousel)
 
 const handleSlideChange = (index) => {
   console.log('Hero banner changed to slide:', index)
 }
 </script>
-
-<style scoped>
-video {
-  border-radius: 1.5rem;
-}
-</style>

@@ -10,7 +10,7 @@
   loop 
   playsinline
 >
-  <source src="\Nearby-Store-Video.mp4">
+  <source src="\Reviews\Nearby-Store-Video.mp4">
   Your browser does not support the video tag.
 </video>
 

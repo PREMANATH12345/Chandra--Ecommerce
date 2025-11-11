@@ -16,7 +16,7 @@
       <div class="w-full lg:w-[50%]">
         <div class="group relative h-full min-h-[300px] md:min-h-[600px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 bg-white">
           <img 
-            src="/image1.jpg" 
+            src="/FeatureSection/image1.jpg" 
             alt="The Wedding Edit - Upto 30% Off"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
@@ -28,7 +28,7 @@
         <!-- Top Right Card -->
         <div class="group relative flex-1 min-h-[188px] md:min-h-[290px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 bg-white">
           <img 
-  src="/image2.jpg" 
+  src="/FeatureSection/image2.jpg" 
   alt="Everyday 22KT - For the modern woman"
   class="w-full h-full object-cover object-bottom translate-y-[0%] group-hover:scale-105 transition-transform duration-500 ease-out"
 />
@@ -38,7 +38,7 @@
         <!-- Bottom Right Card -->
         <div class="group relative flex-1 min-h-[188px] md:min-h-[290px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 bg-white">
           <img 
-  src="/image3.jpg" 
+  src="/FeatureSection/image3.jpg" 
   alt="Diamonds, delivered the same day"
   class="w-full h-full object-cover object-bottom translate-y-[0%] group-hover:scale-105 transition-transform duration-500 ease-out"
 />
