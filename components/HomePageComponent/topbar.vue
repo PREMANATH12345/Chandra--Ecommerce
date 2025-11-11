@@ -393,7 +393,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const props = defineProps({
   logoUrl: {
     type: String,
-    default: '/images/navbar/logo.png' 
+    default: '/navbar/logo.png' 
   },
   siteName: {
     type: String,

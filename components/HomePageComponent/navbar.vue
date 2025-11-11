@@ -183,7 +183,7 @@ const handleMouseLeave = () => {
 const handleImageError = (event) => {
   console.warn('Image failed to load:', event.target.src);
   // Fallback to placeholder
-  event.target.src = '/images/navbar/imgs-promo-1.jpg';
+  event.target.src = '/navbar/imgs-promo-1.jpg';
 };
 
 // Cleanup on unmount

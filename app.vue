@@ -1,10 +1,11 @@
 <!-- app.vue or pages/index.vue -->
 
 <template>
-  <div class="min-h-screen bg-white">
+  <NuxtPage />
+  <!-- <div class="min-h-screen bg-white">
         <topbar />
     <navbar />
-  
+
     <main>
       <Hero />
       <ProductCategory />
@@ -18,10 +19,11 @@
       <reviews />
     <JoinUs />
     <Footer />
-  </div>
+     <NuxtPage />
+  </div> -->
 </template>
 
-<script setup>
+<!-- <script setup>
 import navbar from './components/HomePageComponent/navbar.vue'
 import topbar from './components/HomePageComponent/topbar.vue'
 import Footer from './components/HomePageComponent/Footer.vue'
@@ -40,4 +42,4 @@ import JoinInsider from "./components/HomePageComponent/JoinInsider.vue";
 import CategoryHighlight from './components/HomePageComponent/CategoryHighlight.vue'
 
 
-</script>
+</script> -->
