@@ -135,14 +135,14 @@
       "reviews": 143
     }
   ],
-  "banners": [
+  "heroBanners": [
     {
       "id": 1,
       "type": "image",
       "title": "New Collection",
       "subtitle": "Discover Emerald Elegance",
       "description": "Up to 20% off on select items",
-      "image": "/aa.jpg",
+      "image": "/bann.jpg",
       "cta": "Shop Now"
     },
     {
@@ -164,6 +164,7 @@
       "cta": "Watch Now"
     }
   ],
+  
 
   "offers": [
     {
@@ -248,6 +249,31 @@
         }
       ]
     }
+  ],
+  "ProductCarousel":[
+    {
+      
+      "id": 1,
+      "type": "image",
+      
+      "image": "/carousel/Desktop_NewArrival.jpg",
+      "cta": "Shop Now"
+    },
+    {
+      "id": 2,
+      "type": "image",
+      
+      "image": "/carousel/Desktop_Trends.jpg",
+      "cta": "Explore"
+    },
+    {
+      "id": 3,
+      "type": "image",
+      
+      "image": "/carousel/Desktop_kids.jpg",
+      "cta": "Discover"
+    }
+    
   ],
   "category": [
     {
