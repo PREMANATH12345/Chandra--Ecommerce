@@ -1,0 +1,17 @@
+[
+  { "city": "Chennai", "pincode": "600001" },
+  { "city": "Coimbatore", "pincode": "641001" },
+  { "city": "Madurai", "pincode": "625001" },
+  { "city": "Salem", "pincode": "636001" },
+  { "city": "Tiruchirappalli", "pincode": "620001" },
+  { "city": "Bangalore", "pincode": "560001" },
+  { "city": "Hyderabad", "pincode": "500001" },
+  { "city": "Mumbai", "pincode": "400001" },
+  { "city": "Delhi", "pincode": "110001" },
+  { "city": "Kolkata", "pincode": "700001" },
+  { "city": "Pune", "pincode": "411001" },
+  { "city": "Ahmedabad", "pincode": "380001" },
+  { "city": "Jaipur", "pincode": "302001" },
+  { "city": "Lucknow", "pincode": "226001" },
+  { "city": "Chandigarh", "pincode": "160001" }
+]

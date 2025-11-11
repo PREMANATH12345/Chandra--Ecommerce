@@ -1,0 +1,343 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Wrapped with love",
+      "subtitle": "WEDDING RINGS",
+      "type": "featured",
+      "image": "/images/wedding-rings.jpg",
+      "badge": "NEW"
+    },
+    {
+      "id": 2,
+      "title": "ON-TREND",
+      "subtitle": "GEMSTONE",
+      "type": "regular",
+      "image": "/images/gemstone.jpg"
+    },
+    {
+      "id": 3,
+      "title": "22KT GOLD CHAINS",
+      "subtitle": "MODERN",
+      "type": "regular",
+      "image": "/images/gold-chains.jpg"
+    },
+    {
+      "id": 4,
+      "title": "GIFTS UNDER 30K",
+      "subtitle": "BRACELETS",
+      "type": "sale",
+      "image": "/images/bracelets.jpg",
+      "badge": "SALE"
+    },
+    {
+      "id": 5,
+      "title": "EARRINGS",
+      "subtitle": "TRENDING",
+      "type": "regular",
+      "image": "/images/earrings.jpg"
+    },
+    {
+      "id": 6,
+      "title": "MANOALSUTRAS",
+      "subtitle": "TRADITIONAL",
+      "type": "regular",
+      "image": "/images/manoalsutras.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Emerald Solitaire Ring",
+      "price": 45000,
+      "originalPrice": 50000,
+      "discount": 10,
+      "image": "images/bracelets.jpg",
+      "category": "rings",
+      "rating": 4.5,
+      "reviews": 125
+    },
+    {
+      "id": 2,
+      "name": "Green Stone Drop Earrings",
+      "price": 28000,
+      "originalPrice": 32000,
+      "discount": 12,
+      "image": "/chain.jpg",
+      "category": "earrings",
+      "rating": 4.7,
+      "reviews": 89
+    },
+    {
+      "id": 3,
+      "name": "Jade Pendant Necklace",
+      "price": 65000,
+      "originalPrice": 72000,
+      "discount": 10,
+      "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop",
+      "category": "necklaces",
+      "rating": 4.8,
+      "reviews": 156
+    },
+    {
+      "id": 4,
+      "name": "Peridot Tennis Bracelet",
+      "price": 38000,
+      "originalPrice": 42000,
+      "discount": 10,
+      "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
+      "category": "bracelets",
+      "rating": 4.6,
+      "reviews": 98
+    },
+    {
+      "id": 5,
+      "name": "Emerald Cut Engagement Ring",
+      "price": 85000,
+      "originalPrice": 95000,
+      "discount": 11,
+      "image": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&h=600&fit=crop",
+      "category": "rings",
+      "rating": 4.9,
+      "reviews": 234
+    },
+    {
+      "id": 6,
+      "name": "Green Crystal Stud Earrings",
+      "price": 18000,
+      "originalPrice": 20000,
+      "discount": 10,
+      "image": "https://images.unsplash.com/photo-1596944924591-4bb2f30e9ddc?w=600&h=600&fit=crop",
+      "category": "earrings",
+      "rating": 4.4,
+      "reviews": 67
+    },
+    {
+      "id": 7,
+      "name": "Aventurine Bangle Set",
+      "price": 42000,
+      "originalPrice": 48000,
+      "discount": 12,
+      "image": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&h=600&fit=crop",
+      "category": "bangles",
+      "rating": 4.5,
+      "reviews": 102
+    },
+    {
+      "id": 8,
+      "name": "Malachite Heart Pendant",
+      "price": 22000,
+      "originalPrice": 25000,
+      "discount": 12,
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=600&fit=crop",
+      "category": "pendants",
+      "rating": 4.7,
+      "reviews": 143
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "type": "image",
+      "title": "New Collection",
+      "subtitle": "Discover Emerald Elegance",
+      "description": "Up to 20% off on select items",
+      "image": "/aa.jpg",
+      "cta": "Shop Now"
+    },
+    {
+      "id": 2,
+      "type": "image",
+      "title": "Wedding Collection",
+      "subtitle": "Celebrate Love in Green",
+      "description": "Exquisite designs for your special day",
+      "image": "/bann.jpg",
+      "cta": "Explore"
+    },
+    {
+      "id": 3,
+      "type": "video",
+      "title": "Luxury in Motion",
+      "subtitle": "Experience the Shine",
+      "description": "Timeless beauty captured in every frame",
+      "video": "/ring.mp4",
+      "cta": "Watch Now"
+    }
+  ],
+
+  "offers": [
+    {
+      "id": 1,
+      "title": "Flat 15% Off",
+      "description": "On all green stone jewelry",
+      "code": "GREEN15"
+    },
+    {
+      "id": 2,
+      "title": "Free Shipping",
+      "description": "On orders above ₹50,000",
+      "code": "FREESHIP"
+    },
+    {
+      "id": 3,
+      "title": "Buy 2 Get 1",
+      "description": "On earrings collection",
+      "code": "EARRING3"
+    }
+  ],
+  "ProductData": [
+    {
+      "jewelry": [
+        { "id": 1, "title": "Diamond Ring", "image": "/images/jewel1.jpg" },
+        { "id": 2, "title": "Ruby Necklace", "image": "/images/jewel2.jpg" },
+        { "id": 3, "title": "Emerald Earrings", "image": "/images/jewel3.jpg" },
+        { "id": 4, "title": "Gold Bracelet", "image": "/images/jewel4.jpg" },
+        { "id": 5, "title": "Designer Ring", "image": "/images/jewel5.jpg" },
+        {
+          "id": 6,
+          "title": "Sapphire Earrings",
+          "image": "/images/jewel6.jpg"
+        },
+        {
+          "id": 7,
+          "title": "Floral Diamond Ring",
+          "image": "/images/jewel7.jpg"
+        }
+      ]
+    }
+  ],
+
+  "heroSection": [
+    {
+      "banners": [
+        {
+          "id": 1,
+          "badge": "LATEST",
+          "title": "All New. All November.",
+          "subtitle": "All You",
+          "description": "Discover the latest collection designed just for you. Experience premium quality and exclusive designs.",
+          "cta": "Shop Now",
+          "image": "/images/hero-banner-1.jpg",
+          "textColor": "text-white",
+          "badgeColor": "bg-primary-500",
+          "alignment": "left"
+        },
+        {
+          "id": 2,
+          "badge": "TRENDING",
+          "title": "Winter Collection",
+          "subtitle": "Stay Warm in Style",
+          "description": "Explore our exclusive winter collection with premium materials and modern designs.",
+          "cta": "Explore Collection",
+          "image": "/images/hero-banner-2.jpg",
+          "textColor": "text-white",
+          "badgeColor": "bg-blue-500",
+          "alignment": "center"
+        },
+        {
+          "id": 3,
+          "badge": "EXCLUSIVE",
+          "title": "Limited Edition",
+          "subtitle": "Just For You",
+          "description": "Get your hands on our limited edition pieces before they're gone forever.",
+          "cta": "Buy Now",
+          "image": "/images/hero-banner-3.jpg",
+          "textColor": "text-gray-900",
+          "badgeColor": "bg-yellow-500",
+          "alignment": "right"
+        }
+      ]
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "title": "Wrapped with love",
+      "image": "/hp-asset1.png"
+    },
+    {
+      "id": 2,
+      "title": "Wedding Rings",
+      "image": "/wedding_bands.jpg"
+    },
+    {
+      "id": 3,
+      "title": "On-Trend Bracelets",
+      "image": "/chain.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Gemstone Earrings",
+      "image": "/earrings.jpg"
+    },
+    {
+      "id": 5,
+      "title": "22kt Gold Chains",
+      "image": "/sub20.jpg"
+    }
+  ],
+  "Collection": [
+    {
+      "id": 1,
+      "title": "Maaya",
+      "subtitle": "The golden mirage of artistry",
+      "image": "/maaya_d.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Swirl",
+      "subtitle": "Rhythm of Movement",
+      "image": "/swirl_d.jpg"
+    },
+    {
+      "id": 3,
+      "title": "F.R.I.E.N.D.S x Caratlane",
+      "subtitle": "The one with the gold & diamonds",
+      "image": "/friends_d.jpg"
+    },
+    {
+      "id": 4,
+      "title": "SOL",
+      "subtitle": "Dawn of your brilliance",
+      "image": "/sol_d_1.jpg"
+    }
+  ],
+  "categoryHightlight": [
+    {
+      "banner": {
+        "title": "To the tiny humans",
+        "subtitle": "who outshine every diamond!",
+        "buttonText": "SHOP KIDS DESIGNS",
+        "image": "/Full_Col_Desktop.jpg"
+      },
+      "products": [
+        {
+          "id": 1,
+          "title": "Magical Unicorn Kids' Gold Earrings",
+          "price": "₹6,412",
+          "image": "/shopping.webp"
+        },
+        {
+          "id": 2,
+          "title": "Stylish Kids Gold Chain",
+          "price": "₹25,061",
+          "oldPrice": "₹25,370",
+          "image": "/kidschain.jpg"
+        },
+        {
+          "id": 3,
+          "title": "Lilac Bloom Kids' Gold Earrings",
+          "price": "₹7,095",
+          "oldPrice": "₹7,201",
+          "image": "/ears.webp"
+        },
+        {
+          "id": 4,
+          "title": "Violet Heart Kids Pendant",
+          "price": "₹8,102",
+          "image": "/ears.webp"
+        }
+      ]
+    }
+  ]
+}

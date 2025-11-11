@@ -1,0 +1,134 @@
+[
+  {
+    "title": "Rings",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Solitaire Rings", "Couple Rings", "Adjustable Rings", "Daily Wear Rings"],
+      "By Metal & Stone": ["Gold Rings", "Diamond Rings", "Platinum Rings", "Gemstone Rings"],
+      "By Price": ["Below ₹10,000", "₹10,000 - ₹25,000", "Above ₹25,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Earrings",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Studs", "Hoops", "Drops", "Jhumkas"],
+      "By Metal & Stone": ["Gold Earrings", "Diamond Earrings", "Silver Earrings"],
+      "By Price": ["Below ₹10,000", "₹10,000 - ₹25,000", "Above ₹25,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Bracelets & Bangles",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Bracelets", "Bangles", "Cuffs"],
+      "By Metal & Stone": ["Gold", "Diamond", "Silver"],
+      "By Price": ["Below ₹10,000", "₹10,000 - ₹25,000", "Above ₹25,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Solitaires",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Solitaire Rings", "Solitaire Necklaces", "Solitaire Earrings"],
+      "By Metal & Stone": ["Diamond Solitaires", "Platinum Solitaires"],
+      "By Price": ["Below ₹50,000", "₹50,000 - ₹1,00,000", "Above ₹1,00,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Mangalsutras",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Traditional", "Contemporary", "Customizable"],
+      "By Metal & Stone": ["Gold Mangalsutras", "Diamond Mangalsutras"],
+      "By Price": ["Below ₹20,000", "₹20,000 - ₹50,000", "Above ₹50,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Necklaces & Pendants",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Pendants", "Chokers", "Long Necklaces", "Statement Pieces"],
+      "By Metal & Stone": ["Gold Necklaces", "Diamond Pendants", "Gemstone Necklaces"],
+      "By Price": ["Below ₹15,000", "₹15,000 - ₹40,000", "Above ₹40,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Silver by Shaya",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Silver Rings", "Silver Earrings", "Silver Necklaces", "Silver Bracelets"],
+      "By Metal & Stone": ["Sterling Silver", "Silver with Gemstones"],
+      "By Price": ["Below ₹5,000", "₹5,000 - ₹15,000", "Above ₹15,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Gifting",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Birthday Gifts", "Anniversary Gifts", "Wedding Gifts", "Festive Gifts"],
+      "By Metal & Stone": ["Gold Gifts", "Diamond Gifts", "Silver Gifts"],
+      "By Price": ["Below ₹10,000", "₹10,000 - ₹30,000", "Above ₹30,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "More Jewellery",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Nose Pins", "Anklets", "Brooches", "Hair Accessories"],
+      "By Metal & Stone": ["Gold", "Diamond", "Silver", "Gemstone"],
+      "By Price": ["Below ₹8,000", "₹8,000 - ₹20,000", "Above ₹20,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Collections",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Festive Collection", "Bridal Collection", "Everyday Wear", "Luxury Collection"],
+      "By Metal & Stone": ["Gold Collections", "Diamond Collections", "Platinum Collections"],
+      "By Price": ["Below ₹25,000", "₹25,000 - ₹75,000", "Above ₹75,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  },
+  {
+    "title": "Trending",
+    "subSections": {
+      "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
+      "By Style": ["Seasonal Trends", "Celebrity Inspired", "Viral Designs"],
+      "By Metal & Stone": ["Trending Gold", "Trending Diamonds", "Trending Gemstones"],
+      "By Price": ["Below ₹15,000", "₹15,000 - ₹35,000", "Above ₹35,000"]
+    },
+    "images": [
+      "/images/navbar/imgs-promo-1.jpg",
+      "/images/navbar/imgs-promo-2.jpg"
+    ]  }
+]
