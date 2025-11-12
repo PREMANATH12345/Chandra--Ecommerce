@@ -1,30 +1,32 @@
 <template>
-  <div class="relative rounded-lg overflow-hidden h-full min-h-[400px] lg:min-h-[500px]">
+  <div class="relative rounded-lg overflow-hidden w-full h-full">
     <!-- Desktop/Tablet View -->
     <div class="hidden md:block h-full">
-      <img 
-        :src="currentBannerImage" 
-        :alt="bannerData.title"
-        class="w-full h-full object-cover"
-        @error="handleImageError"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex flex-col justify-end p-8">
-        <p class="text-white/90 text-sm mb-2">{{ bannerData.subtitle }}</p>
-        <h3 class="text-white text-3xl lg:text-4xl font-bold mb-4">{{ bannerData.title }}</h3>
-        <p class="text-white/90 text-sm mb-2">{{ bannerData.description }}</p>
-        <p class="text-white/70 text-xs">{{ bannerData.footer }}</p>
+      <div class="relative h-80 lg:h-96 w-full">
+        <img 
+          :src="currentBannerImage" 
+          :alt="bannerData.title"
+          class="w-full h-full object-cover"
+          @error="handleImageError"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">
+          <p class="text-white/90 text-xs md:text-sm mb-1 md:mb-2">{{ bannerData.subtitle }}</p>
+          <h3 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-4">{{ bannerData.title }}</h3>
+          <p class="text-white/90 text-xs md:text-sm mb-1 md:mb-2">{{ bannerData.description }}</p>
+          <p class="text-white/70 text-[10px] md:text-xs">{{ bannerData.footer }}</p>
+        </div>
       </div>
     </div>
 
     <!-- Mobile View - Filter by Category -->
-    <div class="md:hidden bg-gradient-to-b from-green-50 to-green-100 rounded-lg p-6 h-full flex flex-col">
-      <h3 class="text-lg font-bold text-gray-800 mb-4">Filter by Category</h3>
+    <div class="md:hidden bg-gradient-to-b from-green-50 to-green-100 rounded-lg p-4 h-full">
+      <h3 class="text-sm font-bold text-gray-800 mb-3">Filter by Category</h3>
       
-      <div class="relative flex-1">
+      <div class="relative">
         <!-- Category Scroll Container -->
         <div 
           ref="scrollContainer"
-          class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-2"
+          class="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth pb-2"
           @scroll="updateScrollButtons"
         >
           <div 
@@ -35,7 +37,7 @@
             <button 
               @click="selectCategory(category)"
               :class="[
-                'flex flex-col items-center justify-center w-24 h-24 rounded-lg border-2 transition-all',
+                'flex flex-col items-center justify-center w-20 h-20 rounded-lg border-2 transition-all',
                 selectedCategory?.id === category.id 
                   ? 'border-green-600 bg-white shadow-md' 
                   : 'border-gray-200 bg-white hover:border-green-300'
@@ -44,21 +46,21 @@
               <img 
                 :src="getCategoryImage(category)" 
                 :alt="category.name"
-                class="w-12 h-12 object-contain mb-2"
+                class="w-10 h-10 object-contain mb-1.5"
                 @error="(e) => handleCategoryImageError(e, category)"
               />
-              <span class="text-xs font-medium text-gray-700 text-center">{{ category.name }}</span>
+              <span class="text-[10px] font-medium text-gray-700 text-center px-1">{{ category.name }}</span>
             </button>
           </div>
         </div>
 
-        <!-- Scroll Buttons (Tablet only) -->
+        <!-- Scroll Buttons -->
         <button 
           v-if="showLeftButton"
           @click="scrollLeft"
-          class="hidden sm:flex md:hidden absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-8 h-8 items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 hover:bg-gray-50"
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 w-7 h-7 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 hover:bg-gray-50"
         >
-          <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -66,9 +68,9 @@
         <button 
           v-if="showRightButton"
           @click="scrollRight"
-          class="hidden sm:flex md:hidden absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-8 h-8 items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 hover:bg-gray-50"
+          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-7 h-7 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-200 hover:bg-gray-50"
         >
-          <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -93,14 +95,7 @@ const props = defineProps({
   },
   categories: {
     type: Array,
-    default: () => [
-      { id: 1, name: 'Rings', image: '/products/fallbackimage.jpg' },
-      { id: 2, name: 'Earrings', image: '/products/fallbackimage.jpg' },
-      { id: 3, name: 'Necklaces', image: '/products/fallbackimage.jpg' },
-      { id: 4, name: 'Bracelets', image: '/products/fallbackimage.jpg' },
-      { id: 5, name: 'Bangles', image: '/products/fallbackimage.jpg' },
-      { id: 6, name: 'Pendants', image: '/products/fallbackimage.jpg' }
-    ]
+    default: () => []
   }
 });
 
@@ -146,13 +141,13 @@ const selectCategory = (category) => {
 
 const scrollLeft = () => {
   if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({ left: -200, behavior: 'smooth' });
+    scrollContainer.value.scrollBy({ left: -150, behavior: 'smooth' });
   }
 };
 
 const scrollRight = () => {
   if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({ left: 200, behavior: 'smooth' });
+    scrollContainer.value.scrollBy({ left: 150, behavior: 'smooth' });
   }
 };
 

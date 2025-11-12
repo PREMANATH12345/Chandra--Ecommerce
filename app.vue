@@ -1,7 +1,6 @@
 <!-- app.vue or pages/index.vue -->
 
 <template>
-<<<<<<< HEAD
   <NuxtPage />
 </template>
 

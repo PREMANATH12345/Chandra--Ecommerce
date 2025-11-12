@@ -1,14 +1,15 @@
 <template>
   <div 
-    class="bg-white rounded-lg overflow-hidden group relative transition-all duration-300 hover:shadow-xl border border-gray-100"
+    class="bg-white rounded-lg overflow-hidden group relative transition-all duration-300 hover:shadow-xl border border-gray-100 flex flex-col h-full"
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
+    @click="handleCardClick"
   >
     <!-- Badge -->
-    <div v-if="product.badge" class="absolute top-3 left-3 z-10">
+    <div v-if="product.badge" class="absolute top-2 md:top-3 left-2 md:left-3 z-10">
       <span 
         :class="[
-          'px-3 py-1 rounded-md text-xs font-bold',
+          'px-2 py-0.5 md:px-3 md:py-1 rounded-md text-[10px] md:text-xs font-bold',
           product.badge === 'BESTSELLER' ? 'bg-yellow-500 text-gray-900' : 'bg-yellow-400 text-gray-900'
         ]"
       >
@@ -18,11 +19,11 @@
 
     <!-- Wishlist Icon -->
     <button 
-      class="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/80 hover:bg-white transition-all"
+      class="absolute top-2 md:top-3 right-2 md:right-3 z-10 p-1.5 md:p-2 rounded-full bg-white/80 hover:bg-white transition-all"
       @click="toggleWishlist"
     >
       <svg 
-        :class="['w-5 h-5 transition-colors', isInWishlist ? 'text-red-500 fill-current' : 'text-gray-600']" 
+        :class="['w-4 h-4 md:w-5 md:h-5 transition-colors', isInWishlist ? 'text-red-500 fill-current' : 'text-gray-600']" 
         fill="none" 
         stroke="currentColor" 
         viewBox="0 0 24 24"
@@ -36,12 +37,12 @@
       </svg>
     </button>
 
-    <!-- Image Container -->
-    <div class="relative aspect-square bg-gray-50 overflow-hidden">
+    <!-- Image Container - Fixed aspect ratio -->
+    <div class="relative w-full pt-[100%] bg-gray-50 overflow-hidden">
       <img 
         :src="currentImage" 
         :alt="product.name"
-        class="w-full h-full object-cover transition-transform duration-500"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500"
         @error="handleImageError"
       />
 
@@ -49,9 +50,9 @@
       <button 
         v-if="product.images && product.images.length > 1"
         @click="previousImage"
-        class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 hover:bg-white shadow-md transition-all opacity-0 group-hover:opacity-100"
+        class="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 p-1 md:p-2 rounded-full bg-white/90 hover:bg-white shadow-md transition-all opacity-0 group-hover:opacity-100"
       >
-        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -59,53 +60,55 @@
       <button 
         v-if="product.images && product.images.length > 1"
         @click="nextImage"
-        class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 hover:bg-white shadow-md transition-all opacity-0 group-hover:opacity-100"
+        class="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 p-1 md:p-2 rounded-full bg-white/90 hover:bg-white shadow-md transition-all opacity-0 group-hover:opacity-100"
       >
-        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
-      <!-- Try at Home & Video Buttons -->
-      <Transition name="fade">
-        <div 
-          v-if="isHovered" 
-          class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 px-3"
+      <!-- Try at Home & Video Buttons - Always visible on mobile, hover on desktop -->
+      <div 
+        :class="[
+          'absolute bottom-2 md:bottom-3 left-0 right-0 flex justify-center gap-1 md:gap-2 px-2 md:px-3 transition-opacity duration-300',
+          'md:opacity-0 md:group-hover:opacity-100'
+        ]"
+      >
+        <button 
+          v-if="product.tryAtHome"
+          class="flex-1 flex items-center justify-center gap-1 md:gap-2 px-2 py-1.5 md:px-4 md:py-2 bg-white rounded-md md:rounded-lg hover:bg-green-50 transition-colors shadow-md text-[10px] md:text-sm font-medium"
+          @click="handleTryAtHome"
         >
-          <button 
-            v-if="product.tryAtHome"
-            class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg hover:bg-green-50 transition-colors shadow-md text-sm font-medium"
-            @click="handleTryAtHome"
-          >
-            <span>TRY AT HOME</span>
-          </button>
-          <button 
-            class="p-2 bg-white rounded-lg hover:bg-green-50 transition-colors shadow-md"
-            @click="handleVideoCall"
-          >
-            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
-            </svg>
-          </button>
-        </div>
-      </Transition>
+          <span class="hidden md:inline">TRY AT HOME</span>
+          <span class="md:hidden">TRY HOME</span>
+        </button>
+        <button 
+          class="p-1.5 md:p-2 bg-white rounded-md md:rounded-lg hover:bg-green-50 transition-colors shadow-md"
+          @click="handleVideoCall"
+          :title="'Video Call'"
+        >
+          <svg class="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- Product Info -->
-    <div class="p-4">
+    <!-- Product Info - Fixed height -->
+    <div class="p-2 md:p-4 flex flex-col flex-1">
       <!-- Price -->
-      <div class="flex items-center gap-2 mb-2">
-        <span class="text-xl font-bold text-gray-900">₹{{ formatPrice(product.price) }}</span>
-        <span v-if="product.originalPrice" class="text-sm text-gray-500 line-through">
+      <div class="flex items-center gap-1 md:gap-2 mb-1 md:mb-2">
+        <span class="text-sm md:text-xl font-bold text-gray-900">₹{{ formatPrice(product.price) }}</span>
+        <span v-if="product.originalPrice" class="text-[10px] md:text-sm text-gray-500 line-through">
           ₹{{ formatPrice(product.originalPrice) }}
         </span>
       </div>
 
       <!-- Delivery Info -->
-      <p class="text-sm text-pink-600 font-medium mb-1">{{ product.deliveryText }}</p>
+      <p class="text-[10px] md:text-sm text-pink-600 font-medium mb-1">{{ product.deliveryText }}</p>
       
-      <!-- Product Name -->
-      <p class="text-sm text-gray-600 truncate">{{ product.name }}</p>
+      <!-- Product Name - Truncated to 2 lines -->
+      <p class="text-[10px] md:text-sm text-gray-600 line-clamp-2 flex-1">{{ product.name }}</p>
     </div>
   </div>
 </template>
@@ -128,7 +131,7 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(['try-at-home', 'video-call', 'toggle-wishlist']);
+const emit = defineEmits(['try-at-home', 'video-call', 'toggle-wishlist', 'click']);
 
 const currentImageIndex = ref(0);
 const isHovered = ref(false);
@@ -143,7 +146,8 @@ const currentImage = computed(() => {
   return props.product.images[currentImageIndex.value];
 });
 
-const nextImage = () => {
+const nextImage = (e) => {
+  e.stopPropagation();
   if (!props.product.images || props.product.images.length === 0) return;
   
   if (currentImageIndex.value < props.product.images.length - 1) {
@@ -151,10 +155,11 @@ const nextImage = () => {
   } else {
     currentImageIndex.value = 0;
   }
-  imageError.value = false; // Reset error when changing images
+  imageError.value = false;
 };
 
-const previousImage = () => {
+const previousImage = (e) => {
+  e.stopPropagation();
   if (!props.product.images || props.product.images.length === 0) return;
   
   if (currentImageIndex.value > 0) {
@@ -162,41 +167,46 @@ const previousImage = () => {
   } else {
     currentImageIndex.value = props.product.images.length - 1;
   }
-  imageError.value = false; // Reset error when changing images
+  imageError.value = false;
 };
 
 const handleImageError = (event) => {
   console.error(`Image failed to load: ${event.target.src}`);
   imageError.value = true;
-  event.target.src = '/images/products/placeholder.jpg';
+  event.target.src = '/products/fallbackimage.jpg';
 };
 
 const formatPrice = (price) => {
   return price?.toLocaleString('en-IN') || '0';
 };
 
-const handleTryAtHome = () => {
+const handleTryAtHome = (e) => {
+  e.stopPropagation();
   emit('try-at-home', props.product);
 };
 
-const handleVideoCall = () => {
+const handleVideoCall = (e) => {
+  e.stopPropagation();
   emit('video-call', props.product);
 };
 
-const toggleWishlist = () => {
+const toggleWishlist = (e) => {
+  e.stopPropagation();
   isInWishlist.value = !isInWishlist.value;
   emit('toggle-wishlist', props.product, isInWishlist.value);
+};
+
+const handleCardClick = () => {
+  emit('click', props.product);
 };
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+/* Line clamp utility for truncating text */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>

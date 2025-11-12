@@ -1,5 +1,5 @@
 <template>
-<nav class="fixed top-15 left-0 w-full bg-gradient-to-b from-green-800 via-green-700 to-green-800 shadow-sm z-50">
+<nav class="fixed top-16 left-0 w-full bg-gradient-to-b from-green-800 via-green-700 to-green-800 shadow-sm z-[45]">
     <!-- Desktop Navigation -->
     <div class="hidden lg:block">
       <div class="container mx-auto px-4">
@@ -14,7 +14,7 @@
               @mouseleave="handleMouseLeave"
             >
               <NuxtLink 
-                :to="`/${item.title.toLowerCase().replace(/\s+/g, '-')}`"
+                :to="`/products/${item.title.toLowerCase()}`"
                 class="block py-4 text-sm font-medium text-white hover:text-green-600 transition-colors duration-200"
               >
                 {{ item.title }}
@@ -37,7 +37,7 @@
         >
           <div
             v-if="activeDropdown"
-            class="absolute left-0 right-0 bg-white shadow-xl"
+            class="absolute left-0 right-0 bg-white shadow-xl z-50"
             @mouseenter="handleDropdownEnter"
             @mouseleave="handleMouseLeave"
           >
@@ -60,7 +60,7 @@
                         class="group"
                       >
                         <NuxtLink
-                          :to="`/category/${getActiveItem()?.title.toLowerCase()}/${subItem.toLowerCase().replace(/\s+/g, '-')}`"
+                          :to="`/products/${getActiveItem()?.title.toLowerCase()}`"
                           class="text-base text-gray-700 hover:text-green-600 transition-colors duration-200 flex items-center group"
                         >
                           <span class="truncate">{{ subItem }}</span>
