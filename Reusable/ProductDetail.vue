@@ -1,3 +1,4 @@
+how to create this i have this code 
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
@@ -117,13 +118,13 @@
               <h3 class="text-lg font-semibold text-gray-900">Size</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedSize }}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
               <button 
                 v-for="size in productData.sizes" 
                 :key="size.value"
                 @click="selectedSize = size.value"
                 :class="[ 
-                  'py-3 px-4 border-2 rounded-xl text-center transition-all duration-200 font-medium',
+                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
                   selectedSize === size.value 
                     ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
                     : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
@@ -140,13 +141,13 @@
               <h3 class="text-lg font-semibold text-gray-900">Metal</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedMetal }}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
               <button 
                 v-for="metal in productData.metals" 
                 :key="metal"
                 @click="selectedMetal = metal"
                 :class="[ 
-                  'py-3 px-4 border-2 rounded-xl text-center transition-all duration-200 font-medium',
+                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
                   selectedMetal === metal 
                     ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
                     : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
@@ -163,13 +164,13 @@
               <h3 class="text-lg font-semibold text-gray-900">Diamond</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedDiamond }}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
               <button 
                 v-for="diamond in productData.diamonds" 
                 :key="diamond.value"
                 @click="selectedDiamond = diamond.value"
                 :class="[ 
-                  'py-3 px-4 border-2 rounded-xl text-center transition-all duration-200 font-medium',
+                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
                   selectedDiamond === diamond.value 
                     ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
                     : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
