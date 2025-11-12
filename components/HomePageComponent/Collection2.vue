@@ -2,7 +2,7 @@
 import CollectionGrid from '@/Reusable/CollectionGrid.vue'
 import productsData from '@/data/products.json'
 
-const collections = productsData.Collection2
+const collections = productsData.Collection1
 console.log('Collections data:', collections) 
 </script>
 

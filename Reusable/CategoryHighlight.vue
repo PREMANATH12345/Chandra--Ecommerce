@@ -56,13 +56,13 @@
         <div class="flex space-x-3 gap-4">
           <button
             @click="scrollLeft"
-            class="bg-purple-700 hover:bg-purple-800 text-white rounded-full p-2"
+            class="bg-green-600 hover:bg-green-600 text-white rounded-full p-2"
           >
             <ChevronLeft class="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
           <button
             @click="scrollRight"
-            class="bg-purple-700 hover:bg-purple-800 text-white rounded-full p-2"
+            class="bg-green-600 hover:bg-green-600 text-white rounded-full p-2"
           >
             <ChevronRight class="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
@@ -70,7 +70,7 @@
 
         <!-- View All Button - Right side -->
         <button
-          class="bg-purple-700 hover:bg-purple-800 text-white px-4 sm:px-5 py-2 rounded-lg font-semibold text-sm sm:text-base"
+          class="bg-green-600 hover:bg-green-600 text-white px-4 sm:px-5 py-2 rounded-lg font-semibold text-sm sm:text-base"
         >
           View Full Collection
         </button>

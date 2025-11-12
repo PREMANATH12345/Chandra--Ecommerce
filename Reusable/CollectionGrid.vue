@@ -1,12 +1,12 @@
 <template>
-  <section class="py-10 px-4 sm:px-6 md:px-10 bg-white">
+  <section class="py-10 px-4 sm:px-6 md:px-10">
     <div
       class="flex overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 scrollbar-hide scroll-smooth pb-4"
     >
       <div
         v-for="item in collections"
         :key="item.id"
-        class="relative min-w-[48%] sm:min-w-0 rounded-2xl overflow-hidden bg-gray-50 hover:shadow-xl transition-all duration-300 cursor-pointer group flex-shrink-0"
+
       >
         <img
           :src="item.image"
@@ -19,7 +19,7 @@
 
     <div class="flex justify-center mt-10">
       <button
-        class="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300"
+        class="bg-green-600 hover:bg-green-800 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300"
       >
         VIEW ALL COLLECTIONS
       </button>
@@ -28,7 +28,13 @@
 </template>
 
 <script setup>
-import ProductCategory from './ProductCategory.vue'
+// import productsdata from '@/data/products.json'
+
+// // ✅ Access the collections array safely
+// const collections = productsdata.Collection
+
+
+
 const props = defineProps({
   collections: {
     type: Array,
@@ -36,7 +42,7 @@ const props = defineProps({
   }
 })
 
-console.log('Collections prop:', props.collections)
+// console.log('Collections prop:', props.collections)
 const handleImageError = (event) => {
   console.error(`Image failed to load: ${event.target.src}`)
   event.target.src = '/fallback.jpg'

@@ -1,10 +1,10 @@
 <template>
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden mt-16">
     
   <div class="relative h-[500px] md:h-[600px] overflow-hidden mt-16">
     
     <!-- Render Image -->
-    <div v-if="slides[currentSlide].type === 'image'" class="w-full h-full p-4">
+    <div v-if="slides[currentSlide].type === 'image'" class="w-full h-full ">
       <img
         :src="slides[currentSlide].image"
         :alt="slides[currentSlide].title"
