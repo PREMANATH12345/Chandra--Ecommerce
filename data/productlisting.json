@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "swirl-heart-diamond-ring",
+    "name": "Swirl Heart Diamond Ring",
+    "price": 10864,
+    "originalPrice": 11505,
+    "category": "Rings",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/ring1-1.jpg",
+      "/images/products/ring1-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "twilight-twirl-diamond-ring",
+    "name": "Twilight Twirl Diamond Ring",
+    "price": 13713,
+    "originalPrice": 14202,
+    "category": "Rings",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/ring2-1.jpg",
+      "/images/products/ring2-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "buzzing-beauty-personalised-ring",
+    "name": "Buzzing Beauty Personalised Ring",
+    "price": 11989,
+    "originalPrice": 12162,
+    "category": "Rings",
+    "badge": null,
+    "images": [
+      "/images/products/ring3-1.jpg",
+      "/images/products/ring3-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "teensy-wave-diamond-ring",
+    "name": "Teensy Wave Diamond Ring",
+    "price": 13012,
+    "originalPrice": 13469,
+    "category": "Rings",
+    "badge": null,
+    "images": [
+      "/images/products/ring4-1.jpg",
+      "/images/products/ring4-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "butterfly-bloom-diamond-ring",
+    "name": "Butterfly Bloom Diamond Ring",
+    "price": 77008,
+    "originalPrice": 82450,
+    "category": "Rings",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/ring5-1.jpg",
+      "/images/products/ring5-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "gildora-gold-stud-earrings",
+    "name": "Gildora Gold Stud Earrings",
+    "price": 4855,
+    "originalPrice": 5040,
+    "category": "Earrings",
+    "badge": null,
+    "images": [
+      "/images/products/earring1-1.jpg",
+      "/images/products/earring1-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "winding-gold-stud-earrings",
+    "name": "Winding Gold Stud Earrings",
+    "price": 6112,
+    "originalPrice": 6205,
+    "category": "Earrings",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/earring2-1.jpg",
+      "/images/products/earring2-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "riana-blooming-gold-earcuff",
+    "name": "Riana Blooming Gold Earcuff",
+    "price": 6743,
+    "originalPrice": 6841,
+    "category": "Earrings",
+    "badge": null,
+    "images": [
+      "/images/products/earring3-1.jpg",
+      "/images/products/earring3-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "chipmunk-diamond-ear-cuffs",
+    "name": "Chipmunk Diamond Ear Cuffs",
+    "price": 32747,
+    "originalPrice": null,
+    "category": "Earrings",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/earring4-1.jpg",
+      "/images/products/earring4-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "stuti-22kt-gold-stud-earrings",
+    "name": "Stuti 22KT Gold Stud Earrings",
+    "price": 15138,
+    "originalPrice": 15287,
+    "category": "Earrings",
+    "badge": null,
+    "images": [
+      "/images/products/earring5-1.jpg",
+      "/images/products/earring5-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "veda-diamond-mangalsutra",
+    "name": "Veda Diamond Mangalsutra",
+    "price": 119239,
+    "originalPrice": 133033,
+    "category": "Mangalsutras",
+    "badge": null,
+    "images": [
+      "/images/products/mangalsutra1-1.jpg",
+      "/images/products/mangalsutra1-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "divya-diamond-mangalsutra",
+    "name": "Divya Diamond Mangalsutra",
+    "price": 95943,
+    "originalPrice": 100663,
+    "category": "Mangalsutras",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/mangalsutra2-1.jpg",
+      "/images/products/mangalsutra2-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "preeti-diamond-mangalsutra",
+    "name": "Preeti Diamond Mangalsutra",
+    "price": 116429,
+    "originalPrice": 122421,
+    "category": "Mangalsutras",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/mangalsutra3-1.jpg",
+      "/images/products/mangalsutra3-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "esha-diamond-mangalsutra",
+    "name": "Esha Diamond Mangalsutra",
+    "price": 107528,
+    "originalPrice": 119053,
+    "category": "Mangalsutras",
+    "badge": null,
+    "images": [
+      "/images/products/mangalsutra4-1.jpg",
+      "/images/products/mangalsutra4-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "butterfly-bloom-mangalsutra",
+    "name": "Butterfly Bloom Mangalsutra",
+    "price": 77008,
+    "originalPrice": 82450,
+    "category": "Mangalsutras",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/mangalsutra5-1.jpg",
+      "/images/products/mangalsutra5-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "celestial-cascade-pendant",
+    "name": "Celestial Cascade Pendant",
+    "price": 25430,
+    "originalPrice": 26800,
+    "category": "Necklaces",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/necklace1-1.jpg",
+      "/images/products/necklace1-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "empress-statement-necklace",
+    "name": "Empress Statement Necklace",
+    "price": 84500,
+    "originalPrice": 89000,
+    "category": "Necklaces",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/necklace2-1.jpg",
+      "/images/products/necklace2-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "moonlight-choker-necklace",
+    "name": "Moonlight Choker Necklace",
+    "price": 36700,
+    "originalPrice": 38500,
+    "category": "Necklaces",
+    "badge": null,
+    "images": [
+      "/images/products/necklace3-1.jpg",
+      "/images/products/necklace3-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "eternity-diamond-necklace",
+    "name": "Eternity Diamond Necklace",
+    "price": 112500,
+    "originalPrice": 125000,
+    "category": "Necklaces",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/necklace4-1.jpg",
+      "/images/products/necklace4-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "royal-pearl-strand-necklace",
+    "name": "Royal Pearl Strand Necklace",
+    "price": 42800,
+    "originalPrice": 45000,
+    "category": "Necklaces",
+    "badge": null,
+    "images": [
+      "/images/products/necklace5-1.jpg",
+      "/images/products/necklace5-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "infinity-gold-bracelet",
+    "name": "Infinity Gold Bracelet",
+    "price": 18750,
+    "originalPrice": 19500,
+    "category": "Bracelets",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/bracelet1-1.jpg",
+      "/images/products/bracelet1-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "diamond-tennis-bracelet",
+    "name": "Diamond Tennis Bracelet",
+    "price": 95600,
+    "originalPrice": 102000,
+    "category": "Bracelets",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/bracelet2-1.jpg",
+      "/images/products/bracelet2-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "charm-heart-bracelet",
+    "name": "Charm Heart Bracelet",
+    "price": 12300,
+    "originalPrice": 12900,
+    "category": "Bracelets",
+    "badge": null,
+    "images": [
+      "/images/products/bracelet3-1.jpg",
+      "/images/products/bracelet3-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "celtic-knot-bracelet",
+    "name": "Celtic Knot Bracelet",
+    "price": 21500,
+    "originalPrice": 22500,
+    "category": "Bracelets",
+    "badge": null,
+    "images": [
+      "/images/products/bracelet4-1.jpg",
+      "/images/products/bracelet4-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "rose-gold-bangle-set",
+    "name": "Rose Gold Bangle Set",
+    "price": 34200,
+    "originalPrice": 36000,
+    "category": "Bangles",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/bangle1-1.jpg",
+      "/images/products/bangle1-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "traditional-kada-bangle",
+    "name": "Traditional Kada Bangle",
+    "price": 28700,
+    "originalPrice": 29800,
+    "category": "Bangles",
+    "badge": null,
+    "images": [
+      "/images/products/bangle2-1.jpg",
+      "/images/products/bangle2-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "diamond-cluster-bangle",
+    "name": "Diamond Cluster Bangle",
+    "price": 67800,
+    "originalPrice": 71500,
+    "category": "Bangles",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/bangle3-1.jpg",
+      "/images/products/bangle3-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "stackable-thin-bangles",
+    "name": "Stackable Thin Bangles",
+    "price": 15600,
+    "originalPrice": 16500,
+    "category": "Bangles",
+    "badge": null,
+    "images": [
+      "/images/products/bangle4-1.jpg",
+      "/images/products/bangle4-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+    "id": "bridal-chooda-set",
+    "name": "Bridal Chooda Set",
+    "price": 89200,
+    "originalPrice": 94000,
+    "category": "Bangles",
+    "badge": "BESTSELLER",
+    "images": [
+      "/images/products/bangle5-1.jpg",
+      "/images/products/bangle5-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": false
+  },
+  {
+    "id": "vintage-locket-pendant",
+    "name": "Vintage Locket Pendant",
+    "price": 18900,
+    "originalPrice": 19900,
+    "category": "Necklaces",
+    "badge": "LATEST",
+    "images": [
+      "/images/products/necklace6-1.jpg",
+      "/images/products/necklace6-2.jpg"
+    ],
+    "deliveryText": "Check Delivery Date",
+    "tryAtHome": true
+  },
+  {
+  "id": "golden-vine-necklace",
+  "name": "Golden Vine Necklace",
+  "price": 23450,
+  "originalPrice": 24800,
+  "category": "Necklaces",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/necklace7-1.jpg",
+    "/images/products/necklace7-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "sapphire-drop-earrings",
+  "name": "Sapphire Drop Earrings",
+  "price": 18700,
+  "originalPrice": 19500,
+  "category": "Earrings",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/earring6-1.jpg",
+    "/images/products/earring6-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "eternity-wedding-band",
+  "name": "Eternity Wedding Band",
+  "price": 45600,
+  "originalPrice": 48000,
+  "category": "Rings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/ring6-1.jpg",
+    "/images/products/ring6-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "pearl-cluster-bracelet",
+  "name": "Pearl Cluster Bracelet",
+  "price": 32100,
+  "originalPrice": 33800,
+  "category": "Bracelets",
+  "badge": null,
+  "images": [
+    "/images/products/bracelet5-1.jpg",
+    "/images/products/bracelet5-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "royal-emerald-bangle",
+  "name": "Royal Emerald Bangle",
+  "price": 89200,
+  "originalPrice": 94000,
+  "category": "Bangles",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/bangle6-1.jpg",
+    "/images/products/bangle6-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "modern-love-mangalsutra",
+  "name": "Modern Love Mangalsutra",
+  "price": 67800,
+  "originalPrice": 71500,
+  "category": "Mangalsutras",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/mangalsutra6-1.jpg",
+    "/images/products/mangalsutra6-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "crystal-statement-necklace",
+  "name": "Crystal Statement Necklace",
+  "price": 54300,
+  "originalPrice": 57200,
+  "category": "Necklaces",
+  "badge": null,
+  "images": [
+    "/images/products/necklace8-1.jpg",
+    "/images/products/necklace8-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "minimalist-gold-hoops",
+  "name": "Minimalist Gold Hoops",
+  "price": 12300,
+  "originalPrice": 12900,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring7-1.jpg",
+    "/images/products/earring7-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "rose-gold-promise-ring",
+  "name": "Rose Gold Promise Ring",
+  "price": 15600,
+  "originalPrice": 16500,
+  "category": "Rings",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/ring7-1.jpg",
+    "/images/products/ring7-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "diamond-line-bracelet",
+  "name": "Diamond Line Bracelet",
+  "price": 67800,
+  "originalPrice": 71500,
+  "category": "Bracelets",
+  "badge": null,
+  "images": [
+    "/images/products/bracelet6-1.jpg",
+    "/images/products/bracelet6-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "traditional-gold-bangle",
+  "name": "Traditional Gold Bangle",
+  "price": 45600,
+  "originalPrice": 48000,
+  "category": "Bangles",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/bangle7-1.jpg",
+    "/images/products/bangle7-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "contemporary-mangalsutra",
+  "name": "Contemporary Mangalsutra",
+  "price": 89200,
+  "originalPrice": 94000,
+  "category": "Mangalsutras",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/mangalsutra7-1.jpg",
+    "/images/products/mangalsutra7-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "layered-chain-necklace",
+  "name": "Layered Chain Necklace",
+  "price": 23400,
+  "originalPrice": 24600,
+  "category": "Necklaces",
+  "badge": null,
+  "images": [
+    "/images/products/necklace9-1.jpg",
+    "/images/products/necklace9-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "crystal-stud-earrings",
+  "name": "Crystal Stud Earrings",
+  "price": 8900,
+  "originalPrice": 9400,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring8-1.jpg",
+    "/images/products/earring8-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "vintage-flower-ring",
+  "name": "Vintage Flower Ring",
+  "price": 28700,
+  "originalPrice": 30200,
+  "category": "Rings",
+  "badge": null,
+  "images": [
+    "/images/products/ring8-1.jpg",
+    "/images/products/ring8-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "tennis-diamond-bracelet",
+  "name": "Tennis Diamond Bracelet",
+  "price": 123400,
+  "originalPrice": 129900,
+  "category": "Bracelets",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/bracelet7-1.jpg",
+    "/images/products/bracelet7-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "kundan-polki-bangle",
+  "name": "Kundan Polki Bangle",
+  "price": 67800,
+  "originalPrice": 71500,
+  "category": "Bangles",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/bangle8-1.jpg",
+    "/images/products/bangle8-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "diamond-double-chain-mangalsutra",
+  "name": "Diamond Double Chain Mangalsutra",
+  "price": 112300,
+  "originalPrice": 118200,
+  "category": "Mangalsutras",
+  "badge": null,
+  "images": [
+    "/images/products/mangalsutra8-1.jpg",
+    "/images/products/mangalsutra8-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "moon-star-pendant",
+  "name": "Moon & Star Pendant",
+  "price": 16700,
+  "originalPrice": 17600,
+  "category": "Necklaces",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/necklace10-1.jpg",
+    "/images/products/necklace10-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "chandelier-earrings",
+  "name": "Chandelier Earrings",
+  "price": 34500,
+  "originalPrice": 36300,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring9-1.jpg",
+    "/images/products/earring9-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "emerald-cut-solitaire-ring",
+  "name": "Emerald Cut Solitaire Ring",
+  "price": 156700,
+  "originalPrice": 164900,
+  "category": "Rings",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/ring9-1.jpg",
+    "/images/products/ring9-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "charm-bracelet-gold",
+  "name": "Charm Bracelet Gold",
+  "price": 28900,
+  "originalPrice": 30400,
+  "category": "Bracelets",
+  "badge": null,
+  "images": [
+    "/images/products/bracelet8-1.jpg",
+    "/images/products/bracelet8-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "meenakari-art-bangle",
+  "name": "Meenakari Art Bangle",
+  "price": 54300,
+  "originalPrice": 57200,
+  "category": "Bangles",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/bangle9-1.jpg",
+    "/images/products/bangle9-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "short-length-mangalsutra",
+  "name": "Short Length Mangalsutra",
+  "price": 78900,
+  "originalPrice": 83000,
+  "category": "Mangalsutras",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/mangalsutra9-1.jpg",
+    "/images/products/mangalsutra9-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "geometric-pendant-necklace",
+  "name": "Geometric Pendant Necklace",
+  "price": 19800,
+  "originalPrice": 20800,
+  "category": "Necklaces",
+  "badge": null,
+  "images": [
+    "/images/products/necklace11-1.jpg",
+    "/images/products/necklace11-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "huggie-hoop-earrings",
+  "name": "Huggie Hoop Earrings",
+  "price": 13400,
+  "originalPrice": 14100,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring10-1.jpg",
+    "/images/products/earring10-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "three-stone-diamond-ring",
+  "name": "Three Stone Diamond Ring",
+  "price": 89200,
+  "originalPrice": 94000,
+  "category": "Rings",
+  "badge": null,
+  "images": [
+    "/images/products/ring10-1.jpg",
+    "/images/products/ring10-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "chain-link-bracelet",
+  "name": "Chain Link Bracelet",
+  "price": 16700,
+  "originalPrice": 17600,
+  "category": "Bracelets",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/bracelet9-1.jpg",
+    "/images/products/bracelet9-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "antique-finish-bangle",
+  "name": "Antique Finish Bangle",
+  "price": 45600,
+  "originalPrice": 48000,
+  "category": "Bangles",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/bangle10-1.jpg",
+    "/images/products/bangle10-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "ruby-diamond-mangalsutra",
+  "name": "Ruby & Diamond Mangalsutra",
+  "price": 134500,
+  "originalPrice": 141600,
+  "category": "Mangalsutras",
+  "badge": null,
+  "images": [
+    "/images/products/mangalsutra10-1.jpg",
+    "/images/products/mangalsutra10-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "personalized-name-necklace",
+  "name": "Personalized Name Necklace",
+  "price": 22300,
+  "originalPrice": 23500,
+  "category": "Necklaces",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/necklace12-1.jpg",
+    "/images/products/necklace12-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "threader-earrings-gold",
+  "name": "Threader Earrings Gold",
+  "price": 15600,
+  "originalPrice": 16400,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring11-1.jpg",
+    "/images/products/earring11-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "cluster-diamond-ring",
+  "name": "Cluster Diamond Ring",
+  "price": 67800,
+  "originalPrice": 71500,
+  "category": "Rings",
+  "badge": null,
+  "images": [
+    "/images/products/ring11-1.jpg",
+    "/images/products/ring11-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "cuff-bracelet-diamond",
+  "name": "Cuff Bracelet Diamond",
+  "price": 89200,
+  "originalPrice": 94000,
+  "category": "Bracelets",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/bracelet10-1.jpg",
+    "/images/products/bracelet10-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "stacking-thin-bangles",
+  "name": "Stacking Thin Bangles",
+  "price": 12300,
+  "originalPrice": 12900,
+  "category": "Bangles",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/bangle11-1.jpg",
+    "/images/products/bangle11-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "contemporary-black-beads-mangalsutra",
+  "name": "Contemporary Black Beads Mangalsutra",
+  "price": 67800,
+  "originalPrice": 71500,
+  "category": "Mangalsutras",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/mangalsutra11-1.jpg",
+    "/images/products/mangalsutra11-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "y-necklace-diamond",
+  "name": "Y-Necklace Diamond",
+  "price": 45600,
+  "originalPrice": 48000,
+  "category": "Necklaces",
+  "badge": null,
+  "images": [
+    "/images/products/necklace13-1.jpg",
+    "/images/products/necklace13-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "jacket-earrings-gold",
+  "name": "Jacket Earrings Gold",
+  "price": 23400,
+  "originalPrice": 24600,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring12-1.jpg",
+    "/images/products/earring12-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "crossover-diamond-ring",
+  "name": "Crossover Diamond Ring",
+  "price": 54300,
+  "originalPrice": 57200,
+  "category": "Rings",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/ring12-1.jpg",
+    "/images/products/ring12-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "tennis-bracelet-white-gold",
+  "name": "Tennis Bracelet White Gold",
+  "price": 156700,
+  "originalPrice": 164900,
+  "category": "Bracelets",
+  "badge": null,
+  "images": [
+    "/images/products/bracelet11-1.jpg",
+    "/images/products/bracelet11-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "oxidized-silver-bangle",
+  "name": "Oxidized Silver Bangle",
+  "price": 8900,
+  "originalPrice": 9400,
+  "category": "Bangles",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/bangle12-1.jpg",
+    "/images/products/bangle12-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "long-chain-mangalsutra",
+  "name": "Long Chain Mangalsutra",
+  "price": 112300,
+  "originalPrice": 118200,
+  "category": "Mangalsutras",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/mangalsutra12-1.jpg",
+    "/images/products/mangalsutra12-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "coin-pendant-necklace",
+  "name": "Coin Pendant Necklace",
+  "price": 28700,
+  "originalPrice": 30200,
+  "category": "Necklaces",
+  "badge": null,
+  "images": [
+    "/images/products/necklace14-1.jpg",
+    "/images/products/necklace14-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "mismatched-earrings-set",
+  "name": "Mismatched Earrings Set",
+  "price": 16700,
+  "originalPrice": 17600,
+  "category": "Earrings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/earring13-1.jpg",
+    "/images/products/earring13-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "anniversary-band-ring",
+  "name": "Anniversary Band Ring",
+  "price": 78900,
+  "originalPrice": 83000,
+  "category": "Rings",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/ring13-1.jpg",
+    "/images/products/ring13-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "bangle-bracelet-combo",
+  "name": "Bangle Bracelet Combo",
+  "price": 45600,
+  "originalPrice": 48000,
+  "category": "Bracelets",
+  "badge": null,
+  "images": [
+    "/images/products/bracelet12-1.jpg",
+    "/images/products/bracelet12-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+},
+{
+  "id": "diamond-eternity-band",
+  "name": "Diamond Eternity Band",
+  "price": 134500,
+  "originalPrice": 141600,
+  "category": "Rings",
+  "badge": "BESTSELLER",
+  "images": [
+    "/images/products/ring14-1.jpg",
+    "/images/products/ring14-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": false
+},
+{
+  "id": "pearl-drop-earrings",
+  "name": "Pearl Drop Earrings",
+  "price": 23400,
+  "originalPrice": 24600,
+  "category": "Earrings",
+  "badge": "LATEST",
+  "images": [
+    "/images/products/earring14-1.jpg",
+    "/images/products/earring14-2.jpg"
+  ],
+  "deliveryText": "Check Delivery Date",
+  "tryAtHome": true
+}
+]
