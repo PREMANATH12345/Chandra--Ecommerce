@@ -117,7 +117,7 @@
               <h3 class="text-lg font-semibold text-gray-900">Size</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedSize }}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
               <button 
                 v-for="size in productData.sizes" 
                 :key="size.value"
@@ -140,7 +140,7 @@
               <h3 class="text-lg font-semibold text-gray-900">Metal</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedMetal }}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
               <button 
                 v-for="metal in productData.metals" 
                 :key="metal"
@@ -163,7 +163,7 @@
               <h3 class="text-lg font-semibold text-gray-900">Diamond</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedDiamond }}</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
               <button 
                 v-for="diamond in productData.diamonds" 
                 :key="diamond.value"

@@ -11,10 +11,14 @@
       <Collection/>
       <CategoryHighlight />
       <FeatureSection/>
+      <Collection2/>
+      <ParentHighlight/>
+      
     </main>
-    <ProductView/>
+    <!-- <ProductView/> -->
      <StoreLocation />
       <reviews />
+     
     <JoinUs />
     <Footer />
   </div>
@@ -34,8 +38,8 @@ import FeatureSection from '../components/HomePageComponent/FeatureSection.vue'
 import Hero from "../components/HomePageComponent/Hero";
 import ProductCategory from "../components/HomePageComponent/ProductCategory.vue";
 import Collection from "../components/HomePageComponent/Collection.vue";
-
-import ProductView from "/Pages/Products/ProductView.vue";
+// import ProductView from "/Pages/Products/ProductView.vue";
+import Collection2 from '../components/HomePageComponent/Collection2.vue'
 import CategoryHighlight from '../components/HomePageComponent/CategoryHighlight.vue'
-
+import ParentHighlight from '../components/HomePageComponent/ParentHighlight.vue'
 </script>

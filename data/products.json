@@ -142,7 +142,7 @@
       "title": "New Collection",
       "subtitle": "Discover Emerald Elegance",
       "description": "Up to 20% off on select items",
-      "image": "/bann.jpg",
+      "image": "/images/hero1.jpg",
       "cta": "Shop Now"
     },
     {
@@ -151,18 +151,19 @@
       "title": "Wedding Collection",
       "subtitle": "Celebrate Love in Green",
       "description": "Exquisite designs for your special day",
-      "image": "/bann1.jpg",
+      "image": "/images/hero3.jpg",
       "cta": "Explore"
     },
     {
-      "id": 3,
-      "type": "video",
-      "title": "Luxury in Motion",
-      "subtitle": "Experience the Shine",
-      "description": "Timeless beauty captured in every frame",
-      "video": "/ring.mp4",
-      "cta": "Watch Now"
+      "id":3,
+      "type": "image",
+      "title": "Limited Time Offer",
+      "subtitle": "Green Stone Jewelry Sale",
+      "description": "Get up to 25% off on selected pieces",
+      "image": "/images/hero3.jpg",
+      "cta": "Shop Deals"
     }
+  
   ],
   
 
@@ -300,6 +301,16 @@
       "id": 5,
       "title": "22kt Gold Chains",
       "image": "/sub20.jpg"
+    },
+    {
+      "id":6,
+      "title":"ring collection",
+      "image":"/viewProduct/ring2.jpeg"
+    },
+     {
+      "id":7,
+      "title":"ring collection",
+      "image":"/viewProduct/ring3.jpeg"
     }
   ],
   "Collection": [
@@ -364,6 +375,70 @@
           "image": "/ears.webp"
         }
       ]
+    }
+  ],
+  "categoryHightlight1":[
+    {
+      "banner":{
+        "title": "To the tiny humans",
+        "subtitle": "who outshine every diamond!",
+        "buttonText": "SHOP KIDS DESIGNS",
+        "image": "/images/p1.jpeg"
+      },
+      "products":[
+        {
+          "id": 1,
+          "title": "Gold chain Collection",
+          "price": "₹86,412",
+          "image": "/parent/img_1.jpeg"
+        },
+        {
+          "id": 2,
+          "title": "Stylish earings",
+          "price": "₹25,061",
+          "oldPrice": "₹25,370",
+          "image": "/parent/img_2.jpeg"
+        },
+        {
+          "id": 3,
+          "title": "rings collection",
+          "price": "₹7,095",
+          "oldPrice": "₹7,201",
+          "image": "/viewProduct/ring2.jpeg"
+        },
+        {
+          "id": 4,
+          "title": "Violet Heart Kids Pendant",
+          "price": "₹8,102",
+          "image": "/ears.webp"
+        }
+      ]
+    }
+  ],
+   "Collection1": [
+    {
+      "id": 1,
+      "title": "Maaya",
+      "subtitle": "The golden mirage of artistry",
+      "image": "/maaya_d.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Swirl",
+      "subtitle": "Rhythm of Movement",
+      "image": "/swirl_d.jpg"
+    },
+    {
+      "id": 3,
+      "title": "F.R.I.E.N.D.S x Caratlane",
+      "subtitle": "The one with the gold & diamonds",
+      "image": "/friends_d.jpg"
+    },
+    {
+      "id": 4,
+      "title": "SOL",
+      "subtitle": "Dawn of your brilliance",
+      "image": "/sol_d_1.jpg"
     }
   ]
 }
