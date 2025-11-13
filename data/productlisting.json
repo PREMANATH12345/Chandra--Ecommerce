@@ -1,5 +1,5 @@
 [
-   {
+    {
     "id": "ring-1",
     "name": "Swirl Heart Diamond Ring",
     "price": 10864,
@@ -14,7 +14,46 @@
     "isNew": false,
     "storePickup": true,
     "discount": 15,
-    "productType": "Ring"
+    "productType": "Ring",
+    "thumbnails": ["/products/ringfallbackimage1.jpg", "/products/ringfallbackimage2.jpg"],
+    "rating": 4.5,
+    "reviews": 28,
+    "discountText": "Flat 15% off on Diamond Prices",
+    "taxInfo": "MPR* Inclusive of all taxes",
+    "deliveryInfo": "Free delivery available. Available in stores for trial. Book an appointment to try at home.",
+    "sizeHelperText": "Not sure about your ring size?",
+    "breadcrumb": [
+      { "label": "HOME", "path": "/" },
+      { "label": "RINGS", "path": "/rings" },
+      { "label": "DIAMOND RINGS", "path": "/rings/diamond" },
+      { "label": "SWIRL HEART DIAMOND RING", "path": "" }
+    ],
+    "sizes": [
+      { "label": "12", "value": "12 (51.8 mm)", "available": true },
+      { "label": "13", "value": "13 (53.1 mm)", "available": true },
+      { "label": "14", "value": "14 (54.4 mm)", "available": true },
+      { "label": "15", "value": "15 (55.7 mm)", "available": false },
+      { "label": "16", "value": "16 (57.0 mm)", "available": true },
+      { "label": "17", "value": "17 (58.3 mm)", "available": false }
+    ],
+    "metals": [
+      { "name": "18K Yellow Gold", "available": true },
+      { "name": "18K White Gold", "available": true },
+      { "name": "18K Rose Gold", "available": true },
+      { "name": "Platinum", "available": true }
+    ],
+    "diamonds": [
+      { "label": "OH-SI", "value": "OH-SI", "available": true },
+      { "label": "VS-SI", "value": "VS-SI", "available": true },
+      { "label": "VVS", "value": "VVS", "available": true },
+      { "label": "IF", "value": "IF", "available": true }
+    ],
+    "buttons": {
+      "addToBag": "ADD TO BAG",
+      "tryAtHome": "TRY AT HOME",
+      "learnMore": "Learn Now →",
+      "addToEnquiry": "ADD TO ENQUIRY"
+    }
   },
   {
     "id": "ring-2",
@@ -31,7 +70,46 @@
     "isNew": true,
     "storePickup": true,
     "discount": 10,
-    "productType": "Ring"
+    "productType": "Ring",
+    "thumbnails": ["/products/ringfallbackimage1.jpg", "/products/ringfallbackimage2.jpg"],
+    "rating": 5,
+    "reviews": 15,
+    "discountText": "Flat 10% off on Diamond Prices - New Arrival Special",
+    "taxInfo": "MPR* Inclusive of all taxes",
+    "deliveryInfo": "Free delivery available. Available in stores for trial. Book an appointment to try at home.",
+    "sizeHelperText": "Not sure about your ring size?",
+    "breadcrumb": [
+      { "label": "HOME", "path": "/" },
+      { "label": "RINGS", "path": "/rings" },
+      { "label": "DIAMOND RINGS", "path": "/rings/diamond" },
+      { "label": "TWILIGHT TWIRL DIAMOND RING", "path": "" }
+    ],
+    "sizes": [
+      { "label": "11", "value": "11 (50.5 mm)", "available": true },
+      { "label": "12", "value": "12 (51.8 mm)", "available": true },
+      { "label": "13", "value": "13 (53.1 mm)", "available": false },
+      { "label": "14", "value": "14 (54.4 mm)", "available": true },
+      { "label": "15", "value": "15 (55.7 mm)", "available": true },
+      { "label": "16", "value": "16 (57.0 mm)", "available": false }
+    ],
+    "metals": [
+      { "name": "18K Yellow Gold", "available": true },
+      { "name": "18K White Gold", "available": true },
+      { "name": "18K Rose Gold", "available": true },
+      { "name": "Platinum", "available": false }
+    ],
+    "diamonds": [
+      { "label": "OH-SI", "value": "OH-SI", "available": true },
+      { "label": "VS-SI", "value": "VS-SI", "available": true },
+      { "label": "VVS", "value": "VVS", "available": true },
+      { "label": "IF", "value": "IF", "available": false }
+    ],
+    "buttons": {
+      "addToBag": "ADD TO BAG",
+      "tryAtHome": "TRY AT HOME",
+      "learnMore": "Learn Now →",
+      "addToEnquiry": "ADD TO ENQUIRY"
+    }
   },
   {
     "id": "ring-3",

@@ -15,6 +15,7 @@
       :productData="productData"
       @add-to-bag="handleAddToBag"
       @try-at-home="handleTryAtHome"
+      @add-to-enquiry="handleAddToEnquiry"
     >
       <template #promo>
         <div class="flex items-center text-green-700 font-semibold">
@@ -49,13 +50,13 @@ const router = useRouter()
 const productId = route.params.id
 const category = route.params.category
 
-console.log('Looking for product with ID:', productId) // Debug log
-console.log('In category:', category) // Debug log
+console.log('Looking for product with ID:', productId)
+console.log('In category:', category)
 
 // Find the product from productlisting.json
 const selectedProduct = productListData.find(p => p.id === productId)
 
-console.log('Found product:', selectedProduct) // Debug log
+console.log('Found product:', selectedProduct)
 
 // Transform productlisting data to match ProductDetail component format
 const productData = computed(() => {
@@ -65,8 +66,6 @@ const productData = computed(() => {
     id: selectedProduct.id,
     title: selectedProduct.name,
     category: selectedProduct.category,
-    // images: selectedProduct.images,
-    // thumbnails: selectedProduct.images, 
     images: (selectedProduct.images && selectedProduct.images.length > 0)
       ? selectedProduct.images
       : selectedProduct.fallbackImages || ['/products/default-fallback.jpg'],
@@ -76,41 +75,45 @@ const productData = computed(() => {
       : selectedProduct.fallbackImages || ['/products/default-fallback.jpg'],
     price: selectedProduct.price,
     originalPrice: selectedProduct.originalPrice,
-    discount: Math.round(((selectedProduct.originalPrice - selectedProduct.price) / selectedProduct.originalPrice) * 100),
+    discount: selectedProduct.discount || Math.round(((selectedProduct.originalPrice - selectedProduct.price) / selectedProduct.originalPrice) * 100),
     stock: selectedProduct.badge === "BESTSELLER" ? "IN STOCK" : "LAST PIECE",
-    rating: 5,
-    reviews: Math.floor(Math.random() * 50) + 10,
-    discountText: `Flat ${Math.round(((selectedProduct.originalPrice - selectedProduct.price) / selectedProduct.originalPrice) * 100)}% off`,
-    taxInfo: "MPR* Inclusive of all taxes",
-    deliveryInfo: selectedProduct.deliveryText + ". Available in stores for trial. Book an appointment to try at home.",
-    sizeHelperText: "Not sure about your ring size?",
-    breadcrumb: [
+    rating: selectedProduct.rating || 5,
+    reviews: selectedProduct.reviews || Math.floor(Math.random() * 50) + 10,
+    discountText: selectedProduct.discountText || `Flat ${Math.round(((selectedProduct.originalPrice - selectedProduct.price) / selectedProduct.originalPrice) * 100)}% off`,
+    taxInfo: selectedProduct.taxInfo || "MPR* Inclusive of all taxes",
+    deliveryInfo: selectedProduct.deliveryInfo || (selectedProduct.deliveryText + ". Available in stores for trial. Book an appointment to try at home."),
+    sizeHelperText: selectedProduct.sizeHelperText || "Not sure about your ring size?",
+    breadcrumb: selectedProduct.breadcrumb || [
       { label: "HOME", path: "/" },
       { label: selectedProduct.category.toUpperCase(), path: `/products/${category}` },
       { label: selectedProduct.name.toUpperCase(), path: "" }
     ],
-    sizes: [
-      { label: "12", value: "12 (51.8 mm)" },
-      { label: "13", value: "13 (53.1 mm)" },
-      { label: "14", value: "14 (54.4 mm)" },
-      { label: "15", value: "15 (55.7 mm)" }
+    // CRITICAL FIX: Use sizes from JSON if available, otherwise use defaults
+    sizes: selectedProduct.sizes || [
+      { label: "12", value: "12 (51.8 mm)", available: true },
+      { label: "13", value: "13 (53.1 mm)", available: true },
+      { label: "14", value: "14 (54.4 mm)", available: true },
+      { label: "15", value: "15 (55.7 mm)", available: true }
     ],
-    metals: [
-      "18K Yellow Gold",
-      "18K White Gold",
-      "18K Rose Gold",
-      "Platinum"
+    // CRITICAL FIX: Transform metals array if it exists in JSON
+    metals: selectedProduct.metals || [
+      { name: "18K Yellow Gold", available: true },
+      { name: "18K White Gold", available: true },
+      { name: "18K Rose Gold", available: true },
+      { name: "Platinum", available: true }
     ],
-    diamonds: [
-      { label: "IJ-SI", value: "IJ-SI" },
-      { label: "GH-SI", value: "GH-SI" },
-      { label: "GH-VS", value: "GH-VS" },
-      { label: "EF-VVS", value: "EF-VVS" }
+    // CRITICAL FIX: Use diamonds from JSON if available
+    diamonds: selectedProduct.diamonds || [
+      { label: "IJ-SI", value: "IJ-SI", available: true },
+      { label: "GH-SI", value: "GH-SI", available: true },
+      { label: "GH-VS", value: "GH-VS", available: true },
+      { label: "EF-VVS", value: "EF-VVS", available: true }
     ],
-    buttons: {
+    buttons: selectedProduct.buttons || {
       addToBag: "ADD TO BAG",
       tryAtHome: "TRY AT HOME",
-      learnMore: "Learn Now →"
+      learnMore: "Learn Now →",
+      addToEnquiry: "ADD TO ENQUIRY"
     }
   }
 })
@@ -124,6 +127,26 @@ const handleAddToBag = (item) => {
 const handleTryAtHome = (productName) => {
   console.log('Try at home for:', productName)
   // Add your try-at-home logic here
+}
+
+const handleAddToEnquiry = async (enquiryData) => {
+  console.log('Enquiry submitted:', enquiryData)
+  
+  try {
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    
+    console.log('Enquiry submitted successfully!')
+    
+    // Save to local storage
+    const enquiries = JSON.parse(localStorage.getItem('sizeEnquiries') || '[]')
+    enquiries.push(enquiryData)
+    localStorage.setItem('sizeEnquiries', JSON.stringify(enquiries))
+    
+  } catch (error) {
+    console.error('Error submitting enquiry:', error)
+    throw error
+  }
 }
 
 const handleSearch = (query) => console.log('Search:', query)
