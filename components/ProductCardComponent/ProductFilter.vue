@@ -210,42 +210,113 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
 
 const props = defineProps({
   showMobileFilters: {
     type: Boolean,
     default: false
+  },
+  products: {
+    type: Array,
+    default: () => []
   }
 });
 
 const emit = defineEmits(['close', 'filters-changed']);
 
+// Import navbar data
+let navbarData = [];
+onMounted(async () => {
+  const data = await import('~/data/navbar.json').then(m => m.default || m);
+  navbarData = data;
+  updateProductTypes();
+});
+
 // Filter Data
 const priceRanges = ref([
-  { id: 1, label: '₹10,001 - ₹15,000', count: 236 },
-  { id: 2, label: '₹20,001 - ₹30,000', count: 317 },
-  { id: 3, label: 'Under ₹5,000', count: 8 },
-  { id: 4, label: '₹5,001 - ₹10,000', count: 159 }
+  { id: 1, label: '₹10,001 - ₹15,000', count: 0 },
+  { id: 2, label: '₹20,001 - ₹30,000', count: 0 },
+  { id: 3, label: 'Under ₹5,000', count: 0 },
+  { id: 4, label: '₹5,001 - ₹10,000', count: 0 }
 ]);
 
 const discounts = ref([
-  { id: 1, label: 'Flat 15% off on Diamond Prices', count: 615 },
-  { id: 2, label: 'Flat 10% off on Diamond Prices', count: 534 },
-  { id: 3, label: 'Flat 20% off on Diamond Prices', count: 604 }
+  { id: 1, label: '15% off', count: 0 },
+  { id: 2, label: '10% off', count: 0 },
+  { id: 3, label: '20% off', count: 0 }
 ]);
 
-const productTypes = ref([
-  { id: 1, label: 'Earrings', count: 2859 },
-  { id: 2, label: 'Rings', count: 2160 },
-  { id: 3, label: 'Necklaces', count: 865 },
-  { id: 4, label: 'Pendants', count: 973 }
-]);
+const productTypes = ref([]);
 
 // Selected Filters
 const selectedPriceRanges = ref([]);
 const selectedDiscounts = ref([]);
 const selectedProductTypes = ref([]);
+
+// Update product types from navbar
+const updateProductTypes = () => {
+  if (!navbarData || navbarData.length === 0) return;
+  
+  // Get categories from navbar that should be in filter
+  const categoriesToInclude = ['Rings', 'Earrings', 'Necklaces & Pendants', 'Bracelets & Bangles', 'Solitaires', 'Mangalsutras'];
+  
+  productTypes.value = navbarData
+    .filter(item => categoriesToInclude.includes(item.title))
+    .map((item, index) => {
+      // Count products for this category
+      const categoryName = item.title === 'Necklaces & Pendants' ? 'Necklaces' : item.title;
+      const count = props.products.filter(p => 
+        p.category === categoryName || p.category === item.title
+      ).length;
+      
+      return {
+        id: index + 1,
+        label: item.title,
+        category: categoryName,
+        count: count
+      };
+    });
+};
+
+// Update counts when products change
+watch(() => props.products, () => {
+  updateCounts();
+}, { deep: true });
+
+const updateCounts = () => {
+  // Update price range counts
+  priceRanges.value.forEach(range => {
+    range.count = props.products.filter(p => {
+      switch(range.id) {
+        case 1: return p.price >= 10001 && p.price <= 15000;
+        case 2: return p.price >= 20001 && p.price <= 30000;
+        case 3: return p.price < 5000;
+        case 4: return p.price >= 5001 && p.price <= 10000;
+        default: return false;
+      }
+    }).length;
+  });
+  
+  // Update discount counts
+  discounts.value.forEach(discount => {
+    discount.count = props.products.filter(p => {
+      switch(discount.id) {
+        case 1: return p.discount === 15;
+        case 2: return p.discount === 10;
+        case 3: return p.discount === 20;
+        default: return false;
+      }
+    }).length;
+  });
+  
+  // Update product type counts
+  productTypes.value.forEach(type => {
+    type.count = props.products.filter(p => 
+      p.category === type.category || p.category === type.label
+    ).length;
+  });
+};
 
 // Computed
 const activeFiltersCount = computed(() => {
@@ -275,7 +346,10 @@ const emitFilters = () => {
   emit('filters-changed', {
     priceRanges: selectedPriceRanges.value,
     discounts: selectedDiscounts.value,
-    productTypes: selectedProductTypes.value
+    productTypes: selectedProductTypes.value.map(id => {
+      const type = productTypes.value.find(t => t.id === id);
+      return { id, category: type?.category || type?.label };
+    })
   });
 };
 
@@ -311,7 +385,7 @@ watch([selectedPriceRanges, selectedDiscounts, selectedProductTypes], () => {
   transition: all 0.3s ease;
 }
 
-.drawer-enter-from .absolute.bottom-0,
+.drawer-enter-from .absolute.bottom-0,  
 .drawer-leave-to .absolute.bottom-0 {
   transform: translateY(100%);
 }

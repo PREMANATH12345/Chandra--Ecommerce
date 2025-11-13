@@ -2,10 +2,10 @@
   <div class="min-h-screen bg-gray-50">
     <!-- Topbar -->
     <TopBar 
-    :class="[
-    'transition-transform duration-300',
-    showHeader ? 'translate-y-0' : '-translate-y-full'
-    ]"
+      :class="[
+        'transition-transform duration-300',
+        showHeader ? 'translate-y-0' : '-translate-y-full'
+      ]"
       @search="handleSearch"
       @quick-action="handleQuickAction"
       @check-delivery="handleCheckDelivery"
@@ -15,35 +15,43 @@
 
     <!-- Navbar -->
     <NavBar 
-    :class="[
-    'transition-transform duration-300',
-    showHeader ? 'translate-y-0' : '-translate-y-full'
-    ]"
+      :class="[
+        'transition-transform duration-300',
+        showHeader ? 'translate-y-0' : '-translate-y-full'
+      ]"
     />
 
-<!-- Breadcrumb & Title Section -->
-<div class="bg-gradient-to-b from-green-50 to-white border-b border-gray-200 pt-32 lg:pt-36 relative z-10">
-  <div class="container mx-auto px-4 py-3 md:py-4">
-    <!-- Breadcrumb -->
-    <div class="flex items-center gap-1.5 text-[10px] md:text-xs text-gray-600 mb-1.5 md:mb-2">
-      <NuxtLink to="/" class="hover:text-green-600">Home</NuxtLink>
-      <svg class="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-      <span>Jewellery</span>
-      <svg class="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-      <span class="text-gray-900 font-medium">{{ selectedCategory }}</span>
-    </div>
+    <!-- Breadcrumb & Title Section -->
+    <div class="bg-gradient-to-b from-green-50 to-white border-b border-gray-200 pt-32 lg:pt-36 relative z-10">
+      <div class="container mx-auto px-4 py-3 md:py-4">
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-1.5 text-[10px] md:text-xs text-gray-600 mb-1.5 md:mb-2">
+          <NuxtLink to="/" class="hover:text-green-600">Home</NuxtLink>
+          <svg class="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span>Jewellery</span>
+          <svg class="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <!-- <span class="text-gray-900 font-medium">{{ selectedCategory }}</span> -->
+          <span class="text-gray-900 font-medium">{{ displayTitle }}</span>
 
-    <!-- Title -->
-    <h1 class="text-base md:text-lg lg:text-xl font-bold text-gray-900">
-      {{ selectedCategory }} 
-      <span class="text-xs md:text-sm lg:text-base text-gray-600 font-normal">{{ filteredProducts.length }} Designs</span>
-    </h1>
-  </div>
-</div>
+        </div>
+
+        <!-- Title -->
+        <!-- <h1 class="text-base md:text-lg lg:text-xl font-bold text-gray-900">
+          {{ selectedCategory }} 
+          <span class="text-xs md:text-sm lg:text-base text-gray-600 font-normal">{{ filteredProducts.length }} Designs</span>
+        </h1> -->
+        <h1 class="text-base md:text-lg lg:text-xl font-bold text-gray-900">
+        {{ displayTitle }} 
+        <span class="text-xs md:text-sm lg:text-base text-gray-600 font-normal">
+          {{ filteredProducts.length }} Designs
+        </span>
+      </h1>
+      </div>
+    </div>
 
     <!-- Filter Pills - Sticky -->
     <div class="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
@@ -72,11 +80,12 @@
         <!-- Sidebar Filters (Desktop/Tablet) - Sticky -->
         <div class="hidden lg:block lg:w-64 flex-shrink-0">
           <div class="sticky top-32">
-            <ProductFilter 
-              :showMobileFilters="showMobileFilters"
-              @close="showMobileFilters = false"
-              @filters-changed="handleFiltersChanged"
-            />
+           <ProductFilter 
+            :showMobileFilters="showMobileFilters"
+            :products="products"
+            @close="showMobileFilters = false"
+            @filters-changed="handleFiltersChanged"
+          />
           </div>
         </div>
 
@@ -180,6 +189,8 @@
                   @try-at-home="handleTryAtHome"
                   @video-call="handleVideoCall"
                   @toggle-wishlist="handleToggleWishlist"
+                  @click="navigateToProduct(item.data)"
+                  class="cursor-pointer"
                 />
                 
                 <DecorativeBanner 
@@ -201,6 +212,8 @@
                   @try-at-home="handleTryAtHome"
                   @video-call="handleVideoCall"
                   @toggle-wishlist="handleToggleWishlist"
+                  @click="navigateToProduct(item.data)"
+                  class="cursor-pointer"
                 />
                 
                 <DecorativeBanner 
@@ -255,7 +268,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import ProductCard from '~/components/ProductCardComponent/ProductCard.vue';
 import ProductFilter from '~/components/ProductCardComponent/ProductFilter.vue';
 import DecorativeBanner from '~/components/ProductCardComponent/DecorativeBanner.vue';
@@ -266,16 +279,31 @@ import NavBar from '~/components/HomePageComponent/navbar.vue';
 const productData = await import('~/data/productlisting.json').then(m => m.default || m);
 const navbarData = await import('~/data/navbar.json').then(m => m.default || m);
 
+const route = useRoute();
+const router = useRouter();
+
+// IMPORTANT: This function navigates to product detail
 const navigateToProduct = (product) => {
   const categorySlug = product.category.toLowerCase().replace(/\s+/g, '-')
   router.push(`/products/${categorySlug}/${product.id}`)
 }
 
-const route = useRoute();
-
 // State
 const selectedCategory = ref('Rings');
-const products = ref(productData);
+// const products = ref(productData);
+const products = ref(
+  productData.map(p => {
+    const hasImages = p.images && p.images.length > 0;
+    const fallback = p.fallbackImages || ['/products/default-fallback.jpg'];
+
+    return {
+      ...p,
+      images: hasImages ? p.images : fallback,
+      thumbnails: hasImages ? p.images : fallback
+    };
+  })
+);
+
 const isLoading = ref(false);
 const showMobileFilters = ref(false);
 const showSortMenu = ref(false);
@@ -287,8 +315,8 @@ const showHeader = ref(true);
 const lastScrollY = ref(0);
 
 // New state for infinite scroll
-const displayedProductCount = ref(25); // 5 rows × 5 products = 25
-const itemsPerRow = ref(5); // Desktop default
+const displayedProductCount = ref(25);
+const itemsPerRow = ref(5);
 const rowsPerLoad = ref(5);
 
 // Filter Pills
@@ -329,12 +357,58 @@ const categoryFilterData = computed(() => {
 });
 
 // Filtered Products based on category and pills
-const filteredProducts = computed(() => {
-  let filtered = products.value.filter(product => 
-    product.category === selectedCategory.value
-  );
+// const filteredProducts = computed(() => {
+//   let filtered = products.value.filter(product => 
+//     product.category === selectedCategory.value
+//   );
   
-  // Apply pill filters
+//   if (selectedPill.value !== 'all') {
+//     switch(selectedPill.value) {
+//       case 'fast-delivery':
+//         filtered = filtered.filter(p => p.fastDelivery === true);
+//         break;
+//       case 'new-arrivals':
+//         filtered = filtered.filter(p => p.isNew === true);
+//         break;
+//       case 'store-pickup':
+//         filtered = filtered.filter(p => p.storePickup === true);
+//         break;
+//       case 'try-home':
+//         filtered = filtered.filter(p => p.tryAtHome === true);
+//         break;
+//     }
+//   }
+  
+//   return filtered;
+// });
+
+const filteredProducts = computed(() => {
+  let filtered = products.value;
+  
+  // Apply product type filters FIRST (from sidebar)
+  if (activeFilters.value.some(f => f.startsWith('Type:'))) {
+    const typeFilters = activeFilters.value
+      .filter(f => f.startsWith('Type:'))
+      .map(f => f.split(': ')[1]); // Get category name
+    
+    filtered = filtered.filter(product => {
+      return typeFilters.some(categoryName => {
+        // Match exact category or handle special cases
+        return product.category === categoryName || 
+          (categoryName === 'Necklaces & Pendants' && (product.category === 'Necklaces' || product.category === 'Pendants')) ||
+          (categoryName === 'Necklaces' && product.category === 'Necklaces & Pendants') ||
+          (categoryName === 'Bracelets & Bangles' && (product.category === 'Bracelets' || product.category === 'Bangles'));
+      });
+    });
+  } 
+  // Only apply category filter if no product type filter is active AND category is set
+  else if (selectedCategory.value) {
+    filtered = filtered.filter(product => 
+      product.category === selectedCategory.value
+    );
+  }
+  
+  // Filter by pill selection
   if (selectedPill.value !== 'all') {
     switch(selectedPill.value) {
       case 'fast-delivery':
@@ -352,49 +426,98 @@ const filteredProducts = computed(() => {
     }
   }
   
-  return filtered;
+  // Apply price range filters
+  if (activeFilters.value.some(f => f.startsWith('Price:'))) {
+    const priceFilters = activeFilters.value
+      .filter(f => f.startsWith('Price:'))
+      .map(f => parseInt(f.split(': ')[1]));
+    
+    filtered = filtered.filter(product => {
+      return priceFilters.some(filterId => {
+        switch(filterId) {
+          case 1: return product.price >= 10001 && product.price <= 15000;
+          case 2: return product.price >= 20001 && product.price <= 30000;
+          case 3: return product.price < 5000;
+          case 4: return product.price >= 5001 && product.price <= 10000;
+          default: return true;
+        }
+      });
+    });
+  }
+  
+  // Apply discount filters
+  if (activeFilters.value.some(f => f.startsWith('Discount:'))) {
+    const discountFilters = activeFilters.value
+      .filter(f => f.startsWith('Discount:'))
+      .map(f => parseInt(f.split(': ')[1]));
+    
+    filtered = filtered.filter(product => {
+      return discountFilters.some(filterId => {
+        switch(filterId) {
+          case 1: return product.discount === 15;
+          case 2: return product.discount === 10;
+          case 3: return product.discount === 20;
+          default: return true;
+        }
+      });
+    });
+  }
+  
+  // Apply sorting
+  const sorted = [...filtered];
+  switch(selectedSort.value) {
+    case 'Latest':
+      return sorted.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+    case 'Discount':
+      return sorted.sort((a, b) => (b.discount || 0) - (a.discount || 0));
+    case 'Price: Low to High':
+      return sorted.sort((a, b) => a.price - b.price);
+    case 'Price: High to Low':
+      return sorted.sort((a, b) => b.price - a.price);
+    case 'Customer Rating':
+      return sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    default: // Featured
+      return sorted.sort((a, b) => {
+        if (a.badge === 'BESTSELLER' && b.badge !== 'BESTSELLER') return -1;
+        if (a.badge !== 'BESTSELLER' && b.badge === 'BESTSELLER') return 1;
+        return 0;
+      });
+  }
 });
 
-// Visible filtered products (for pagination)
+// Visible filtered products
 const visibleFilteredProducts = computed(() => {
   return filteredProducts.value.slice(0, displayedProductCount.value);
 });
 
-// Create layout with banners inserted at specific positions
+// Create layout with banners
 const createLayout = (itemsPerRow, bannerAtRow, itemsBeforeBanner) => {
   const layout = [];
   const prods = visibleFilteredProducts.value;
   let productIndex = 0;
   
-  // Calculate position for first banner
   const firstBannerPosition = (bannerAtRow - 1) * itemsPerRow + itemsBeforeBanner;
   
-  // Add products until first banner
   for (let i = 0; i < firstBannerPosition && productIndex < prods.length; i++) {
     layout.push({ type: 'product', data: prods[productIndex++] });
   }
   
-  // Add first banner
   if (productIndex < prods.length) {
     layout.push({ type: 'banner', data: null });
   }
   
-  // Calculate position for second banner (desktop: row 12, mobile: row 11)
   const secondBannerRow = itemsPerRow === 5 ? 12 : 11;
   const secondBannerPosition = (secondBannerRow - 1) * itemsPerRow + itemsBeforeBanner;
   const productsUntilSecondBanner = secondBannerPosition - firstBannerPosition - 1;
   
-  // Add products until second banner
   for (let i = 0; i < productsUntilSecondBanner && productIndex < prods.length; i++) {
     layout.push({ type: 'product', data: prods[productIndex++] });
   }
   
-  // Add second banner
   if (productIndex < prods.length) {
     layout.push({ type: 'banner', data: null });
   }
   
-  // Add remaining products
   while (productIndex < prods.length) {
     layout.push({ type: 'product', data: prods[productIndex++] });
   }
@@ -402,13 +525,8 @@ const createLayout = (itemsPerRow, bannerAtRow, itemsBeforeBanner) => {
   return layout;
 };
 
-// Desktop Layout: 5 products per row, banner at row 6 after 3 products
 const desktopLayoutItems = computed(() => createLayout(5, 6, 3));
-
-// Tablet Layout: 3 products per row, banner at row 6 after 2 products
 const tabletLayoutItems = computed(() => createLayout(3, 6, 2));
-
-// Mobile Layout: 2 products per row, banner at row 6 (full width)
 const mobileLayoutItems = computed(() => createLayout(2, 6, 2));
 
 // Methods
@@ -418,30 +536,61 @@ const selectFilterPill = (pillId) => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
+// const selectSort = (option) => {
+//   selectedSort.value = option;
+//   showSortMenu.value = false;
+// };
 const selectSort = (option) => {
   selectedSort.value = option;
   showSortMenu.value = false;
-  // Apply sorting logic
+  displayedProductCount.value = rowsPerLoad.value * itemsPerRow.value;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+
+// const handleFiltersChanged = (filters) => {
+//   activeFilters.value = [
+//     ...filters.priceRanges.map(id => `Price: ${id}`),
+//     ...filters.discounts.map(id => `Discount: ${id}`),
+//     ...filters.productTypes.map(id => `Type: ${id}`)
+//   ];
+// };
 
 const handleFiltersChanged = (filters) => {
   activeFilters.value = [
     ...filters.priceRanges.map(id => `Price: ${id}`),
     ...filters.discounts.map(id => `Discount: ${id}`),
-    ...filters.productTypes.map(id => `Type: ${id}`)
+    ...filters.productTypes.map(item => `Type: ${item.category}`)
   ];
+  displayedProductCount.value = rowsPerLoad.value * itemsPerRow.value;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
+// const removeFilter = (filter) => {
+//   activeFilters.value = activeFilters.value.filter(f => f !== filter);
+// };
 const removeFilter = (filter) => {
   activeFilters.value = activeFilters.value.filter(f => f !== filter);
-};
+  displayedProductCount.value = rowsPerLoad.value * itemsPerRow.value;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};  
+
+
+// Add this new computed property
+const displayTitle = computed(() => {
+  // If there's a product type filter, show that category name
+  const typeFilter = activeFilters.value.find(f => f.startsWith('Type:'));
+  if (typeFilter) {
+    return typeFilter.split(': ')[1];
+  }
+  // Otherwise show the selected category
+  return selectedCategory.value;
+});
 
 const handleCategorySelected = (category) => {
   selectedCategory.value = category.name;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-// Load more functionality
 const loadMoreProducts = () => {
   const totalProducts = filteredProducts.value.length;
   if (displayedProductCount.value < totalProducts) {
@@ -450,7 +599,6 @@ const loadMoreProducts = () => {
   }
 };
 
-// Intersection observer for infinite scroll
 const setupIntersectionObserver = () => {
   if (!loadMoreTrigger.value) return;
   
@@ -495,12 +643,10 @@ watch(selectedCategory, () => {
 
 // Lifecycle
 onMounted(() => {
-  // Set initial category from route or default
   if (route.params.category) {
     selectedCategory.value = route.params.category.charAt(0).toUpperCase() + route.params.category.slice(1);
   }
   
-  // Set items per row based on screen size
   const updateItemsPerRow = () => {
     if (window.innerWidth >= 1024) {
       itemsPerRow.value = 5;
@@ -515,24 +661,20 @@ onMounted(() => {
   updateItemsPerRow();
   window.addEventListener('resize', updateItemsPerRow);
 
-  // Scroll detection for header show/hide
-const handleScroll = () => {
-  const currentScrollY = window.scrollY;
-  
-  if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
-    // Scrolling down & past 100px
-    showHeader.value = false;
-  } else {
-    // Scrolling up
-    showHeader.value = true;
-  }
-  
-  lastScrollY.value = currentScrollY;
-};
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
+      showHeader.value = false;
+    } else {
+      showHeader.value = true;
+    }
+    
+    lastScrollY.value = currentScrollY;
+  };
 
-window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll);
   
-  // Setup intersection observer
   const observer = setupIntersectionObserver();
   
   onUnmounted(() => {
