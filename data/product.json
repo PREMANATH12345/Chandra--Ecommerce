@@ -3,24 +3,19 @@
     "id": 1,
     "title": "Peak Elegance Diamond Ring",
     "category": "DIAWOND RINGS",
-    "images": ["/viewProduct/ring1.jpeg",
+    "images": [
+      "/viewProduct/ring1.jpeg",
       "/viewProduct/ring2.jpeg",
-      "/viewProduct/ring3.jpeg",
-      "/viewProduct/ring3.jpeg",
-      "/viewProduct/ring3.jpeg",
-      "/viewProduct/ring3.jpeg",
       "/viewProduct/ring3.jpeg"
     ],
     "thumbnails": [
       "/viewProduct/ring1.jpeg",
       "/viewProduct/ring2.jpeg",
       "/viewProduct/ring3.jpeg"
-     
     ],
     "price": 50326,
     "originalPrice": 54734,
     "discount": 15,
-    "stock": "LAST PIECE",
     "rating": 5,
     "reviews": 12,
     "discountText": "Flat 15% off on Diamond Prices",
@@ -34,27 +29,28 @@
       { "label": "PEAK ELEGANCE DIAWOND RING", "path": "" }
     ],
     "sizes": [
-      { "label": "12", "value": "12 (51.8 mm)" },
-      { "label": "13", "value": "13 (53.1 mm)" },
-      { "label": "14", "value": "14 (54.4 mm)" },
-      { "label": "15", "value": "15 (55.7 mm)" }
+      { "label": "12", "value": "12 (51.8 mm)", "available": true },
+      { "label": "13", "value": "13 (53.1 mm)", "available": false },
+      { "label": "14", "value": "14 (54.4 mm)", "available": true },
+      { "label": "15", "value": "15 (55.7 mm)", "available": false }
     ],
     "metals": [
-      "18K Yellow Gold",
-      "18K White Gold",
-      "18K Rose Gold",
-      "Platinum"
+      { "name": "18K Yellow Gold", "available": true },
+      { "name": "18K White Gold", "available": true },
+      { "name": "18K Rose Gold", "available": true },
+      { "name": "Platinum", "available": true }
     ],
     "diamonds": [
-      { "label": "OH-SI", "value": "OH-SI" },
-      { "label": "VS-SI", "value": "VS-SI" },
-      { "label": "VVS", "value": "VVS" },
-      { "label": "IF", "value": "IF" }
+      { "label": "OH-SI", "value": "OH-SI", "available": true },
+      { "label": "VS-SI", "value": "VS-SI", "available": true },
+      { "label": "VVS", "value": "VVS", "available": true },
+      { "label": "IF", "value": "IF", "available": true }
     ],
     "buttons": {
       "addToBag": "ADD TO BAG",
       "tryAtHome": "TRY AT HOME",
-      "learnMore": "Learn Now →"
+      "learnMore": "Learn Now →",
+      "addToEnquiry": "ADD TO ENQUIRY"
     }
   }
 }

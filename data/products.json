@@ -142,7 +142,7 @@
       "title": "New Collection",
       "subtitle": "Discover Emerald Elegance",
       "description": "Up to 20% off on select items",
-      "image": "/images/hero1.jpg",
+      "image": "/images/hero5.png",
       "cta": "Shop Now"
     },
     {
@@ -280,7 +280,7 @@
     {
       "id": 1,
       "title": "Wrapped with love",
-      "image": "/hp-asset1.png"
+      "image": "/giftbox.png"
     },
     {
       "id": 2,

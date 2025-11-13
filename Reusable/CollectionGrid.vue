@@ -46,7 +46,7 @@ const props = defineProps({
 
 // console.log('Collections prop:', props.collections)
 const handleImageError = (event) => {
-  console.error(`Image failed to load: ${event.target.src}`)
+  console.error(`Image failed to load: ${event.target.src}`);
   event.target.src = '/fallback.jpg'
 }
 </script>
