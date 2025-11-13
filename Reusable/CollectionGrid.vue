@@ -18,12 +18,14 @@
     </div>
 
     <div class="flex justify-center mt-10">
-      <button
-        class="bg-green-600 hover:bg-green-800 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300"
-      >
-        VIEW ALL COLLECTIONS
-      </button>
-    </div>
+  <NuxtLink
+    to="/CategoryCollection"
+    class="bg-green-600 hover:bg-green-800 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base transition-all duration-300 inline-block text-center rounded-full"
+  >
+    VIEW ALL COLLECTIONS
+  </NuxtLink>
+</div>
+
   </section>
 </template>
 
