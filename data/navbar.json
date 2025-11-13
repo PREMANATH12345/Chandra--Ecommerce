@@ -8,8 +8,8 @@
       "By Price": ["Below ₹10,000", "₹10,000 - ₹25,000", "Above ₹25,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/ringspromo1.jpg",
+      "/navbar/ringspromo2.jpg"
     ]  },
   {
     "title": "Earrings",
@@ -20,11 +20,11 @@
       "By Price": ["Below ₹10,000", "₹10,000 - ₹25,000", "Above ₹25,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/earringspromo1.jpg",
+      "/navbar/earringspromo2.jpg"
     ]  },
   {
-    "title": "Bracelets & Bangles",
+    "title": "Bracelets",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Bracelets", "Bangles", "Cuffs"],
@@ -32,8 +32,8 @@
       "By Price": ["Below ₹10,000", "₹10,000 - ₹25,000", "Above ₹25,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/braceletspromo1.jpg",
+      "/navbar/braceletspromo2.jpg"
     ]  },
   {
     "title": "Solitaires",
@@ -44,8 +44,8 @@
       "By Price": ["Below ₹50,000", "₹50,000 - ₹1,00,000", "Above ₹1,00,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/Solitairespromo1.jpg",
+      "/navbar/Solitairespromo2.jpg"
     ]  },
   {
     "title": "Mangalsutras",
@@ -56,8 +56,8 @@
       "By Price": ["Below ₹20,000", "₹20,000 - ₹50,000", "Above ₹50,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  },
   {
     "title": "Necklaces & Pendants",
@@ -68,8 +68,8 @@
       "By Price": ["Below ₹15,000", "₹15,000 - ₹40,000", "Above ₹40,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  },
   {
     "title": "Silver by Shaya",
@@ -80,8 +80,8 @@
       "By Price": ["Below ₹5,000", "₹5,000 - ₹15,000", "Above ₹15,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  },
   {
     "title": "Gifting",
@@ -92,8 +92,8 @@
       "By Price": ["Below ₹10,000", "₹10,000 - ₹30,000", "Above ₹30,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  },
   {
     "title": "More Jewellery",
@@ -104,8 +104,8 @@
       "By Price": ["Below ₹8,000", "₹8,000 - ₹20,000", "Above ₹20,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  },
   {
     "title": "Collections",
@@ -116,8 +116,8 @@
       "By Price": ["Below ₹25,000", "₹25,000 - ₹75,000", "Above ₹75,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  },
   {
     "title": "Trending",
@@ -128,7 +128,7 @@
       "By Price": ["Below ₹15,000", "₹15,000 - ₹35,000", "Above ₹35,000"]
     },
     "images": [
-      "/images/navbar/imgs-promo-1.jpg",
-      "/images/navbar/imgs-promo-2.jpg"
+      "/navbar/imgs-promo-1.jpg",
+      "/navbar/imgs-promo-2.jpg"
     ]  }
 ]

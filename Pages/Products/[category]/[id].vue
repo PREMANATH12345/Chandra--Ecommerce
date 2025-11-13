@@ -9,6 +9,7 @@
     />
     <NavBar />
     
+    <div class="pt-32 lg:pt-34">
     <ProductDetail 
       v-if="productData"
       :productData="productData"
@@ -25,7 +26,7 @@
     <div v-else class="flex justify-center items-center h-screen">
       <p class="text-xl text-gray-500">Product not found</p>
     </div>
-    
+    </div>
     <Footer />
   </div>
 </template>
@@ -48,8 +49,13 @@ const router = useRouter()
 const productId = route.params.id
 const category = route.params.category
 
+console.log('Looking for product with ID:', productId) // Debug log
+console.log('In category:', category) // Debug log
+
 // Find the product from productlisting.json
 const selectedProduct = productListData.find(p => p.id === productId)
+
+console.log('Found product:', selectedProduct) // Debug log
 
 // Transform productlisting data to match ProductDetail component format
 const productData = computed(() => {
@@ -59,8 +65,15 @@ const productData = computed(() => {
     id: selectedProduct.id,
     title: selectedProduct.name,
     category: selectedProduct.category,
-    images: selectedProduct.images,
-    thumbnails: selectedProduct.images, // Use same images for thumbnails
+    // images: selectedProduct.images,
+    // thumbnails: selectedProduct.images, 
+    images: (selectedProduct.images && selectedProduct.images.length > 0)
+      ? selectedProduct.images
+      : selectedProduct.fallbackImages || ['/products/default-fallback.jpg'],
+
+    thumbnails: (selectedProduct.images && selectedProduct.images.length > 0)
+      ? selectedProduct.images
+      : selectedProduct.fallbackImages || ['/products/default-fallback.jpg'],
     price: selectedProduct.price,
     originalPrice: selectedProduct.originalPrice,
     discount: Math.round(((selectedProduct.originalPrice - selectedProduct.price) / selectedProduct.originalPrice) * 100),
