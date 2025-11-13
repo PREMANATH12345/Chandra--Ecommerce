@@ -223,7 +223,7 @@
         <!-- Action Buttons -->
         <div v-if="selectedSize && isSelectedSizeAvailable" class="grid grid-cols-2 gap-4 mb-8">
           <button 
-            @click="addToBag"
+            @click="openProductTypeModal"
             class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
           >
             {{ productData.buttons?.addToBag || 'Add to Bag' }}
@@ -264,110 +264,225 @@
       </div>
     </div>
 
-    <!-- Enquiry Form Modal -->
-    <div v-if="showEnquiryForm" class="fixed inset-0 bg-opacity-50 flex items-center justify-center p-2 sm:p-4 z-50">
-      <div class="bg-white rounded-2xl max-w-sm sm:max-w-md max-h-[85vh] overflow-y-auto">
-        <div class="p-4 sm:p-6">
+    <!-- Product Type Selection Modal -->
+    <div v-if="showProductTypeModal" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white rounded-2xl max-w-md w-full mx-auto">
+        <div class="p-6">
           <!-- Header -->
-          <div class="flex items-center justify-between mb-4 sm:mb-6">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Size Enquiry</h3>
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold text-gray-900">Select Product Type</h3>
             <button 
-              @click="showEnquiryForm = false"
+              @click="showProductTypeModal = false"
               class="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </button>
           </div>
 
           <!-- Product Summary -->
-          <div class="bg-gray-50 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
-            <div class="flex items-center space-x-3 sm:space-x-4 gap-2">
+          <div class="bg-gray-50 rounded-xl p-4 mb-6">
+            <div class="flex items-center space-x-4">
               <img 
                 :src="productData.images[0]" 
                 :alt="productData.title"
-                class="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-lg"
+                class="w-16 h-16 object-cover rounded-lg"
               />
               <div>
-                <h4 class="font-semibold text-gray-900 text-sm sm:text-base">{{ productData.title }}</h4>
-                <p class="text-xs sm:text-sm text-gray-600">Requested Size: <span class="font-semibold">{{ enquirySize }}</span></p>
-                <p class="text-xs sm:text-sm text-gray-600">Metal: {{ selectedMetal }}</p>
-                <p class="text-xs sm:text-sm text-gray-600">Diamond: {{ selectedDiamond }}</p>
-                <p class="text-base sm:text-lg font-bold text-green-600">${{ productData.price.toLocaleString() }}</p>
+                <h4 class="font-semibold text-gray-900">{{ productData.title }}</h4>
+                <p class="text-sm text-gray-600">Size: <span class="font-semibold">{{ selectedSize }}</span></p>
+                <p class="text-lg font-bold text-green-600">${{ productData.price.toLocaleString() }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Type Options -->
+          <div class="space-y-4 mb-6">
+            <div 
+              v-for="(option, index) in productTypeOptions" 
+              :key="option.id"
+              class="flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200"
+              :class="[
+                selectedProductTypes.includes(option.id) 
+                  ? 'border-green-500 bg-green-50' 
+                  : 'border-gray-200 hover:border-gray-300'
+              ]"
+              @click="toggleProductType(option.id)"
+            >
+              <input 
+                type="checkbox" 
+                :id="`product-type-${option.id}`"
+                :checked="selectedProductTypes.includes(option.id)"
+                class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                @click.stop
+              >
+              <label 
+                :for="`product-type-${option.id}`"
+                class="ml-3 flex-1 cursor-pointer"
+              >
+                <span class="block text-sm font-medium text-gray-900">{{ option.name }}</span>
+                <span class="block text-sm text-gray-500 mt-1">{{ option.description }}</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <button 
+              @click="showProductTypeModal = false"
+              class="flex-1 py-3 px-4 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
+            >
+              Cancel
+            </button>
+            <button 
+              @click="handleProductTypeSelection"
+              :disabled="selectedProductTypes.length === 0"
+              class="flex-1 py-3 px-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buy Now Modal -->
+    <div v-if="showBuyModal" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white rounded-2xl max-w-md w-full mx-auto">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold text-gray-900">Buy Now</h3>
+            <button @click="showBuyModal = false" class="text-gray-400 hover:text-gray-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <p class="text-gray-600 mb-6">Proceeding to checkout with your selected products.</p>
+          <div class="flex gap-3">
+            <button 
+              @click="showBuyModal = false"
+              class="flex-1 py-3 px-4 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50"
+            >
+              Cancel
+            </button>
+            <button 
+              @click="proceedToCheckout"
+              class="flex-1 py-3 px-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700"
+            >
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enquiry Form Modal -->
+    <div v-if="showEnquiryForm" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white rounded-2xl max-w-md w-full mx-auto max-h-[85vh] overflow-y-auto">
+        <div class="p-6">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold text-gray-900">Product Enquiry</h3>
+            <button 
+              @click="showEnquiryForm = false"
+              class="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Product Summary -->
+          <div class="bg-gray-50 rounded-xl p-4 mb-6">
+            <div class="flex items-center space-x-4">
+              <img 
+                :src="productData.images[0]" 
+                :alt="productData.title"
+                class="w-16 h-16 object-cover rounded-lg"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-900">{{ productData.title }}</h4>
+                <p class="text-sm text-gray-600">Size: <span class="font-semibold">{{ enquirySize }}</span></p>
+                <p class="text-sm text-gray-600">Product Types: 
+                  <span class="font-semibold">{{ getSelectedProductTypeNames() }}</span>
+                </p>
+                <p class="text-lg font-bold text-green-600">${{ productData.price.toLocaleString() }}</p>
               </div>
             </div>
           </div>
 
           <!-- Enquiry Form -->
-          <form @submit.prevent="submitEnquiry" class="space-y-3 sm:space-y-4">
+          <form @submit.prevent="submitEnquiry" class="space-y-4">
             <div>
-              <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Full Name *</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
               <input 
                 v-model="enquiryForm.name"
                 type="text" 
                 required
-                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 placeholder="Enter your full name"
               >
             </div>
 
             <div>
-              <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email Address *</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
               <input 
                 v-model="enquiryForm.email"
                 type="email" 
                 required
-                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 placeholder="Enter your email"
               >
             </div>
 
             <div>
-              <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Phone Number *</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
               <input 
                 v-model="enquiryForm.phone"
                 type="tel" 
                 required
-                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 placeholder="Enter your phone number"
               >
             </div>
 
             <div>
-              <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Message (Optional)</label>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
               <textarea 
                 v-model="enquiryForm.message"
                 rows="3"
-                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 placeholder="Any additional requirements or questions..."
               ></textarea>
             </div>
 
-            <div class="flex items-start space-x-2 sm:space-x-3 p-2 sm:p-3 bg-blue-50 rounded-lg">
+            <div class="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
               <input 
                 v-model="enquiryForm.notifyMe"
                 type="checkbox" 
                 class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
               >
               <div>
-                <label class="text-xs sm:text-sm font-medium text-blue-900">Notify me when this size becomes available</label>
-                <p class="text-[10px] sm:text-xs text-blue-700 mt-1">We'll email you as soon as size {{ enquirySize }} is back in stock</p>
+                <label class="text-sm font-medium text-blue-900">Notify me about product updates</label>
+                <p class="text-xs text-blue-700 mt-1">We'll keep you informed about your selected product types</p>
               </div>
             </div>
 
-            <div class="flex gap-2 sm:gap-3 pt-3 sm:pt-4">
+            <div class="flex gap-3 pt-4">
               <button 
                 type="button"
                 @click="showEnquiryForm = false"
-                class="flex-1 py-2 sm:py-3 px-3 sm:px-4 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
+                class="flex-1 py-3 px-4 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
               >
                 Cancel
               </button>
               <button 
                 type="submit"
                 :disabled="isSubmitting"
-                class="flex-1 py-2 sm:py-3 px-3 sm:px-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                class="flex-1 py-3 px-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 <svg v-if="isSubmitting" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -382,18 +497,18 @@
     </div>
 
     <!-- Success Message Modal -->
-    <div v-if="showSuccessMessage" class="fixed inset-0 bg-opacity-50 flex items-center justify-center p-3 sm:p-4 z-50">
-      <div class="bg-white rounded-2xl border border-green-200 shadow-lg max-w-xs sm:max-w-sm p-5 sm:p-6 text-center">
-        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div v-if="showSuccessMessage" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white rounded-2xl border border-green-200 shadow-lg max-w-sm p-6 text-center">
+        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
-        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Enquiry Submitted!</h3>
-        <p class="text-sm text-gray-600 mb-4 sm:mb-6">Thank you for your interest. We'll contact you soon about size {{ enquirySize }}.</p>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Enquiry Submitted!</h3>
+        <p class="text-sm text-gray-600 mb-6">Thank you for your interest. We'll contact you soon.</p>
         <button 
           @click="showSuccessMessage = false"
-          class="bg-blue-600 text-white font-semibold py-2 sm:py-3 px-3 sm:px-4 rounded-xl hover:bg-blue-700 transition-colors"
+          class="bg-blue-600 text-white font-semibold py-3 px-4 rounded-xl hover:bg-blue-700 transition-colors"
         >
           Continue Shopping
         </button>
@@ -424,10 +539,21 @@ const selectedImage = ref(0)
 const selectedSize = ref('')
 const selectedMetal = ref('')
 const selectedDiamond = ref('')
+const showProductTypeModal = ref(false)
+const showBuyModal = ref(false)
 const showEnquiryForm = ref(false)
 const showSuccessMessage = ref(false)
 const isSubmitting = ref(false)
 const enquirySize = ref('')
+const selectedProductTypes = ref([])
+
+// Product type options
+const productTypeOptions = [
+  { id: 'stl', name: 'STL File', description: '3D printable file format' },
+  { id: 'cam', name: 'CAM Product', description: 'Computer-aided manufacturing' },
+  { id: 'rubber', name: 'Rubber Mold', description: 'Flexible molding solution' },
+  { id: 'casting', name: 'Casting Model', description: 'Metal casting pattern' }
+]
 
 // Enquiry Form
 const enquiryForm = reactive({
@@ -454,17 +580,49 @@ const handleSizeClick = (size) => {
   selectedSize.value = size.value
   
   if (!size.available) {
-    // If size is not available, set enquiry size and open form
     enquirySize.value = size.label
-    // Open enquiry form immediately when unavailable size is clicked
-    // openEnquiryForm()
+  }
+}
+
+const openProductTypeModal = () => {
+  if (selectedSize.value && isSelectedSizeAvailable.value) {
+    showProductTypeModal.value = true
+    selectedProductTypes.value = [] // Reset selections
+  }
+}
+
+const toggleProductType = (typeId) => {
+  const index = selectedProductTypes.value.indexOf(typeId)
+  if (index > -1) {
+    selectedProductTypes.value.splice(index, 1)
+  } else {
+    selectedProductTypes.value.push(typeId)
+  }
+}
+
+const handleProductTypeSelection = () => {
+  const directBuyTypes = ['stl', 'cam']
+  const enquiryTypes = ['rubber', 'casting']
+  
+  const hasDirectBuy = selectedProductTypes.value.some(type => directBuyTypes.includes(type))
+  const hasEnquiryOnly = selectedProductTypes.value.some(type => enquiryTypes.includes(type))
+  
+  showProductTypeModal.value = false
+  
+  if (hasDirectBuy && !hasEnquiryOnly) {
+    // Only STL or CAM selected - go to buy flow
+    showBuyModal.value = true
+  } else if (hasEnquiryOnly) {
+    // Rubber mold or casting model selected - go to enquiry
+    openEnquiryForm()
+  } else {
+    // No selection or mixed - use default behavior
+    addToBag()
   }
 }
 
 const openEnquiryForm = () => {
-  if (selectedSize.value && !isSelectedSizeAvailable.value) {
-    showEnquiryForm.value = true
-  }
+  showEnquiryForm.value = true
 }
 
 const selectMetal = (metal) => {
@@ -484,13 +642,27 @@ const addToBag = () => {
     metal: selectedMetal.value,
     diamond: selectedDiamond.value,
     price: props.productData.price,
-    image: props.productData.images[0]
+    image: props.productData.images[0],
+    productTypes: selectedProductTypes.value
   }
   emit('add-to-bag', productToAdd)
 }
 
+const proceedToCheckout = () => {
+  showBuyModal.value = false
+  // Add your checkout logic here
+  console.log('Proceeding to checkout with:', selectedProductTypes.value)
+}
+
 const tryAtHome = () => {
   emit('try-at-home', props.productData.title)
+}
+
+const getSelectedProductTypeNames = () => {
+  return selectedProductTypes.value.map(typeId => {
+    const option = productTypeOptions.find(opt => opt.id === typeId)
+    return option ? option.name : typeId
+  }).join(', ')
 }
 
 const submitEnquiry = async () => {
@@ -504,9 +676,10 @@ const submitEnquiry = async () => {
     diamond: selectedDiamond.value,
     price: props.productData.price,
     image: props.productData.images[0],
+    productTypes: selectedProductTypes.value,
     customerInfo: { ...enquiryForm },
     timestamp: new Date().toISOString(),
-    type: 'size_enquiry'
+    type: 'product_enquiry'
   }
   
   try {
@@ -528,6 +701,7 @@ const resetEnquiryForm = () => {
   enquiryForm.phone = ''
   enquiryForm.message = ''
   enquiryForm.notifyMe = true
+  selectedProductTypes.value = []
 }
 
 // Initialize selections with available options
