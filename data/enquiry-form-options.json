@@ -1,0 +1,45 @@
+{
+  "interestOptions": [
+    { "value": "gold-molds", "label": "Gold Molds" },
+    { "value": "gold-designs", "label": "Gold Designs (CAD/3D Model)" },
+    { "value": "silver-molds", "label": "Silver Molds" },
+    { "value": "silver-designs", "label": "Silver Designs (CAD/3D Model)" }
+  ],
+  "materialOptions": [
+    { "value": "10k-gold", "label": "10K Gold" },
+    { "value": "14k-gold", "label": "14K Gold" },
+    { "value": "18k-gold", "label": "18K Gold" },
+    { "value": "22k-gold", "label": "22K Gold" },
+    { "value": "sterling-silver", "label": "Sterling Silver" },
+    { "value": "platinum", "label": "Platinum" },
+    { "value": "other", "label": "Other" }
+  ],
+  "designSourceOptions": [
+    { "value": "physical-sample", "label": "I have a physical sample/master model" },
+    { "value": "cad-file", "label": "I have a 3D CAD file" },
+    { "value": "sketch", "label": "I have a sketch/2D drawing" },
+    { "value": "photo", "label": "I have a photo/reference image" },
+    { "value": "custom-design", "label": "I need custom design from your team" }
+  ],
+  "quantityOptions": [
+    { "value": "single", "label": "Single Piece" },
+    { "value": "small-batch", "label": "Small Batch (2-5 units)" },
+    { "value": "medium-batch", "label": "Medium Batch (6-20 units)" },
+    { "value": "large-batch", "label": "Large Batch (21-50 units)" },
+    { "value": "bulk", "label": "Bulk Order (50+ units)" }
+  ],
+  "budgetOptions": [
+    { "value": "under-500", "label": "Under $500" },
+    { "value": "500-1000", "label": "$500 - $1,000" },
+    { "value": "1000-2500", "label": "$1,000 - $2,500" },
+    { "value": "2500-5000", "label": "$2,500 - $5,000" },
+    { "value": "5000-plus", "label": "$5,000+" },
+    { "value": "to-discuss", "label": "To be discussed" }
+  ],
+  "timelineOptions": [
+    { "value": "urgent", "label": "Urgent (1-2 weeks)" },
+    { "value": "standard", "label": "Standard (3-4 weeks)" },
+    { "value": "flexible", "label": "Flexible (1-2 months)" },
+    { "value": "no-rush", "label": "No rush, just gathering quotes" }
+  ]
+}

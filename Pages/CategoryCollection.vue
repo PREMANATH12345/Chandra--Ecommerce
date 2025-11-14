@@ -1,15 +1,10 @@
 <template>
-    <TopBar 
-      @search="handleSearch"
-      @quick-action="handleQuickAction"
-      @check-delivery="handleCheckDelivery"
-      @login="handleLogin"
-      @signup="handleSignup"
-    />
+ 
+    <topbar/>
 
     <!-- Navbar (Import your existing component) -->
     <NavBar />
-  <div class="category-collection">
+  <div class="category-collection mt-[100px]">
     <div class="container">
       <!-- Desktop/Tablet Grid -->
       <div class="desktop-grid">
@@ -51,15 +46,21 @@
     </div>
   </div>
   <Footer/>
+
 </template>
 
 <script >
 
-import TopBar from '~/components/HomePageComponent/topbar.vue';
-import NavBar from '~/components/HomePageComponent/navbar.vue';
-import Footer from '@/components/HomePageComponent/Footer.vue'
+import topbar from '../components/HomePageComponent/topbar.vue';
+import NavBar from '../components/HomePageComponent/navbar.vue';
+import Footer from '../components/HomePageComponent/Footer.vue'
 export default {
   name: 'CategoryCollection',
+  components: {
+    topbar,
+    NavBar,
+    Footer
+  },
   data() {
     return {
       categories: [
@@ -133,6 +134,7 @@ export default {
     };
   }
 };
+
 </script>
 
 <style scoped>

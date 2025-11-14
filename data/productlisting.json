@@ -29,24 +29,24 @@
       { "label": "SWIRL HEART DIAMOND RING", "path": "" }
     ],
     "sizes": [
-      { "label": "12", "value": "12 (51.8 mm)", "available": true },
-      { "label": "13", "value": "13 (53.1 mm)", "available": true },
-      { "label": "14", "value": "14 (54.4 mm)", "available": true },
-      { "label": "15", "value": "15 (55.7 mm)", "available": false },
-      { "label": "16", "value": "16 (57.0 mm)", "available": true },
-      { "label": "17", "value": "17 (58.3 mm)", "available": false }
+      { "label": "8", "value": "8 (51.8 mm)", "available": true },
+      { "label": "10", "value": "10 (53.1 mm)", "available": true },
+      { "label": "11", "value": "11 (54.4 mm)", "available": true },
+      { "label": "12", "value": "12 (55.7 mm)", "available": false },
+      { "label": "13", "value": "13 (57.0 mm)", "available": true },
+      { "label": "14", "value": "14 (58.3 mm)", "available": false },
+      { "label": "15", "value": "15 (59.6 mm)", "available": true }
     ],
     "metals": [
-      { "name": "18K Yellow Gold", "available": true },
+      { "name": "22K Yellow Gold", "available": true },
       { "name": "18K White Gold", "available": true },
-      { "name": "18K Rose Gold", "available": true },
+      { "name": "9K Rose Gold", "available": true },
       { "name": "Platinum", "available": true }
     ],
     "diamonds": [
-      { "label": "OH-SI", "value": "OH-SI", "available": true },
-      { "label": "VS-SI", "value": "VS-SI", "available": true },
-      { "label": "VVS", "value": "VVS", "available": true },
-      { "label": "IF", "value": "IF", "available": true }
+      { "label": "weight 0.05ct", "value": "22k 3gm", "available": true },
+      { "label": "weight 0.08ct", "value": "18k 2gm", "available": true },
+      { "label": "weight 0.09ct", "value": "9k 1.5gm ", "available": true }
     ],
     "buttons": {
       "addToBag": "ADD TO BAG",
