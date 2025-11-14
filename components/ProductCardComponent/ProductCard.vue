@@ -67,30 +67,35 @@
         </svg>
       </button>
 
-      <!-- Try at Home & Video Buttons - Always visible on mobile, hover on desktop -->
+      <!-- Try at Home & Video Buttons - Show below product info on hover -->
       <div 
         :class="[
-          'absolute bottom-2 md:bottom-3 left-0 right-0 flex justify-center gap-1 md:gap-2 px-2 md:px-3 transition-opacity duration-300',
-          'md:opacity-0 md:group-hover:opacity-100'
+          'absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 md:p-3 transition-all duration-300',
+          'opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0'
         ]"
       >
-        <button 
-          v-if="product.tryAtHome"
-          class="flex-1 flex items-center justify-center gap-1 md:gap-2 px-2 py-1.5 md:px-4 md:py-2 bg-white rounded-md md:rounded-lg hover:bg-green-50 transition-colors shadow-md text-[10px] md:text-sm font-medium"
-          @click="handleTryAtHome"
-        >
-          <span class="hidden md:inline">TRY AT HOME</span>
-          <span class="md:hidden">TRY HOME</span>
-        </button>
-        <button 
-          class="p-1.5 md:p-2 bg-white rounded-md md:rounded-lg hover:bg-green-50 transition-colors shadow-md"
-          @click="handleVideoCall"
-          :title="'Video Call'"
-        >
-          <svg class="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
-          </svg>
-        </button>
+        <div class="flex gap-2">
+          <button 
+            v-if="product.tryAtHome"
+            class="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+            @click="handleTryAtHome"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span class="hidden md:inline">TRY AT HOME</span>
+            <span class="md:hidden">TRY HOME</span>
+          </button>
+          <button 
+            class="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+            @click="handleVideoCall"
+            :title="'Video Call'"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -105,7 +110,7 @@
       </div>
 
       <!-- Delivery Info -->
-      <p class="text-[10px] md:text-sm text-pink-600 font-medium mb-1">{{ product.deliveryText }}</p>
+      <p class="text-[10px] md:text-sm text-green-600 font-medium mb-1">{{ product.deliveryText }}</p>
       
       <!-- Product Name - Truncated to 2 lines -->
       <p class="text-[10px] md:text-sm text-gray-600 line-clamp-2 flex-1">{{ product.name }}</p>
@@ -209,4 +214,16 @@ const handleCardClick = () => {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Ensure card has proper stacking context for buttons */
+.group {
+  position: relative;
+  overflow: visible;
+}
+
+/* Smooth button animation */
+.group:hover {
+  transform: translateY(-4px);
+}
+
 </style>

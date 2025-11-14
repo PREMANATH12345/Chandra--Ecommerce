@@ -144,7 +144,7 @@
                     @click="selectSort(option)"
                     :class="[
                       'w-full px-3 py-2 md:px-4 text-left text-xs md:text-sm hover:bg-gray-50 transition-colors',
-                      selectedSort === option ? 'text-purple-600 font-medium bg-purple-50' : 'text-gray-700'
+                      selectedSort === option ? 'text-green-600 font-medium bg-green-50' : 'text-gray-700'
                     ]"
                   >
                     {{ option }}
@@ -241,20 +241,20 @@
     <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 md:p-4 z-50 flex gap-2 md:gap-3">
       <button
         @click="showMobileFilters = true"
-        class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 md:px-6 md:py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors font-medium text-xs md:text-sm"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 md:px-6 md:py-3 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors font-medium text-xs md:text-sm"
       >
         <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
         </svg>
         <span>FILTER</span>
-        <span v-if="activeFilters.length > 0" class="bg-purple-600 text-white px-2 py-0.5 rounded-full text-xs">
+        <span v-if="activeFilters.length > 0" class="bg-green-600 text-white px-2 py-0.5 rounded-full text-xs">
           {{ activeFilters.length }}
         </span>
       </button>
       
       <button
         @click="showSortMenu = !showSortMenu"
-        class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 md:px-6 md:py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors font-medium text-xs md:text-sm"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 md:px-6 md:py-3 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors font-medium text-xs md:text-sm"
       >
         <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />

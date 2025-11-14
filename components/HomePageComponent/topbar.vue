@@ -469,6 +469,10 @@ const showDeliveryDropdown = ref(false);
 const showAccountDropdown = ref(false);
 const showPincodeDrawer = ref(false);
 const showAccountDrawer = ref(false);
+const hasClosedAccountDrawer = ref(false);
+
+
+
 
 // Check if device is mobile/tablet
 const checkIfMobileOrTablet = () => {
@@ -477,8 +481,12 @@ const checkIfMobileOrTablet = () => {
 
 // Auto-open account drawer on mobile/tablet on mount
 onMounted(() => {
-  if (checkIfMobileOrTablet()) {
-    setTimeout(() => {
+  // Check if user has previously closed the drawer
+  const drawerClosed = localStorage.getItem('accountDrawerClosed');
+  hasClosedAccountDrawer.value = drawerClosed === 'true';
+
+ if (checkIfMobileOrTablet() && !hasClosedAccountDrawer.value) { 
+     setTimeout(() => {
       showAccountDrawer.value = true;
     }, 500);
   }
@@ -491,7 +499,7 @@ onUnmounted(() => {
 });
 
 const handleResize = () => {
-  if (checkIfMobileOrTablet() && !showAccountDrawer.value) {
+  if (checkIfMobileOrTablet() && !showAccountDrawer.value && !hasClosedAccountDrawer.value) {
     setTimeout(() => {
       showAccountDrawer.value = true;
     }, 500);
@@ -545,6 +553,9 @@ const openAccountDrawer = () => {
 
 const closeAccountDrawer = () => {
   showAccountDrawer.value = false;
+   hasClosedAccountDrawer.value = true;
+   // Save to localStorage so it persists across page refreshes
+  localStorage.setItem('accountDrawerClosed', 'true');
 };
 </script>
 

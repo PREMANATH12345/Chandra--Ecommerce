@@ -7,14 +7,14 @@
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
             FILTERS
-            <span v-if="activeFiltersCount > 0" class="text-xs bg-purple-600 text-white px-2 py-1 rounded-full">
+            <span v-if="activeFiltersCount > 0" class="text-xs bg-green-600 text-white px-2 py-1 rounded-full">
               {{ activeFiltersCount }}
             </span>
           </h3>
           <button 
             v-if="activeFiltersCount > 0"
             @click="clearAllFilters"
-            class="text-sm font-medium text-pink-600 hover:text-pink-700"
+            class="text-sm font-medium text-green-600 hover:text-green-700"
           >
             CLEAR ALL
           </button>
@@ -130,7 +130,7 @@
                       type="checkbox" 
                       :value="range.id"
                       v-model="selectedPriceRanges"
-                      class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                     class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
                     />
                     <span class="text-base text-gray-700">
                       {{ range.label }}
@@ -153,7 +153,7 @@
                       type="checkbox" 
                       :value="discount.id"
                       v-model="selectedDiscounts"
-                      class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                     class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
                     />
                     <span class="text-base text-gray-700">
                       {{ discount.label }}
@@ -176,7 +176,7 @@
                       type="checkbox" 
                       :value="type.id"
                       v-model="selectedProductTypes"
-                      class="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                     class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
                     />
                     <span class="text-base text-gray-700">
                       {{ type.label }}
@@ -191,13 +191,13 @@
             <div class="p-6 border-t border-gray-200 flex gap-3 sticky bottom-0 bg-white">
               <button
                 @click="clearAllFilters"
-                class="flex-1 px-6 py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors font-medium"
+                class="flex-1 px-6 py-3 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors font-medium"
               >
                 Clear All
               </button>
               <button
                 @click="applyFilters"
-                class="flex-1 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+                class="flex-1 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
               >
                 Apply Filters
               </button>
