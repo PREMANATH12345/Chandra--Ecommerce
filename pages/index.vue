@@ -16,7 +16,7 @@
     </main>
     <!-- <ProductView/> -->
      <StoreLocation />
-      <reviews />
+      <reviews /> 
     <JoinUs />
     <Footer />
   </div>

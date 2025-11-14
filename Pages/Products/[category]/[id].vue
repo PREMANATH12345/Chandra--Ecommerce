@@ -7,7 +7,11 @@
       @login="handleLogin"
       @signup="handleSignup"
     />
-    <NavBar />
+    <NavBar 
+      :mobileMenuOpen="mobileMenuOpen"
+      :toggleMobileMenu="toggleMobileMenu"
+      :closeMobileMenu="closeMobileMenu"
+    />    
     
     <div class="pt-32 lg:pt-34">
     <ProductDetail 
@@ -40,11 +44,17 @@ import TopBar from '~/components/HomePageComponent/topbar.vue'
 import NavBar from '~/components/HomePageComponent/navbar.vue'
 import Footer from '~/components/HomePageComponent/Footer.vue'
 
+import { useMobileMenu } from '~/composables/useMobileMenu';
+
+
 // Import product listing data
 const productListData = await import('~/data/productlisting.json').then(m => m.default || m)
 
 const route = useRoute()
 const router = useRouter()
+
+const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
+
 
 // Get product ID from route params
 const productId = route.params.id

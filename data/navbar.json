@@ -1,6 +1,7 @@
 [
   {
     "title": "Rings",
+    "icon": "/navbar/rings-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Solitaire Rings", "Couple Rings", "Adjustable Rings", "Daily Wear Rings"],
@@ -10,9 +11,11 @@
     "images": [
       "/navbar/ringspromo1.jpg",
       "/navbar/ringspromo2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Earrings",
+    "icon": "/navbar/earrings-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Studs", "Hoops", "Drops", "Jhumkas"],
@@ -22,9 +25,11 @@
     "images": [
       "/navbar/earringspromo1.jpg",
       "/navbar/earringspromo2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Bracelets",
+    "icon": "/navbar/bracelets-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Bracelets", "Bangles", "Cuffs"],
@@ -34,9 +39,11 @@
     "images": [
       "/navbar/braceletspromo1.jpg",
       "/navbar/braceletspromo2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Solitaires",
+    "icon": "/navbar/solitaires-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Solitaire Rings", "Solitaire Necklaces", "Solitaire Earrings"],
@@ -46,9 +53,11 @@
     "images": [
       "/navbar/Solitairespromo1.jpg",
       "/navbar/Solitairespromo2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Mangalsutras",
+    "icon": "/navbar/mangalsutras-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Traditional", "Contemporary", "Customizable"],
@@ -58,9 +67,11 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Necklaces & Pendants",
+    "icon": "/navbar/necklaces-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Pendants", "Chokers", "Long Necklaces", "Statement Pieces"],
@@ -70,9 +81,11 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Silver by Shaya",
+    "icon": "/navbar/silver-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Silver Rings", "Silver Earrings", "Silver Necklaces", "Silver Bracelets"],
@@ -82,9 +95,11 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Gifting",
+    "icon": "/navbar/gifting-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Birthday Gifts", "Anniversary Gifts", "Wedding Gifts", "Festive Gifts"],
@@ -94,9 +109,11 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "More Jewellery",
+    "icon": "/navbar/more-jewellery-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Nose Pins", "Anklets", "Brooches", "Hair Accessories"],
@@ -106,9 +123,11 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Collections",
+    "icon": "/navbar/collections-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Festive Collection", "Bridal Collection", "Everyday Wear", "Luxury Collection"],
@@ -118,9 +137,11 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  },
+    ]
+  },
   {
     "title": "Trending",
+    "icon": "/navbar/trending-icon.jpg",
     "subSections": {
       "Featured": ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"],
       "By Style": ["Seasonal Trends", "Celebrity Inspired", "Viral Designs"],
@@ -130,5 +151,6 @@
     "images": [
       "/navbar/imgs-promo-1.jpg",
       "/navbar/imgs-promo-2.jpg"
-    ]  }
+    ]
+  }
 ]

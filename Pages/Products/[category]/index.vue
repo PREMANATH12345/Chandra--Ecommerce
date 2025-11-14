@@ -15,11 +15,10 @@
 
     <!-- Navbar -->
     <NavBar 
-      :class="[
-        'transition-transform duration-300',
-        showHeader ? 'translate-y-0' : '-translate-y-full'
-      ]"
-    />
+      :mobileMenuOpen="mobileMenuOpen"
+      :toggleMobileMenu="toggleMobileMenu"
+      :closeMobileMenu="closeMobileMenu"
+      />
 
     <!-- Breadcrumb & Title Section -->
     <div class="bg-gradient-to-b from-green-50 to-white border-b border-gray-200 pt-32 lg:pt-36 relative z-10">
@@ -275,12 +274,21 @@ import DecorativeBanner from '~/components/ProductCardComponent/DecorativeBanner
 import TopBar from '~/components/HomePageComponent/topbar.vue';
 import NavBar from '~/components/HomePageComponent/navbar.vue';
 
+// mobile menu composable
+import { useMobileMenu } from '~/composables/useMobileMenu';
+
+
 // Import data
 const productData = await import('~/data/productlisting.json').then(m => m.default || m);
 const navbarData = await import('~/data/navbar.json').then(m => m.default || m);
 
 const route = useRoute();
 const router = useRouter();
+
+
+// Initialize mobile menu
+const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
+
 
 // IMPORTANT: This function navigates to product detail
 const navigateToProduct = (product) => {
