@@ -94,7 +94,7 @@
         <!-- Pricing -->
         <div class="mb-6" v-if="productData.price">
           <div class="flex items-baseline gap-3 mb-1">
-            <span class="text-3xl font-bold text-gray-900">${{ productData.price.toLocaleString() }}</span>
+            <span class="text-2xl font-bold text-gray-900">${{ productData.price.toLocaleString() }}</span>
             <span v-if="productData.originalPrice" class="text-xl text-gray-500 line-through">
               ${{ productData.originalPrice.toLocaleString() }}
             </span>
@@ -109,7 +109,7 @@
         </div>
 
         <!-- Product Title -->
-        <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">{{ productData.title }}</h1>
+        <h1 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">{{ productData.title }}</h1>
 
         <!-- Discount or Promo Slot -->
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
@@ -129,6 +129,29 @@
 
         <!-- Customization Options -->
         <div class="space-y-8 mb-8">
+          <!-- Metal -->
+          <div v-if="productData.metals">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-semibold text-gray-900">Metal</h3>
+              <span class="text-sm text-green-600 font-medium">{{ selectedMetal }}</span>
+            </div>
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
+              <button 
+                v-for="metal in productData.metals" 
+                :key="metal.name"
+                @click="selectMetal(metal)"
+                :class="[ 
+                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
+                  selectedMetal === metal.name 
+                    ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
+                    : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
+                ]"
+              >
+                {{ metal.name }}
+              </button>
+            </div>
+          </div>
+
           <!-- Size -->
           <div v-if="productData.sizes">
             <div class="flex items-center justify-between mb-4">
@@ -163,33 +186,10 @@
             </p>
           </div>
 
-          <!-- Metal -->
-          <div v-if="productData.metals">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">Metal</h3>
-              <span class="text-sm text-green-600 font-medium">{{ selectedMetal }}</span>
-            </div>
-            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
-              <button 
-                v-for="metal in productData.metals" 
-                :key="metal.name"
-                @click="selectMetal(metal)"
-                :class="[ 
-                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
-                  selectedMetal === metal.name 
-                    ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
-                    : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
-                ]"
-              >
-                {{ metal.name }}
-              </button>
-            </div>
-          </div>
-
           <!-- Diamond -->
           <div v-if="productData.diamonds">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">Diamond</h3>
+              <h3 class="text-sm font-semibold text-gray-900">Diamond</h3>
               <span class="text-sm text-green-600 font-medium">{{ selectedDiamond }}</span>
             </div>
             <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
@@ -310,13 +310,7 @@
               ]"
               @click="toggleProductType(option.id)"
             >
-              <input 
-                type="checkbox" 
-                :id="`product-type-${option.id}`"
-                :checked="selectedProductTypes.includes(option.id)"
-                class="w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
-                @click.stop
-              >
+             
               <label 
                 :for="`product-type-${option.id}`"
                 class="ml-3 flex-1 cursor-pointer"
@@ -377,143 +371,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Enquiry Form Modal -->
-    <div v-if="showEnquiryForm" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div class="bg-white rounded-2xl max-w-md w-full mx-auto max-h-[85vh] overflow-y-auto">
-        <div class="p-6">
-          <!-- Header -->
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="text-xl font-bold text-gray-900">Product Enquiry</h3>
-            <button 
-              @click="showEnquiryForm = false"
-              class="text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Product Summary -->
-          <div class="bg-gray-50 rounded-xl p-4 mb-6">
-            <div class="flex items-center space-x-4">
-              <img 
-                :src="productData.images[0]" 
-                :alt="productData.title"
-                class="w-16 h-16 object-cover rounded-lg"
-              />
-              <div>
-                <h4 class="font-semibold text-gray-900">{{ productData.title }}</h4>
-                <p class="text-sm text-gray-600">Size: <span class="font-semibold">{{ enquirySize }}</span></p>
-                <p class="text-sm text-gray-600">Product Types: 
-                  <span class="font-semibold">{{ getSelectedProductTypeNames() }}</span>
-                </p>
-                <p class="text-lg font-bold text-green-600">${{ productData.price.toLocaleString() }}</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Enquiry Form -->
-          <form @submit.prevent="submitEnquiry" class="space-y-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-              <input 
-                v-model="enquiryForm.name"
-                type="text" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Enter your full name"
-              >
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-              <input 
-                v-model="enquiryForm.email"
-                type="email" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Enter your email"
-              >
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-              <input 
-                v-model="enquiryForm.phone"
-                type="tel" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Enter your phone number"
-              >
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
-              <textarea 
-                v-model="enquiryForm.message"
-                rows="3"
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Any additional requirements or questions..."
-              ></textarea>
-            </div>
-
-            <div class="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
-              <input 
-                v-model="enquiryForm.notifyMe"
-                type="checkbox" 
-                class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
-              >
-              <div>
-                <label class="text-sm font-medium text-blue-900">Notify me about product updates</label>
-                <p class="text-xs text-blue-700 mt-1">We'll keep you informed about your selected product types</p>
-              </div>
-            </div>
-
-            <div class="flex gap-3 pt-4">
-              <button 
-                type="button"
-                @click="showEnquiryForm = false"
-                class="flex-1 py-3 px-4 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
-              >
-                Cancel
-              </button>
-              <button 
-                type="submit"
-                :disabled="isSubmitting"
-                class="flex-1 py-3 px-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-              >
-                <svg v-if="isSubmitting" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                {{ isSubmitting ? 'Submitting...' : 'Submit Enquiry' }}
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Success Message Modal -->
-    <div v-if="showSuccessMessage" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div class="bg-white rounded-2xl border border-green-200 shadow-lg max-w-sm p-6 text-center">
-        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Enquiry Submitted!</h3>
-        <p class="text-sm text-gray-600 mb-6">Thank you for your interest. We'll contact you soon.</p>
-        <button 
-          @click="showSuccessMessage = false"
-          class="bg-blue-600 text-white font-semibold py-3 px-4 rounded-xl hover:bg-blue-700 transition-colors"
-        >
-          Continue Shopping
-        </button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -541,8 +398,6 @@ const selectedMetal = ref('')
 const selectedDiamond = ref('')
 const showProductTypeModal = ref(false)
 const showBuyModal = ref(false)
-const showEnquiryForm = ref(false)
-const showSuccessMessage = ref(false)
 const isSubmitting = ref(false)
 const enquirySize = ref('')
 const selectedProductTypes = ref([])
@@ -554,15 +409,6 @@ const productTypeOptions = [
   { id: 'rubber', name: 'Rubber Mold', description: 'Flexible molding solution' },
   { id: 'casting', name: 'Casting Model', description: 'Metal casting pattern' }
 ]
-
-// Enquiry Form
-const enquiryForm = reactive({
-  name: '',
-  email: '',
-  phone: '',
-  message: '',
-  notifyMe: true
-})
 
 // Computed properties
 const isSelectedSizeAvailable = computed(() => {
@@ -622,7 +468,32 @@ const handleProductTypeSelection = () => {
 }
 
 const openEnquiryForm = () => {
-  showEnquiryForm.value = true
+  // Prepare enquiry data to pass to the enquiry page
+  const enquiryData = {
+    product: props.productData.title,
+    size: selectedSize.value,
+    sizeLabel: enquirySize.value || selectedSize.value,
+    metal: selectedMetal.value,
+    diamond: selectedDiamond.value,
+    price: props.productData.price,
+    image: props.productData.images[0],
+    productTypes: selectedProductTypes.value,
+    type: 'product_enquiry'
+  }
+  
+  // Navigate to enquiry page with query parameters
+  router.push({
+    path: '/enquiry',
+    query: {
+      product: encodeURIComponent(enquiryData.product),
+      size: encodeURIComponent(enquiryData.sizeLabel),
+      metal: encodeURIComponent(enquiryData.metal || ''),
+      diamond: encodeURIComponent(enquiryData.diamond || ''),
+      productTypes: encodeURIComponent(enquiryData.productTypes.join(',')),
+      price: enquiryData.price,
+      source: 'product_page'
+    }
+  })
 }
 
 const selectMetal = (metal) => {
@@ -656,52 +527,6 @@ const proceedToCheckout = () => {
 
 const tryAtHome = () => {
   emit('try-at-home', props.productData.title)
-}
-
-const getSelectedProductTypeNames = () => {
-  return selectedProductTypes.value.map(typeId => {
-    const option = productTypeOptions.find(opt => opt.id === typeId)
-    return option ? option.name : typeId
-  }).join(', ')
-}
-
-const submitEnquiry = async () => {
-  isSubmitting.value = true
-  
-  const enquiryData = {
-    product: props.productData.title,
-    size: selectedSize.value,
-    sizeLabel: enquirySize.value,
-    metal: selectedMetal.value,
-    diamond: selectedDiamond.value,
-    price: props.productData.price,
-    image: props.productData.images[0],
-    productTypes: selectedProductTypes.value,
-    customerInfo: { ...enquiryForm },
-    timestamp: new Date().toISOString(),
-    type: 'product_enquiry'
-  }
-  
-  try {
-    await emit('add-to-enquiry', enquiryData)
-    showEnquiryForm.value = false
-    resetEnquiryForm()
-    showSuccessMessage.value = true
-  } catch (error) {
-    console.error('Error submitting enquiry:', error)
-    alert('There was an error submitting your enquiry. Please try again.')
-  } finally {
-    isSubmitting.value = false
-  }
-}
-
-const resetEnquiryForm = () => {
-  enquiryForm.name = ''
-  enquiryForm.email = ''
-  enquiryForm.phone = ''
-  enquiryForm.message = ''
-  enquiryForm.notifyMe = true
-  selectedProductTypes.value = []
 }
 
 // Initialize selections with available options

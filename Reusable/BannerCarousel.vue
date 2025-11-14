@@ -1,7 +1,6 @@
 <template>
-  <section class="relative overflow-hidden mt-50">
-    <div >
-      
+  <section class="relative overflow-hidden mt-[100px]">
+    <div>
       <!-- Render Image -->
       <div v-if="slides[currentSlide].type === 'image'" class="w-full h-full">
         <img

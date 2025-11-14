@@ -42,7 +42,6 @@
               @click="handleQuickAction('treasure')"
               class="px-3 py-1.5 rounded-lg border border-green-500 bg-green-50 hover:bg-green-100 transition-all flex items-center gap-2 text-xs font-medium whitespace-nowrap"
             >
-              <!-- Treasure Icon - use your icon from public folder -->
               <img v-if="treasureIcon" :src="treasureIcon" alt="Treasure" class="w-4 h-4" />
               <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -56,7 +55,6 @@
               @click="handleQuickAction('stores')"
               class="px-3 py-1.5 rounded-lg border border-orange-500 bg-white hover:bg-orange-50 transition-all flex items-center gap-2 text-xs font-medium whitespace-nowrap"
             >
-              <!-- Store Icon - use your icon from public folder -->
               <img v-if="storeIcon" :src="storeIcon" alt="Store" class="w-4 h-4" />
               <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -69,7 +67,6 @@
               @click="handleQuickAction('gold')"
               class="px-3 py-1.5 rounded-lg border border-yellow-500 bg-gradient-to-r from-yellow-50 to-yellow-100 hover:from-yellow-100 hover:to-yellow-200 transition-all flex items-center gap-2 text-xs font-medium whitespace-nowrap"
             >
-              <!-- Gold Icon - use your icon from public folder -->
               <img v-if="goldIcon" :src="goldIcon" alt="Gold" class="w-4 h-4" />
               <svg v-else class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -82,99 +79,14 @@
           <div class="flex items-center gap-3">
             <!-- Enquiry Icon -->
             <div class="relative">
-              <button
-                @mouseenter="showEnquiryDropdown = true"
-                @mouseleave="showEnquiryDropdown = false"
-                class="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+              <NuxtLink
+                to="/EnquiryForm"
+                class="p-1.5 rounded-full transition-colors"
               >
                 <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-              </button>
-
-              <!-- Enquiry Dropdown -->
-              <Transition name="dropdown">
-                <div
-                  v-if="showEnquiryDropdown"
-                  @mouseenter="showEnquiryDropdown = true"
-                  @mouseleave="showEnquiryDropdown = false"
-                  class="absolute right-0 top-full mt-2 w-96 bg-white rounded-lg shadow-xl border border-gray-200 p-6"
-                >
-                  <h3 class="text-lg font-semibold text-gray-800 mb-4">Product Enquiry</h3>
-                  <p class="text-sm text-gray-600 mb-4">
-                    Have questions about our products? We'd love to help!
-                  </p>
-
-                  <form @submit.prevent="submitEnquiry" class="space-y-4">
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                      <input
-                        v-model="enquiryForm.name"
-                        type="text"
-                        required
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-sm"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                      <input
-                        v-model="enquiryForm.email"
-                        type="email"
-                        required
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-sm"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                      <input
-                        v-model="enquiryForm.phone"
-                        type="tel"
-                        required
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-sm"
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Product Size</label>
-                      <select
-                        v-model="enquiryForm.productSize"
-                        required
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-sm"
-                      >
-                        <option value="">Select product size</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="x-large">X-Large</option>
-                        <option value="custom">Custom Size</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-medium text-gray-700 mb-1">Your Question</label>
-                      <textarea
-                        v-model="enquiryForm.question"
-                        required
-                        rows="3"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-sm"
-                        placeholder="Tell us about your enquiry..."
-                      ></textarea>
-                    </div>
-
-                    <button
-                      type="submit"
-                      class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm"
-                    >
-                      Submit Enquiry
-                    </button>
-                  </form>
-                </div>
-              </Transition>
+              </NuxtLink>
             </div>
 
             <!-- Delivery & Stores -->
@@ -334,14 +246,14 @@
           <!-- Right Side Icons -->
           <div class="flex items-center gap-2">
             <!-- Enquiry Icon for Mobile -->
-            <button 
-              @click="openEnquiryDrawer"
+            <NuxtLink 
+              to="/EnquiryForm"
               class="p-2 hover:bg-gray-100 rounded-lg"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-            </button>
+            </NuxtLink>
 
             <button 
               @click="openAccountDrawer"
@@ -402,7 +314,7 @@
 
     <!-- Mobile Bottom Drawer for Pincode -->
     <Teleport to="body">
-      <!-- Existing Pincode Drawer (unchanged) -->
+      <!-- Pincode Drawer -->
       <Transition name="drawer">
         <div
           v-if="showPincodeDrawer"
@@ -454,7 +366,7 @@
         </div>
       </Transition>
 
-      <!-- Mobile Bottom Drawer for Account - Auto-open on mobile/tablet -->
+      <!-- Mobile Bottom Drawer for Account -->
       <Transition name="drawer">
         <div
           v-if="showAccountDrawer"
@@ -493,102 +405,6 @@
           </div>
         </div>
       </Transition>
-
-      <!-- Enquiry Form Drawer for Mobile -->
-      <Transition name="drawer">
-        <div
-          v-if="showEnquiryDrawer"
-          class="fixed inset-0 z-[100] lg:hidden"
-          @click.self="closeEnquiryDrawer"
-        >
-          <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="closeEnquiryDrawer"></div>
-          
-          <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 max-h-[90vh] overflow-y-auto">
-            <button
-              @click="closeEnquiryDrawer"
-              class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Product Enquiry</h3>
-            <p class="text-sm text-gray-600 mb-6">
-              Have questions about our products? We'd love to help!
-            </p>
-
-            <form @submit.prevent="submitEnquiry" class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input
-                  v-model="enquiryForm.name"
-                  type="text"
-                  required
-                  class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-base"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <input
-                  v-model="enquiryForm.email"
-                  type="email"
-                  required
-                  class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-base"
-                  placeholder="Enter your email"
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                <input
-                  v-model="enquiryForm.phone"
-                  type="tel"
-                  required
-                  class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-base"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Product Size</label>
-                <select
-                  v-model="enquiryForm.productSize"
-                  required
-                  class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-base"
-                >
-                  <option value="">Select product size</option>
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                  <option value="x-large">X-Large</option>
-                  <option value="custom">Custom Size</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Your Question</label>
-                <textarea
-                  v-model="enquiryForm.question"
-                  required
-                  rows="4"
-                  class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-base"
-                  placeholder="Tell us about your enquiry..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full px-4 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-base"
-              >
-                Submit Enquiry
-              </button>
-            </form>
-          </div>
-        </div>
-      </Transition>
     </Teleport>
   </div>
 </template>
@@ -619,18 +435,14 @@ const props = defineProps({
     type: Number,
     default: 0
   },
-  // Icon paths from public folder
   treasureIcon: {
     type: String,
-    // default: '/icons/treasure.png' // Updated to local paths
   },
   storeIcon: {
     type: String,
-    // default: '/icons/store.png'
   },
   goldIcon: {
     type: String,
-    // default: '/icons/gold.png'
   }
 });
 
@@ -646,7 +458,8 @@ const emit = defineEmits([
   'check-delivery',
   'login',
   'signup',
-  'enquiry-submit'
+  'enquiry-submit',
+  'toggle-mobile-menu'
 ]);
 
 // Reactive state
@@ -654,19 +467,8 @@ const searchQuery = ref('');
 const pincode = ref('');
 const showDeliveryDropdown = ref(false);
 const showAccountDropdown = ref(false);
-const showEnquiryDropdown = ref(false);
 const showPincodeDrawer = ref(false);
 const showAccountDrawer = ref(false);
-const showEnquiryDrawer = ref(false);
-
-// Enquiry form data
-const enquiryForm = ref({
-  name: '',
-  email: '',
-  phone: '',
-  productSize: '',
-  question: ''
-});
 
 // Check if device is mobile/tablet
 const checkIfMobileOrTablet = () => {
@@ -743,41 +545,6 @@ const openAccountDrawer = () => {
 
 const closeAccountDrawer = () => {
   showAccountDrawer.value = false;
-};
-
-const openEnquiryDrawer = () => {
-  showEnquiryDrawer.value = true;
-};
-
-const closeEnquiryDrawer = () => {
-  showEnquiryDrawer.value = false;
-};
-
-const submitEnquiry = () => {
-  // Validate form
-  if (!enquiryForm.value.name || !enquiryForm.value.email || !enquiryForm.value.phone || !enquiryForm.value.productSize || !enquiryForm.value.question) {
-    alert('Please fill in all fields');
-    return;
-  }
-
-  // Emit the enquiry data to parent component
-  emit('enquiry-submit', enquiryForm.value);
-  
-  // Reset form
-  enquiryForm.value = {
-    name: '',
-    email: '',
-    phone: '',
-    productSize: '',
-    question: ''
-  };
-  
-  // Close dropdown/drawer
-  showEnquiryDropdown.value = false;
-  showEnquiryDrawer.value = false;
-  
-  // Show success message (you can replace this with a toast notification)
-  alert('Thank you for your enquiry! We will get back to you soon.');
 };
 </script>
 
