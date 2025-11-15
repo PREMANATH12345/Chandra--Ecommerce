@@ -20,7 +20,7 @@
     "reviews": 28,
     "discountText": "Flat 15% off on Diamond Prices",
     "taxInfo": "MPR* Inclusive of all taxes",
-    "deliveryInfo": "Free delivery available. Available in stores for trial. Book an appointment to try at home.",
+    "deliveryInfo": "Free delivery available. Available in stores for trial.",
     "sizeHelperText": "Not sure about your ring size?",
     "breadcrumb": [
       { "label": "HOME", "path": "/" },
@@ -49,8 +49,7 @@
       { "label": "weight 0.09ct", "value": "9k 1.5gm ", "available": true }
     ],
     "buttons": {
-      "addToBag": "ADD TO BAG",
-      "tryAtHome": "TRY AT HOME",
+      "addToBag": "Buy",
       "learnMore": "Learn Now →",
       "addToEnquiry": "ADD TO ENQUIRY"
     }
@@ -76,7 +75,7 @@
     "reviews": 15,
     "discountText": "Flat 10% off on Diamond Prices - New Arrival Special",
     "taxInfo": "MPR* Inclusive of all taxes",
-    "deliveryInfo": "Free delivery available. Available in stores for trial. Book an appointment to try at home.",
+    "deliveryInfo": "Free delivery available. Available in stores for trial.",
     "sizeHelperText": "Not sure about your ring size?",
     "breadcrumb": [
       { "label": "HOME", "path": "/" },
@@ -105,8 +104,7 @@
       { "label": "IF", "value": "IF", "available": false }
     ],
     "buttons": {
-      "addToBag": "ADD TO BAG",
-      "tryAtHome": "TRY AT HOME",
+      "addToBag": "Buy",
       "learnMore": "Learn Now →",
       "addToEnquiry": "ADD TO ENQUIRY"
     }

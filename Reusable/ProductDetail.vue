@@ -1,7 +1,7 @@
-<template>
-  <div class="mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Breadcrumb -->
-    <div class="text-sm text-gray-500 mb-8">
+<template>  
+  <div class="mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
+    <!-- Breadcrumb - Desktop Only -->
+    <div class="hidden lg:block text-sm text-gray-500 mb-8">
       <span 
         v-for="(crumb, index) in productData.breadcrumb" 
         :key="index"
@@ -16,229 +16,136 @@
       </span>
     </div>
 
-    <div class="flex flex-col lg:flex-row gap-10">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
       <!-- Left Side - Image Gallery -->
-      <div class="lg:w-1/2 w-14 max-w-xl mx-auto lg:mx-0">
-        <div class="sticky top-8">
-          <!-- Grid with 2 images per row -->
-          <div class="grid grid-cols-2 gap-4 mb-4">
+      <div class="lg:w-[45%] w-full">
+        <!-- Desktop: Grid with 2 images per row -->
+        <div class="hidden lg:block sticky top-8">
+          <div class="grid grid-cols-2 gap-3">
             <div 
               v-for="(image, index) in productData.images" 
               :key="index"
-              class="bg-white rounded-2xl p-4"
+              class="bg-white rounded-xl p-3 aspect-square flex items-center justify-center border border-gray-100" 
             >
               <img 
                 :src="image" 
                 :alt="`${productData.title} view ${index + 1}`"
-                class="w-full h-64 object-contain rounded-lg"
+                class="w-full h-full object-contain rounded-lg"
               />
             </div>
           </div>
+        </div>
 
-          <!-- Thumbnail Images -->
-          <div class="flex gap-3 overflow-x-auto">
-            <div 
-              v-for="(thumb, index) in productData.thumbnails" 
-              :key="index"
-              class="flex-shrink-0 w-20 h-20 border-2 border-transparent hover:border-purple-500 rounded-lg cursor-pointer transition-all"
-              :class="{ 'border-purple-500': selectedImage === index }"
-              @click="selectedImage = index"
-            >
-              <img 
-                :src="thumb" 
-                :alt="`${productData.title} thumbnail ${index + 1}`"
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
+        <!-- Mobile/Tablet: Horizontal scroll -->
+        <div class="lg:hidden overflow-x-auto flex gap-4 snap-x snap-mandatory pb-4">
+          <div 
+            v-for="(image, index) in productData.images" 
+            :key="index"
+            class="flex-shrink-0 w-full snap-center"
+          >
+            <img 
+              :src="image" 
+              :alt="`${productData.title} view ${index + 1}`"
+              class="w-full h-80 object-contain rounded-lg"
+            />
           </div>
         </div>
       </div>
 
       <!-- Right Side - Product Details -->
-      <div class="lg:w-1/2">
-        <!-- Stock Status -->
-        <div class="mb-4">
-          <div 
-            v-if="!isSelectedSizeAvailable && selectedSize" 
-            class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100"
-          >
-            <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
-            <span class="text-orange-700 text-sm font-medium">Latest Design</span>
-          </div>
-          <div 
-            v-else-if="isLowStock" 
-            class="inline-flex items-center px-3 py-1 rounded-full bg-yellow-100"
-          >
-            <span class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
-            <span class="text-yellow-700 text-sm font-medium">Low Stock</span>
-          </div>
-          <div 
-            v-else-if="selectedSize && isSelectedSizeAvailable" 
-            class="inline-flex items-center px-3 py-1 rounded-full bg-green-100"
-          >
-            <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-            <span class="text-green-700 text-sm font-medium">In Stock</span>
-          </div>
-        </div>
-
-        <!-- Rating -->
-        <div v-if="productData.rating" class="flex items-center gap-2 mb-4">
+      <div class="lg:w-[55%] w-full flex flex-col lg:pr-8">
+        <!-- Rating - First -->
+        <div v-if="productData.rating" class="flex items-center gap-2 mb-3 order-1">
           <div class="flex">
-            <span v-for="star in 5" :key="star" class="text-amber-400 text-lg">
+            <span v-for="star in 5" :key="star" class="text-amber-400 text-base">
               {{ star <= productData.rating ? '★' : '☆' }}
             </span>
           </div>
-          <span class="text-gray-500 text-sm">({{ productData.reviews }} Reviews)</span>
+          <span class="text-gray-500 text-xs">{{ productData.reviews }} Ratings</span>
         </div>
 
-        <!-- Pricing -->
-        <div class="mb-6" v-if="productData.price">
-          <div class="flex items-baseline gap-3 mb-1">
-            <span class="text-2xl font-bold text-gray-900">${{ productData.price.toLocaleString() }}</span>
-            <span v-if="productData.originalPrice" class="text-xl text-gray-500 line-through">
-              ${{ productData.originalPrice.toLocaleString() }}
+        <!-- Pricing - Second -->
+        <div class="mb-3 order-2" v-if="productData.price">
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-2xl font-bold text-gray-900">₹{{ productData.price.toLocaleString() }}</span>
+            <span v-if="productData.originalPrice" class="text-lg text-gray-400 line-through">
+              ₹{{ productData.originalPrice.toLocaleString() }}
             </span>
-            <span 
-              v-if="productData.originalPrice"
-              class="bg-green-100 text-green-700 px-2 py-1 rounded text-sm font-medium"
+          </div>
+          <p class="text-gray-500 text-xs">{{ productData.taxInfo }}</p>
+        </div>
+
+        <!-- Product Title - Third -->
+        <h1 class="text-lg font-semibold text-gray-800 mb-3 leading-tight order-3">{{ productData.title }}</h1>
+
+        <!-- Discount Text - Fourth -->
+        <div class="mb-5 order-4">
+          <p class="text-green-600 font-medium text-sm">{{ productData.discountText }}</p>
+        </div>
+
+        <!-- Customization Card - Fifth -->
+      <div class="mb-6 order-5 flex justify-center">
+        <div class="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm w-[300px]">
+          <div class="grid grid-cols-4 divide-x divide-gray-200">
+            
+            <!-- Size Card -->
+            <button 
+              @click="openCustomizationModal('size')"
+              class="text-center hover:bg-gray-50 transition-all p-3"
             >
-              Save ${{ (productData.originalPrice - productData.price).toLocaleString() }}
-            </span>
-          </div>
-          <p class="text-gray-500 text-sm">{{ productData.taxInfo }}</p>
-        </div>
-
-        <!-- Product Title -->
-        <h1 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">{{ productData.title }}</h1>
-
-        <!-- Discount or Promo Slot -->
-        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
-          <slot name="promo">
-            <div class="flex items-center">
-              <div class="bg-blue-100 rounded-lg p-2 mr-3">
-                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" 
-                    d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 5.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L8.414 10l1.293-1.293zm4 0a1 1 0 010 1.414L11.586 10l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" 
-                    clip-rule="evenodd" />
-                </svg>
+              <div class="text-xs text-gray-500 mb-1">Size</div>
+              <div class="font-semibold text-xs truncate">
+                {{ selectedSize ? productData.sizes.find(s => s.value === selectedSize)?.label : '-' }}
               </div>
-              <p class="text-blue-800 font-semibold">{{ productData.discountText }}</p>
-            </div>
-          </slot>
-        </div>
+            </button>
 
-        <!-- Customization Options -->
-        <div class="space-y-8 mb-8">
-          <!-- Metal -->
-          <div v-if="productData.metals">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-semibold text-gray-900">Metal</h3>
-              <span class="text-sm text-green-600 font-medium">{{ selectedMetal }}</span>
-            </div>
-            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
-              <button 
-                v-for="metal in productData.metals" 
-                :key="metal.name"
-                @click="selectMetal(metal)"
-                :class="[ 
-                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
-                  selectedMetal === metal.name 
-                    ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
-                    : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
-                ]"
-              >
-                {{ metal.name }}
-              </button>
-            </div>
-          </div>
+            <!-- Metal Card -->
+            <button 
+              @click="openCustomizationModal('metal')"
+              class="text-center hover:bg-gray-50 transition-all p-3"
+            >
+              <div class="text-xs text-gray-500 mb-1">Metal</div>
+              <div class="font-semibold text-xs truncate">
+                {{ selectedMetal ? selectedMetal.split(' ')[0] : '-' }}
+              </div>
+            </button>
 
-          <!-- Size -->
-          <div v-if="productData.sizes">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-semibold text-gray-900">Size</h3>
-              <span v-if="selectedSize" class="text-sm text-green-600 font-medium">{{ selectedSize }}</span>
-            </div>
-            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
-              <button 
-                v-for="size in productData.sizes" 
-                :key="size.value"
-                @click="handleSizeClick(size)"
-                :class="[ 
-                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium relative',
-                  selectedSize === size.value 
-                    ? size.available 
-                      ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
-                      : 'border-red-500 bg-red-50 text-red-700 shadow-sm'
-                    : size.available 
-                      ? 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50' 
-                      : 'border-gray-300 bg-gray-100 text-gray-500 hover:bg-gray-200 cursor-pointer'
-                ]"
-              >
-                {{ size.label }}
-                <span v-if="!size.available" class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border border-white"></span>
-              </button>
-            </div>
-            <p v-if="selectedSize && !isSelectedSizeAvailable" class="text-red-500 text-sm mt-2 flex items-center">
-              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-              </svg>
-              This size is currently unavailable. Click to submit an enquiry.
-            </p>
-          </div>
+            <!-- Diamond Card -->
+            <button 
+              @click="openCustomizationModal('diamond')"
+              class="text-center hover:bg-gray-50 transition-all p-3"
+            >
+              <div class="text-xs text-gray-500 mb-1">Diamond</div>
+              <div class="font-semibold text-xs truncate">
+                {{ selectedDiamond ? selectedDiamond.split(' ')[0] : '-' }}
+              </div>
+            </button>
 
-          <!-- Diamond -->
-          <div v-if="productData.diamonds">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-semibold text-gray-900">Diamond</h3>
-              <span class="text-sm text-green-600 font-medium">{{ selectedDiamond }}</span>
-            </div>
-            <div class="grid grid-cols-4 sm:grid-cols-4 gap-3">
-              <button 
-                v-for="diamond in productData.diamonds" 
-                :key="diamond.value"
-                @click="selectDiamond(diamond)"
-                :class="[ 
-                  'py-2 px-2 border-2 rounded-xl text-center transition-all duration-200 font-medium',
-                  selectedDiamond === diamond.value 
-                    ? 'border-green-600 bg-green-50 text-green-700 shadow-sm' 
-                    : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
-                ]"
-              >
-                {{ diamond.label }}
-              </button>
-            </div>
+            <!-- Customize Button -->
+            <button 
+              @click="openCustomizationModal('all')"
+              class="text-center bg-yellow-400 hover:bg-yellow-500 transition-all p-3"
+            >
+              <div class="text-xs text-gray-800 font-semibold">CUSTOMISE</div>
+            </button>
+
           </div>
         </div>
+      </div>
 
-        <!-- Size Helper -->
-        <div class="mb-8 p-4 bg-gray-50 rounded-xl" v-if="productData.sizeHelperText">
-          <button class="flex items-center justify-between w-full group">
-            <span class="text-gray-700 font-medium">{{ productData.sizeHelperText }}</span>
-            <span class="text-purple-600 font-semibold group-hover:text-purple-700 transition-colors">
-              {{ productData.buttons?.learnMore || 'Learn More' }}
-            </span>
-          </button>
-        </div>
 
         <!-- Action Buttons -->
-        <div v-if="selectedSize && isSelectedSizeAvailable" class="grid grid-cols-2 gap-4 mb-8">
+        <div v-if="selectedSize && isSelectedSizeAvailable" class="grid grid-cols-1 gap-4 mb-8 order-6">
           <button 
             @click="openProductTypeModal"
             class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
           >
             {{ productData.buttons?.addToBag || 'Add to Bag' }}
           </button>
-          
-          <button 
-            @click="tryAtHome"
-            class="w-full border-2 border-green-600 text-green-600 hover:bg-green-50 font-semibold py-4 px-6 rounded-xl transition-all duration-300"
-          >
-            {{ productData.buttons?.tryAtHome || 'Try at Home' }}
-          </button>
         </div>
 
         <!-- Enquiry Button for Unavailable Sizes -->
-        <div v-else-if="selectedSize && !isSelectedSizeAvailable" class="mb-8">
+        <div v-else-if="selectedSize && !isSelectedSizeAvailable" class="mb-8 order-6">
           <button 
             @click="openEnquiryForm"
             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
@@ -248,7 +155,7 @@
         </div>
 
         <!-- No Size Selected Message -->
-        <div v-else class="mb-8">
+        <!-- <div v-else class="mb-8 order-6">
           <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
             <div class="flex items-center justify-center mb-3">
               <div class="bg-gray-200 rounded-full p-2 mr-3">
@@ -260,12 +167,232 @@
             </div>
             <p class="text-gray-600">Please select your preferred size to continue</p>
           </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Customization Modal -->
+    <div 
+      v-if="showCustomizationModal" 
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end items-end lg:items-stretch"
+      @click.self="closeCustomizationModal"
+    >
+      <!-- Desktop: Right side panel (Half width) -->
+      <div class="hidden lg:block lg:w-1/2 bg-white h-full shadow-2xl animate-slide-in-right overflow-y-auto">
+        <div class="p-6 relative">
+          <!-- Close button -->
+          <button 
+            @click="closeCustomizationModal"
+            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- Price Header -->
+          <div class="text-center mb-6 pt-8 bg-green-50 -mx-6 px-6 pb-4">
+            <p class="text-xs text-gray-600 mb-1">Estimated price</p>
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-2xl font-bold text-gray-900">₹{{ productData.price.toLocaleString() }}</span>
+              <span v-if="productData.originalPrice" class="text-lg text-gray-400 line-through">
+                ₹{{ productData.originalPrice.toLocaleString() }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Choice of Metal -->
+          <div class="mb-6">
+            <h3 class="text-sm font-semibold mb-3">Choice of Metal</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                v-for="metal in productData.metals"
+                :key="metal.name"
+                @click="selectMetal(metal)"
+                :class="[
+                  'p-3 border-2 rounded-lg text-center transition-all',
+                  selectedMetal === metal.name
+                    ? 'border-green-500 bg-green-50'
+                    : 'border-gray-200 hover:border-gray-300'
+                ]"
+              >
+                <div class="font-medium text-xs">{{ metal.name }}</div>
+                <div class="text-xs text-green-600 mt-1">In Stock!</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Diamond Quality -->
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="text-sm font-semibold">Diamond Quality</h3>
+              <a href="#" class="text-xs text-green-600 hover:underline">DIAMOND GUIDE</a>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                v-for="diamond in productData.diamonds"
+                :key="diamond.value"
+                @click="selectDiamond(diamond)"
+                :class="[
+                  'p-3 border-2 rounded-lg text-center transition-all',
+                  selectedDiamond === diamond.value
+                    ? 'border-green-500 bg-green-50'
+                    : 'border-gray-200 hover:border-gray-300'
+                ]"
+              >
+                <div class="font-medium text-xs">{{ diamond.label }}</div>
+                <div class="text-xs text-green-600 mt-1">In Stock!</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Select Size -->
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="text-sm font-semibold">Select Size</h3>
+              <a href="#" class="text-xs text-green-600 hover:underline">SIZE GUIDE</a>
+            </div>
+            <div class="grid grid-cols-5 gap-2">
+              <button
+                v-for="size in productData.sizes"
+                :key="size.value"
+                @click="handleSizeClick(size)"
+                :class="[
+                  'p-2 border-2 rounded-lg transition-all text-center',
+                  selectedSize === size.value
+                    ? size.available
+                      ? 'border-green-500 bg-green-50'
+                      : 'border-red-500 bg-red-50'
+                    : size.available
+                      ? 'border-gray-200 hover:border-gray-300'
+                      : 'border-gray-200 bg-gray-100'
+                ]"
+              >
+                <div class="font-semibold text-xs">{{ size.label }}</div>
+                <div class="text-xs text-gray-500 mt-1">{{ size.value.split('(')[1]?.replace(')', '') }}</div>
+                <div v-if="size.available" class="text-xs text-green-600 mt-1">Stock</div>
+                <div v-else class="text-xs text-gray-500 mt-1">Order</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Button -->
+          <button
+            @click="confirmCustomization"
+            class="w-full py-3 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors"
+          >
+            CONFIRM CUSTOMISATION
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile: Bottom sheet (60% height with close button visible) -->
+      <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl h-[60vh] animate-slide-up overflow-y-auto">
+        <div class="p-4 pb-6">
+          <!-- Handle bar -->
+          <div class="flex justify-center mb-3" @click="closeCustomizationModal">
+            <div class="w-12 h-1 bg-gray-300 rounded-full cursor-pointer"></div>
+          </div>
+          
+          <!-- Price Header -->
+          <div class="text-center mb-4 bg-green-50 -mx-4 px-4 py-3">
+            <p class="text-xs text-gray-600 mb-1">Estimated price</p>
+            <div class="flex items-center justify-center gap-2">
+              <span class="text-xl font-bold text-gray-900">₹{{ productData.price.toLocaleString() }}</span>
+              <span v-if="productData.originalPrice" class="text-base text-gray-400 line-through">
+                ₹{{ productData.originalPrice.toLocaleString() }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Choice of Metal -->
+          <div class="mb-4">
+            <h3 class="text-sm font-semibold mb-2">Choice of Metal</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                v-for="metal in productData.metals"
+                :key="metal.name"
+                @click="selectMetal(metal)"
+                :class="[
+                  'p-2 border-2 rounded-lg text-center transition-all',
+                  selectedMetal === metal.name
+                    ? 'border-green-500 bg-green-50'
+                    : 'border-gray-200 hover:border-gray-300'
+                ]"
+              >
+                <div class="font-medium text-xs">{{ metal.name }}</div>
+                <div class="text-xs text-green-600 mt-1">In Stock!</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Diamond Quality -->
+          <div class="mb-4">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-sm font-semibold">Diamond Quality</h3>
+              <a href="#" class="text-xs text-green-600 hover:underline">GUIDE</a>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                v-for="diamond in productData.diamonds"
+                :key="diamond.value"
+                @click="selectDiamond(diamond)"
+                :class="[
+                  'p-2 border-2 rounded-lg text-center transition-all',
+                  selectedDiamond === diamond.value
+                    ? 'border-green-500 bg-green-50'
+                    : 'border-gray-200 hover:border-gray-300'
+                ]"
+              >
+                <div class="font-medium text-xs">{{ diamond.label }}</div>
+                <div class="text-xs text-green-600 mt-1">In Stock!</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Select Size -->
+          <div class="mb-4">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-sm font-semibold">Select Size</h3>
+              <a href="#" class="text-xs text-green-600 hover:underline">GUIDE</a>
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+              <button
+                v-for="size in productData.sizes"
+                :key="size.value"
+                @click="handleSizeClick(size)"
+                :class="[
+                  'p-2 border-2 rounded-lg transition-all text-center',
+                  selectedSize === size.value
+                    ? size.available
+                      ? 'border-green-500 bg-green-50'
+                      : 'border-red-500 bg-red-50'
+                    : size.available
+                      ? 'border-gray-200 hover:border-gray-300'
+                      : 'border-gray-200 bg-gray-100'
+                ]"
+              >
+                <div class="font-semibold text-xs">{{ size.label }}</div>
+                <div class="text-xs text-gray-500 mt-1">{{ size.value.split('(')[1]?.replace(')', '') }}</div>
+                <div v-if="size.available" class="text-xs text-green-600">Stock</div>
+                <div v-else class="text-xs text-gray-500">Order</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Button -->
+          <button
+            @click="confirmCustomization"
+            class="w-full py-3 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors"
+          >
+            CONFIRM CUSTOMISATION
+          </button>
         </div>
       </div>
     </div>
 
     <!-- Product Type Selection Modal -->
-    <div v-if="showProductTypeModal" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div v-if="showProductTypeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div class="bg-white rounded-2xl max-w-md w-full mx-auto">
         <div class="p-6">
           <!-- Header -->
@@ -292,7 +419,7 @@
               <div>
                 <h4 class="font-semibold text-gray-900">{{ productData.title }}</h4>
                 <p class="text-sm text-gray-600">Size: <span class="font-semibold">{{ selectedSize }}</span></p>
-                <p class="text-lg font-bold text-green-600">${{ productData.price.toLocaleString() }}</p>
+                <p class="text-lg font-bold text-green-600">₹{{ productData.price.toLocaleString() }}</p>
               </div>
             </div>
           </div>
@@ -310,7 +437,6 @@
               ]"
               @click="toggleProductType(option.id)"
             >
-             
               <label 
                 :for="`product-type-${option.id}`"
                 class="ml-3 flex-1 cursor-pointer"
@@ -342,7 +468,7 @@
     </div>
 
     <!-- Buy Now Modal -->
-    <div v-if="showBuyModal" class="fixed inset-0  bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div v-if="showBuyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div class="bg-white rounded-2xl max-w-md w-full mx-auto">
         <div class="p-6">
           <div class="flex items-center justify-between mb-6">
@@ -375,7 +501,7 @@
 </template>
 
 <script setup>
-import { ref, computed, reactive } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -401,6 +527,8 @@ const showBuyModal = ref(false)
 const isSubmitting = ref(false)
 const enquirySize = ref('')
 const selectedProductTypes = ref([])
+const showCustomizationModal = ref(false)
+const currentCustomizationTab = ref('all')
 
 // Product type options
 const productTypeOptions = [
@@ -422,6 +550,19 @@ const isLowStock = computed(() => {
 })
 
 // Methods
+const openCustomizationModal = (tab) => {
+  currentCustomizationTab.value = tab
+  showCustomizationModal.value = true
+}
+
+const closeCustomizationModal = () => {
+  showCustomizationModal.value = false
+}
+
+const confirmCustomization = () => {
+  closeCustomizationModal()
+}
+
 const handleSizeClick = (size) => {
   selectedSize.value = size.value
   
@@ -433,7 +574,7 @@ const handleSizeClick = (size) => {
 const openProductTypeModal = () => {
   if (selectedSize.value && isSelectedSizeAvailable.value) {
     showProductTypeModal.value = true
-    selectedProductTypes.value = [] // Reset selections
+    selectedProductTypes.value = []
   }
 }
 
@@ -456,19 +597,15 @@ const handleProductTypeSelection = () => {
   showProductTypeModal.value = false
   
   if (hasDirectBuy && !hasEnquiryOnly) {
-    // Only STL or CAM selected - go to buy flow
     showBuyModal.value = true
   } else if (hasEnquiryOnly) {
-    // Rubber mold or casting model selected - go to enquiry
     openEnquiryForm()
   } else {
-    // No selection or mixed - use default behavior
     addToBag()
   }
 }
 
 const openEnquiryForm = () => {
-  // Prepare enquiry data to pass to the enquiry page
   const enquiryData = {
     product: props.productData.title,
     size: selectedSize.value,
@@ -481,7 +618,6 @@ const openEnquiryForm = () => {
     type: 'product_enquiry'
   }
   
-  // Navigate to enquiry page with query parameters
   router.push({
     path: '/enquiry',
     query: {
@@ -547,6 +683,7 @@ const initializeSelections = () => {
 
 // Initialize when component mounts
 initializeSelections()
+
 </script>
 
 <style scoped>
@@ -554,18 +691,69 @@ initializeSelections()
   scrollbar-width: thin;
   scrollbar-color: #cbd5e0 #f7fafc;
 }
+
 .overflow-x-auto::-webkit-scrollbar {
   height: 6px;
 }
+
 .overflow-x-auto::-webkit-scrollbar-track {
   background: #f7fafc;
   border-radius: 3px;
 }
+
 .overflow-x-auto::-webkit-scrollbar-thumb {
   background: #cbd5e0;
   border-radius: 3px;
 }
+
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
   background: #a0aec0;
 }
-</style>
+
+/* Animations for modals */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Hide scrollbar for mobile image gallery */
+@media (max-width: 1024px) {
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+  .overflow-x-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Snap scroll for mobile images */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+</style>  

@@ -333,7 +333,6 @@ const filterPills = ref([
   { id: 'fast-delivery', label: 'Fast Delivery' },
   { id: 'new-arrivals', label: 'New In' },
   { id: 'store-pickup', label: 'Store Pickup' },
-  { id: 'try-home', label: 'Try at Home' }
 ]);
 
 // Sort Options

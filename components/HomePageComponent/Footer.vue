@@ -310,20 +310,40 @@
         </div>
       </div>
       
-      <div class="flex flex-col items-center md:items-end gap-3">
-        <p class="font-medium text-gray-700">We Accept</p>
-        <div class="flex gap-4">
-          <div class="bg-white p-3 rounded border border-gray-300">
-            <span class="font-bold text-blue-800 text-lg">VISA</span>
-          </div>
-          <div class="bg-white p-3 rounded border border-gray-300">
-            <span class="font-bold text-blue-500 text-lg">PayPal</span>
-          </div>
-          <div class="bg-white p-3 rounded border border-gray-300">
-            <span class="font-bold text-purple-600 text-sm">biznote</span>
-          </div>
-        </div>
+    <div class="flex flex-wrap gap-4 items-center">
+
+      <!-- GPay -->
+      <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-sm border border-gray-200 
+                  w-full sm:w-auto sm:flex-1 md:flex-none justify-center">
+        <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M21.35 11.1H12v2.9h5.3c-.25 1.45-1.52 4.25-5.3 4.25a5.75 5.75 0 1 1 4.06-9.8l2.05-2.04A8.64 8.64 0 0 0 11.99 4a8.99 8.99 0 1 0 0 18c5.18 0 8.65-3.64 8.65-9.25c0-.62-.07-1.1-.29-1.65z"/>
+        </svg>
+        <span class="font-semibold text-gray-700 text-base sm:text-lg">Pay</span>
       </div>
+
+      <!-- PhonePe -->
+      <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-md border border-gray-200 
+                  w-full sm:w-auto sm:flex-1 md:flex-none justify-center">
+        <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="#5F259F"></circle>
+          <text x="8" y="16" font-size="10" fill="white" font-family="sans-serif">पे</text>
+        </svg>
+        <span class="font-semibold text-purple-700 text-base sm:text-xl">PhonePe</span>
+      </div>
+
+      <!-- Apple Pay -->
+      <div class="flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-sm border border-gray-200
+                  w-full sm:w-auto sm:flex-1 md:flex-none justify-center">
+        <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24">
+          <path fill="black" d="M16.68 12.59c.01 2.29 2.04 3.05 2.06 3.06-.02.07-.32 1.12-1.06 2.22-.64.94-1.31 1.88-2.36 1.9-1.03.02-1.36-.62-2.54-.62-1.17 0-1.54.6-2.52.64-1.01.04-1.78-1.02-2.43-1.96-1.32-1.91-2.33-5.41-.97-7.76.67-1.16 1.86-1.9 3.14-1.92 1-.02 1.94.66 2.54.66.59 0 1.74-.82 2.94-.7.5.02 1.91.2 2.81 1.52-.07.04-1.68.98-1.67 2.96z"/>
+          <path fill="black" d="M14.52 5.37c.55-.67.92-1.61.82-2.54-.79.03-1.76.53-2.33 1.2-.51.58-.95 1.53-.83 2.43.87.07 1.78-.45 2.34-1.09z"/>
+        </svg>
+        <span class="font-bold text-black text-base sm:text-lg">Pay</span>
+      </div>
+
+    </div>
+
+
     </div>
     
     <!-- Copyright Notice -->

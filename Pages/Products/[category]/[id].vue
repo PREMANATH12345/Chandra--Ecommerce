@@ -89,7 +89,7 @@ const productData = computed(() => {
     reviews: selectedProduct.reviews || Math.floor(Math.random() * 50) + 10,
     discountText: selectedProduct.discountText || `Flat ${Math.round(((selectedProduct.originalPrice - selectedProduct.price) / selectedProduct.originalPrice) * 100)}% off`,
     taxInfo: selectedProduct.taxInfo || "MPR* Inclusive of all taxes",
-    deliveryInfo: selectedProduct.deliveryInfo || (selectedProduct.deliveryText + ". Available in stores for trial. Book an appointment to try at home."),
+    deliveryInfo: selectedProduct.deliveryInfo || (selectedProduct.deliveryText + ". Available in stores for trial."),
     sizeHelperText: selectedProduct.sizeHelperText || "Not sure about your ring size?",
     breadcrumb: selectedProduct.breadcrumb || [
       { label: "HOME", path: "/" },
@@ -119,7 +119,6 @@ const productData = computed(() => {
     ],
     buttons: selectedProduct.buttons || {
       addToBag: "ADD TO BAG",
-      tryAtHome: "TRY AT HOME",
       learnMore: "Learn Now →",
       addToEnquiry: "ADD TO ENQUIRY"
     }

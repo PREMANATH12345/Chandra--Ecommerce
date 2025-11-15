@@ -20,7 +20,7 @@
     "reviews": 12,
     "discountText": "Flat 15% off on Diamond Prices",
     "taxInfo": "MPR* Inclusive of all taxes",
-    "deliveryInfo": "Free delivery available. Available in stores for trial. Book an appointment to try at home.",
+    "deliveryInfo": "Free delivery available. Available in stores for trial.",
     "sizeHelperText": "Not sure about your ring size?",
     "breadcrumb": [
       { "label": "HOME", "path": "/de" },
@@ -48,7 +48,6 @@
     ],
     "buttons": {
       "addToBag": "ADD TO BAG",
-      "tryAtHome": "TRY AT HOME",
       "learnMore": "Learn Now →",
       "addToEnquiry": "ADD TO ENQUIRY"
     }

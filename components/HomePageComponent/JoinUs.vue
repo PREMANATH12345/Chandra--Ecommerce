@@ -5,18 +5,18 @@
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
           
           <!-- Left Section -->
-          <div class="flex items-center gap-6 flex-1">
-            <img src="/purple-gift-icon.png" alt="Gift Icon" class="w-16 h-16 sm:w-20 sm:h-20" />
-            
-            <div class="text-center lg:text-left">
-              <h2 class="text-2xl font-bold text-emerald-900 mb-2">
-                Join CaratLane Insider
-              </h2>
-              <p class="text-lg text-emerald-700/80 leading-relaxed">
-                To discover enticing deals, latest arrivals, & more
-              </p>
-            </div>
-          </div>
+<div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 flex-1">
+  <img src="/purple-gift-icon.png" alt="Gift Icon" class="w-16 h-16 sm:w-20 sm:h-20" />
+  
+  <div class="text-center lg:text-left">
+    <h2 class="text-2xl font-bold text-emerald-900 mb-2">
+      Join CaratLane Insider
+    </h2>
+    <p class="text-lg text-emerald-700/80 leading-relaxed">
+      To discover enticing deals, latest arrivals, & more
+    </p>
+  </div>
+</div>
 
           <!-- Right Section - Form -->
           <div class="flex-1 w-full max-w-md">
