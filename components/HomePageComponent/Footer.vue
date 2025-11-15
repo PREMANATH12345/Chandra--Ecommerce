@@ -295,35 +295,7 @@
       </div>
     </div>
 
-    <!-- Download App Section -->
-    <div class="mt-10 bg-white p-6 rounded-lg border border-gray-200">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-        <div class="mb-4 md:mb-0">
-          <h3 class="font-semibold text-lg text-dark-blue-stem">Download the CaratLane App</h3>
-          <p class="text-sm text-gray-600 mt-1">Shop & Save more on app by redeeming xCLusive points</p>
-        </div>
-        <div class="flex gap-3">
-          <button class="bg-black text-white px-6 py-3 rounded-lg flex items-center gap-3 hover:bg-gray-800 transition-colors">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.05 20.28c-.98.95-2.05.86-3.08.38-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.38C2.79 15.36 3.51 7.38 9.05 7.09c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.99 1.51.09 2.65.67 3.46 1.64-3.04 1.84-2.32 5.6.48 6.73-.57 1.5-1.31 2.99-2.54 4.03zm-4.91-14.3c.58-.69 1.01-1.65.89-2.58-.86.04-1.88.57-2.49 1.27-.55.62-1.03 1.62-.9 2.57.96.07 1.94-.48 2.5-1.26z"/>
-            </svg>
-            <div class="text-left">
-              <div class="text-xs">Download on the</div>
-              <div class="font-semibold">App Store</div>
-            </div>
-          </button>
-          <button class="bg-black text-white px-6 py-3 rounded-lg flex items-center gap-3 hover:bg-gray-800 transition-colors">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 6.753l2.385 2.327-2.385 2.326v4.547h4.896l4.395-4.317-4.395-4.317h-4.896v-.066zm0 0V2.5h-1.5v6.067h1.5z"/>
-            </svg>
-            <div class="text-left">
-              <div class="text-xs">GET IT ON</div>
-              <div class="font-semibold">Google Play</div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Social Links & Payment Methods -->
     <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between">

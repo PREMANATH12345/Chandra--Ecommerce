@@ -89,63 +89,7 @@
               </NuxtLink>
             </div>
 
-            <!-- Delivery & Stores -->
-            <div class="relative">
-              <button
-                @mouseenter="showDeliveryDropdown = true"
-                @mouseleave="showDeliveryDropdown = false"
-                class="flex items-center gap-1.5 text-xs hover:text-green-600 transition-colors"
-              >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <div class="text-left">
-                  <div class="text-[10px] text-gray-500">Delivery & Stores</div>
-                  <div class="text-xs font-medium text-green-600">Enter Pincode</div>
-                </div>
-              </button>
-
-              <!-- Delivery Dropdown -->
-              <Transition name="dropdown">
-                <div
-                  v-if="showDeliveryDropdown"
-                  @mouseenter="showDeliveryDropdown = true"
-                  @mouseleave="showDeliveryDropdown = false"
-                  class="absolute right-0 top-full mt-2 w-96 bg-white rounded-lg shadow-xl border border-gray-200 p-6"
-                >
-                  <div class="mb-4 h-24 flex items-center justify-center bg-gradient-to-r from-green-100 to-green-50 rounded-lg overflow-hidden relative">
-                    <div class="delivery-van-animation">
-                      <svg class="w-16 h-16 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 7h-8v6h10V9c0-1.1-.9-2-2-2zM3 7c-1.1 0-2 .9-2 2v6h4V7H3zm16 8h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H9c0 1.66-1.34 3-3 3s-3-1.34-3-3H1v3c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-3z"/>
-                      </svg>
-                    </div>
-                  </div>
-
-                  <h3 class="text-lg font-semibold text-green-700 mb-2">Check Delivery Availability</h3>
-                  <p class="text-sm text-gray-600 mb-4">
-                    Now with Dash Delivery, get your favorite designs in just a few hours!
-                  </p>
-
-                  <div class="relative">
-                    <input
-                      v-model="pincode"
-                      type="text"
-                      placeholder="Enter Pincode"
-                      maxlength="6"
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500"
-                      @keyup.enter="checkDelivery"
-                    />
-                    <button
-                      @click="checkDelivery"
-                      class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors"
-                    >
-                      Check
-                    </button>
-                  </div>
-                </div>
-              </Transition>
-            </div>
+        
 
             <!-- Account Icon -->
             <div class="relative">
@@ -198,15 +142,7 @@
               </span>
             </NuxtLink>
 
-            <!-- Cart Icon -->
-            <NuxtLink to="/" class="p-1.5 hover:bg-gray-100 rounded-full transition-colors relative">
-              <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              <span v-if="cartCount > 0" class="absolute -top-1 -right-1 bg-green-600 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-semibold">
-                {{ cartCount }}
-              </span>
-            </NuxtLink>
+      
           </div>
         </div>
       </div>
@@ -232,15 +168,7 @@
               <img :src="logoUrl" :alt="siteName" class="h-7 w-auto" />
             </NuxtLink>
 
-            <button
-              @click="openPincodeDrawer"
-              class="flex items-center gap-1 text-[10px] text-green-600 font-medium"
-            >
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              </svg>
-              Enter Pincode
-            </button>
+         
           </div>
 
           <!-- Right Side Icons -->
@@ -280,14 +208,7 @@
               </span>
             </NuxtLink>
 
-            <NuxtLink to="/" class="p-2 hover:bg-gray-100 rounded-lg relative">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              <span v-if="cartCount > 0" class="absolute -top-1 -right-1 bg-green-600 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center text-[10px]">
-                {{ cartCount }}
-              </span>
-            </NuxtLink>
+         
           </div>
         </div>
 
@@ -314,57 +235,7 @@
 
     <!-- Mobile Bottom Drawer for Pincode -->
     <Teleport to="body">
-      <!-- Pincode Drawer -->
-      <Transition name="drawer">
-        <div
-          v-if="showPincodeDrawer"
-          class="fixed inset-0 z-[100] lg:hidden"
-          @click.self="closePincodeDrawer"
-        >
-          <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="closePincodeDrawer"></div>
-          
-          <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto">
-            <button
-              @click="closePincodeDrawer"
-              class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <div class="mb-6 h-32 flex items-center justify-center bg-gradient-to-r from-green-100 to-green-50 rounded-lg overflow-hidden relative">
-              <div class="delivery-van-animation">
-                <svg class="w-20 h-20 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 7h-8v6h10V9c0-1.1-.9-2-2-2zM3 7c-1.1 0-2 .9-2 2v6h4V7H3zm16 8h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H9c0 1.66-1.34 3-3 3s-3-1.34-3-3H1v3c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-3z"/>
-                </svg>
-              </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-green-700 mb-3">Check Delivery Availability</h3>
-            <p class="text-sm text-gray-600 mb-6">
-              Now with Dash Delivery, get your favorite designs in just a few hours!
-            </p>
-
-            <div class="relative">
-              <input
-                v-model="pincode"
-                type="text"
-                placeholder="Enter Pincode"
-                maxlength="6"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-lg"
-                @keyup.enter="checkDelivery"
-              />
-              <button
-                @click="checkDelivery"
-                class="mt-4 w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
-              >
-                Check Availability
-              </button>
-            </div>
-          </div>
-        </div>
-      </Transition>
+    
 
       <!-- Mobile Bottom Drawer for Account -->
       <Transition name="drawer">

@@ -21,19 +21,16 @@ import productList from '@/data/product.json'
 const product = ref(productList.productDetail)
 
 const handleAddToBag = (item) => {
-  console.log('Added to bag:', item)
   // Your add to cart logic here
   // Example: cartStore.addToCart(item)
 }
 
 const handleTryAtHome = (productName) => {
-  console.log('Try at home for:', productName)
   // Your try at home logic here
   // Example: showTryAtHomeModal(productName)
 }
 
 const handleAddToEnquiry = async (enquiryData) => {
-  console.log('Enquiry submitted:', enquiryData)
   
   try {
     // Send enquiry to your backend API
@@ -46,7 +43,6 @@ const handleAddToEnquiry = async (enquiryData) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
     
-    console.log('Enquiry submitted successfully!')
     
     // You can also save to local storage or send to analytics
     const enquiries = JSON.parse(localStorage.getItem('sizeEnquiries') || '[]')

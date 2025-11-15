@@ -19,7 +19,6 @@ import bannerData from '@/data/products.json'
 const heroBanners = ref(bannerData.heroBanners)
 
 const handleSlideChange = (index) => {
-  console.log('Hero banner changed to slide:', index)
 }
 </script>
 

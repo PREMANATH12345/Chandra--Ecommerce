@@ -60,13 +60,11 @@ const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
 const productId = route.params.id
 const category = route.params.category
 
-console.log('Looking for product with ID:', productId)
-console.log('In category:', category)
+
 
 // Find the product from productlisting.json
 const selectedProduct = productListData.find(p => p.id === productId)
 
-console.log('Found product:', selectedProduct)
 
 // Transform productlisting data to match ProductDetail component format
 const productData = computed(() => {
@@ -130,23 +128,19 @@ const productData = computed(() => {
 
 // Event Handlers
 const handleAddToBag = (item) => {
-  console.log('Added to bag:', item)
   // Add your cart logic here
 }
 
 const handleTryAtHome = (productName) => {
-  console.log('Try at home for:', productName)
   // Add your try-at-home logic here
 }
 
 const handleAddToEnquiry = async (enquiryData) => {
-  console.log('Enquiry submitted:', enquiryData)
   
   try {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
     
-    console.log('Enquiry submitted successfully!')
     
     // Save to local storage
     const enquiries = JSON.parse(localStorage.getItem('sizeEnquiries') || '[]')
@@ -159,9 +153,9 @@ const handleAddToEnquiry = async (enquiryData) => {
   }
 }
 
-const handleSearch = (query) => console.log('Search:', query)
-const handleQuickAction = (action) => console.log('Quick Action:', action)
-const handleCheckDelivery = (pincode) => console.log('Check Delivery:', pincode)
-const handleLogin = () => console.log('Login')
-const handleSignup = () => console.log('Signup')
+const handleSearch = (query) => console.log()
+const handleQuickAction = (action) => console.log()
+const handleCheckDelivery = (pincode) => console.log()
+const handleLogin = () => console.log()
+const handleSignup = () => console.log()
 </script>

@@ -627,14 +627,14 @@ const setupIntersectionObserver = () => {
 };
 
 // Event Handlers
-const handleSearch = (query) => console.log('Search:', query);
-const handleQuickAction = (action) => console.log('Quick Action:', action);
-const handleCheckDelivery = (pincode) => console.log('Check Delivery:', pincode);
-const handleLogin = () => console.log('Login');
-const handleSignup = () => console.log('Signup');
-const handleTryAtHome = (product) => console.log('Try at Home:', product);
-const handleVideoCall = (product) => console.log('Video Call:', product);
-const handleToggleWishlist = (product, added) => console.log('Wishlist:', product, added);
+const handleSearch = (query) => console.log();
+const handleQuickAction = (action) => console.log();
+const handleCheckDelivery = (pincode) => console.log();
+const handleLogin = () => console.log();
+const handleSignup = () => console.log();
+const handleTryAtHome = (product) => console.log();
+const handleVideoCall = (product) => console.log();
+const handleToggleWishlist = (product, added) => console.log();
 
 // Watch route params for category changes
 watch(() => route.params.category, (newCategory) => {

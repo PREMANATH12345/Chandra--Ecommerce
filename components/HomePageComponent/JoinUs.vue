@@ -107,10 +107,7 @@ const emailError = computed(() => {
 const handleSubmit = () => {
   if (emailError.value) return
   
-  console.log('Form submitted:', {
-    email: email.value,
-    gender: gender.value
-  })
+
   
   // Reset form
   email.value = ''

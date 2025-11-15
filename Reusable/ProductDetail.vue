@@ -522,7 +522,6 @@ const addToBag = () => {
 const proceedToCheckout = () => {
   showBuyModal.value = false
   // Add your checkout logic here
-  console.log('Proceeding to checkout with:', selectedProductTypes.value)
 }
 
 const tryAtHome = () => {

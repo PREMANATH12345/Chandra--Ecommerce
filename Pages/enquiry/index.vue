@@ -514,12 +514,7 @@ const submitEnquiry = async () => {
     // Add timestamp
     formData.append('submittedAt', new Date().toISOString());
 
-    // Here you would typically send the data to your backend
-    // For now, we'll just log it and show success message
-    console.log('Enquiry Data:', {
-      ...enquiryForm.value,
-      files: uploadedFiles.value.map(f => f.name)
-    });
+
 
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
