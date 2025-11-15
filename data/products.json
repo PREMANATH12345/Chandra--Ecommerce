@@ -142,7 +142,7 @@
       "title": "New Collection",
       "subtitle": "Discover Emerald Elegance",
       "description": "Up to 20% off on select items",
-      "image": "/images/hero5.png",
+      "image": "/carousel/1.jpg",
       "cta": "Shop Now"
     },
     {
@@ -151,7 +151,7 @@
       "title": "Wedding Collection",
       "subtitle": "Celebrate Love in Green",
       "description": "Exquisite designs for your special day",
-      "image": "/images/hero3.jpg",
+      "image": "/carousel/2.jpg",
       "cta": "Explore"
     },
     {
@@ -160,7 +160,7 @@
       "title": "Limited Time Offer",
       "subtitle": "Green Stone Jewelry Sale",
       "description": "Get up to 25% off on selected pieces",
-      "image": "/images/hero3.jpg",
+      "image": "/carousel/3.jpg",
       "cta": "Shop Deals"
     }
   
