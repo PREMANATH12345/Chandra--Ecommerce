@@ -295,8 +295,6 @@
       </div>
     </div>
 
-
-
     <!-- Social Links & Payment Methods -->
     <div class="mt-8 flex flex-col md:flex-row md:items-center md:justify-between">
       <div class="flex flex-col items-center md:items-start gap-3 mb-6 md:mb-0">
